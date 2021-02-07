@@ -167,6 +167,14 @@
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
+								<ul class="nav nav-tabs">
+									<li class="nav-item">
+										<a class="nav-link active" id='toevoegen' aria-current="page" href="#">Toevoegen</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id='importeren'  href="#">Importeren</a>
+									</li>
+								</ul>
 								<div class="modal-body">
 									<form action="" id="districten-form">
 										<div class="row">
@@ -228,8 +236,27 @@
 										</div>
 
 										<div class="modal-footer">
-											<button type="button" class="btn btn-primary ml-auto">Toevoegen</button>
-											<button type="button" class="btn btn-success ml-auto">Import</button>
+											<button type="button" class="btn btn-success ">Toevoegen</button>
+											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
+										</div>
+									</form>
+
+									<form action="" id="import-form" style="display:none;">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="">File:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+														</div>
+														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-success ">Importeren</button>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>

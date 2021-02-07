@@ -24,5 +24,6 @@
   <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <script src="../../assets/vendor/jvectormap-next/jquery-jvectormap.min.js"></script>
   <script src="../../assets/js/vendor/jvectormap/jquery-jvectormap-world-mill.js"></script>
-  <!-- Argon JS -->
   <script src="../../assets/js/ipm.js"></script>
+  <script src="../../app/js/admin.js"></script>
+  <script src="../../app/js/animation.js"></script>
