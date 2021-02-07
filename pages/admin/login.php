@@ -1,3 +1,6 @@
+<?php
+include 'login-backend.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -86,13 +89,13 @@
                             <div class="text-muted text-center mt-2 mb-3"><h3>Sign in</h3> </div>
                         </div>
                         <div class="card-body px-lg-5 py-lg-3">
-                            <form role="form">
+                            <form role="form" method='post'>
                             <div class="form-group">
                             <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="ID" id="id" type="text" maxlength="8">
+                                        <input class="form-control" placeholder="ID" id="id" type="text" name="username" maxlength="8" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -100,11 +103,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Password" type="password">
+                                        <input class="form-control" placeholder="Password" type="password" name="password" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                                    <button type="submit" name="but_submit" class="btn btn-primary my-4">Sign in</button>
                                 </div>
                             </form>
                         </div>

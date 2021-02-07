@@ -1,3 +1,9 @@
+<?php
+
+
+include "../../pages/admin/login-backend.php";
+include "../../pages/admin/logout.php";
+?>
  <!-- Topnav -->
  <nav class="navbar navbar-top navbar-expand navbar-light bg-secondary border-bottom">
       <div class="container-fluid">
@@ -24,7 +30,10 @@
                     <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg">
                   </span>
                   <div class="media-body ml-2 d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+
+                    <span class="mb-0 text-sm  font-weight-bold">John Snow
+                    
+                    </span>
                   </div>
                 </div>
               </a>
@@ -39,7 +48,10 @@
                 <div class="dropdown-divider"></div>
                 <a href="#!" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
+                <span input type="submit" value="" name="but_logout">  <form method='post' action="">
+                <input  type="submit" value="Logout" name="but_logout" id="but_submit" />
+        </form>
+        </span>
                 </a>
               </div>
             </li>
