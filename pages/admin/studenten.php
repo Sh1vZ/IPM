@@ -172,10 +172,10 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">INPUT</label>
+													<label for="">Achternaam:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
 														<input class="form-control" placeholder="Input 1" id="#" type="text">
 													</div>
@@ -183,12 +183,45 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">INPUT</label>
+													<label for="">Voornaam:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
 														<input class="form-control" placeholder="Input 1" id="#" type="text">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Geboorte Datum:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
+														</div>
+														<input class="form-control" placeholder="Input 1" id="#" type="date">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Geboorte Plaats:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+														</div>
+														<input class="form-control" placeholder="Input 1" id="#" type="text">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="">Email:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+														</div>
+														<input class="form-control" placeholder="Input 1" id="#" type="email">
 													</div>
 												</div>
 											</div>
