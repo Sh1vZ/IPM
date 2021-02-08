@@ -37,7 +37,6 @@ foreach ($excelSheet->getRowIterator() as $row) {
 		$save="../uploads/studentenkaarten/".$name.".png";
 		imagepng($image,$save);
 
-
 		$sql = "INSERT INTO studenten (Achternaam,Voornaam,Geboortedatum,Geboorteplaats,Student_email,Student_pincode,Saldo,img) VALUES(?,?,?,?,?,?,?,?)";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
