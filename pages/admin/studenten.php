@@ -157,7 +157,6 @@
 						</div>
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
-
 					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
