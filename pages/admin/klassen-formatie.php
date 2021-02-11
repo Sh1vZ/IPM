@@ -157,32 +157,25 @@
 						</div>
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
+
 					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Studenten Registratie</h6>
+									<h6 class="modal-title" id="modal-title-default">Document Registratie</h6>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
-								<ul class="nav nav-tabs">
-									<li class="nav-item">
-										<a class="nav-link active" id='toevoegen' aria-current="page" href="#">Toevoegen</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id='importeren' href="#">Importeren</a>
-									</li>
-								</ul>
 								<div class="modal-body">
 									<form action="" id="districten-form">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Achternaam:</label>
+													<label for="">INPUT</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-user"></i></span>
+															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input class="form-control" placeholder="Input 1" id="#" type="text">
 													</div>
@@ -190,72 +183,19 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Voornaam:</label>
+													<label for="">INPUT</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-user"></i></span>
+															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input class="form-control" placeholder="Input 1" id="#" type="text">
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Geboorte Datum:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
-														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="date">
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Geboorte Plaats:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
-														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="text">
-													</div>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="">Email:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="email">
 													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="modal-footer">
-											<button type="button" class="btn btn-success ">Toevoegen</button>
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-									</form>
-
-									<form action="" id="import-form" style="display:none;">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="">File:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-														</div>
-														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-success ">Importeren</button>
+											<button type="button" class="btn btn-primary">Toevoegen</button>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
