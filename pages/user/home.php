@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +23,7 @@
 		</div>
 		<!-- Page content -->
 		<div class="container-fluid mt--6">
-		
+
 			<!-- <div class="row">
 				<div class="col-md-12">
 					<div class="card">
@@ -74,7 +76,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-					<h1 class="text-center">yo</h1>
+					<h1 class="text-center">yo, <?=$_SESSION['Achternaam']?></h1>
 					<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae.</p>
 						<div class="container-fluid cus mt-5 mb-5">
 							<div class="row">
