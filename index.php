@@ -89,7 +89,7 @@
                                     <span class="btn-inner--icon"> <i class="fas fa-lock-open"></i></span>
                                     <span class="btn-inner--text">Pin</span>
                                 </a>
-                                <a href="#" class="btn btn-neutral btn-icon">
+                                <a href="Qrcode.php" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><i class="fas fa-qrcode"></i></span>
                                     <span class="btn-inner--text">QRcode</span>
                                 </a>
