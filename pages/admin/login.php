@@ -102,7 +102,7 @@
                                             <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                                         </div>
                                         
-                                        <input class="form-control" placeholder="ID" id="username" type="text" name="username" maxlength="8" required>
+                                        <input class="form-control" placeholder="Naam" id="username" type="text" name="username"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">

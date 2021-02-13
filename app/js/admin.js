@@ -1,7 +1,7 @@
 $("#import-form").on('submit', (function(e) {
     e.preventDefault();
     $.ajax({
-        url: "../../app/php/studenten-import.php",
+        url: "../../app/php/admin/studenten-import.php",
         type: "POST",
         data: new FormData(this),
         contentType: false,

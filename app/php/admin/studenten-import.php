@@ -1,11 +1,11 @@
 <?php
-include 'conn.php';
+include '../conn.php';
 include 'generateStudentenkaart.php';
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 //READ EXCEL FILE
-require "../../vendor/autoload.php";
+require "../../../vendor/autoload.php";
 $valid_extensions = array('xls', 'xlsx'); // valid extensions
 if ($_FILES['data']['name'] == "") {
 	echo "errorEmpty";
@@ -13,7 +13,7 @@ if ($_FILES['data']['name'] == "") {
 }else{
 	$file = $_FILES['data']['tmp_name'];
 	$name= $_FILES['data']['name'];
-	$targetPath = '../uploads/' . $name;
+	$targetPath = '../../uploads/' . $name;
 	$ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 	
 	if (in_array($ext, $valid_extensions)) {
