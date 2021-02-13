@@ -102,7 +102,7 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
 										</div>
-										<input id="code" class="form-control" name="qrcode" placeholder="Pin" type="text">
+										<input id="code" class="form-control" name="qrcode" placeholder="Pin" type="password">
 									</div>
 								</div>
 								<div class="text-center">

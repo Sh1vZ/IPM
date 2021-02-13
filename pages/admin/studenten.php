@@ -255,7 +255,9 @@
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-success ">Importeren</button>
+										<div class="import">
+											<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>
+										</div>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
