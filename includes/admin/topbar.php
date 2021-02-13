@@ -1,9 +1,4 @@
-<?php
 
-
-include "../../pages/admin/login-backend.php";
-include "../../pages/admin/logout.php";
-?>
  <!-- Topnav -->
  <nav class="navbar navbar-top navbar-expand navbar-light bg-secondary border-bottom">
       <div class="container-fluid">
@@ -46,10 +41,10 @@ include "../../pages/admin/logout.php";
                   <span>My profile</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                <span input type="submit" value="" name="but_logout">  <form method='post' action="">
-                <input  type="submit" value="Logout" name="but_logout" id="but_submit" />
+                <a href="../../app/php/admin/logout.php" class="dropdown-item">
+                  <i class="ni ni-user-run"></i> 
+                  <span>Logout</span>
+                </a>
         </form>
         </span>
                 </a>
