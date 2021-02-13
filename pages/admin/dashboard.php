@@ -1,13 +1,30 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_session'])){
+	header("Location: ../../index.php");
+}
+
+include_once("../../app/php/conn.php");
+$sql = "SELECT admin_ID, admin_naam, admin_password FROM admin  WHERE admin_ID='".$_SESSION['user_session']."'";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+$row = mysqli_fetch_assoc($resultset);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
+
 <?php
 	include "../../includes/admin/head.php"
 	?>
 </head>
 
 <body>
+
 	<?php
 	include "../../includes/admin/navbar.php"
 	?>
