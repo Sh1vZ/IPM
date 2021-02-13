@@ -23,7 +23,7 @@ function Generate($anaam, $vnaam, $datum, $email,$imgname)
     if (unlink("../../uploads/qrcodes/" . $imgname . ".png")) {
       return $name;
     } else {
-      echo 'Ima';
+      echo 'ImageError';
     }
   } else {
     return 'errorImageGeneration';
