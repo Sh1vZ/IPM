@@ -1,52 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<?php
-	include "../../includes/admin/head.php"
-	?>
-</head>
-
-<body>
-	<?php
-	include "../../includes/admin/navbar.php"
-	?>
-	<!-- Main content -->
-	<div class="main-content" id="panel">
-		<?php
-		include "../../includes/admin/topbar.php"
-		?>
-		<!-- Header -->
-		<!-- Header -->
-		<div class="header pb-8">
-
-		</div>
-		<!-- Page content -->
-		<div class="container-fluid mt--6">
-			<div class="row">
-				<div class=" col-md-12">
-					<div class="card">
-						<!-- Card header -->
-						<div class="card-header border-0">
-							<div class="row">
-								<div class="col-6">
-									<h3 class="mb-0">Studenten</h3>
-								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Exporteren</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						<?Php
-                       include('../../app/php/show-studenten.php');
-					   ?>
-						</div>
-					</div>
-					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
-					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -58,14 +10,17 @@
 								<ul class="nav nav-tabs">
 									<li class="nav-item">
 										<a class="nav-link active" id='toevoegen' aria-current="page" href="#">Toevoegen</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id='importeren' href="#">Importeren</a>
-									</li>
-								</ul>
+									</li> 
+									
+								 </ul> 
+								<html>
+								<body>
 								<div class="modal-body">
-									<form  action="../../app/php/studenten-registreren.php" id="StudentenForm" method= "POST" >
+								<p id="msg"></p>
+									<form   id="updateForm" method= "POST" >
 										<div class="row">
+                                        <input type="hidden" name="id" id="updateId">
+										
 											<div class="col-md-6">
 												<div class="form-group">
 													<label for="">Achternaam:</label>
@@ -73,7 +28,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
-														<input name="Anaam" id="Anaam"class="form-control" placeholder="Input 1"  type="text" >
+														<input name="Anaam" id="Anaam" class="form-control" placeholder="Input 1"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -129,42 +84,5 @@
 										</div>
 									</form>
 
-									<!-- edit modal -->
-
-
-									<!-- importeer modal -->
-
-									<form action="" id="import-form" style="display:none;">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="">File:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-														</div>
-														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-success ">Importeren</button>
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Footer -->
-					<?php
-					include "../../includes/admin/footer.php"
-					?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="ajax-script.js"></script>
-
-
-</body>
-
-</html>
+									</body>
+								</html>
