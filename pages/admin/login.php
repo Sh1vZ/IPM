@@ -1,6 +1,6 @@
-<?php
-include 'login-backend.php';
-?>
+
+<?php include(dirname(__FILE__)."../../../app/php/conn.php");?>
+
 <!DOCTYPE html>
 <html>
 
@@ -11,6 +11,7 @@ include 'login-backend.php';
     <meta name="author" content="Creative Tim">
     <title>IPM | Admin Login</title>
     <!-- Favicon -->
+   
     <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
@@ -86,16 +87,22 @@ include 'login-backend.php';
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-header bg-transparent pb-4">
+                       
                             <div class="text-muted text-center mt-2 mb-3"><h3>Sign in</h3> </div>
+                            <span id="error">
                         </div>
                         <div class="card-body px-lg-5 py-lg-3">
-                            <form role="form" method='post'>
+                       
+                            <form role="form" method="post" id="login-form">
+                            
                             <div class="form-group">
+                            
                             <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="ID" id="id" type="text" name="username" maxlength="8" required>
+                                        
+                                        <input class="form-control" placeholder="Naam" id="username" type="text" name="username"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,13 +110,15 @@ include 'login-backend.php';
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Password" type="password" name="password" required>
+                                        <input class="form-control" placeholder="Password" id="password" type="password" name="password" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" name="but_submit" class="btn btn-primary my-4">Sign in</button>
+                                    <button type="submit" name="login_button" id="login_button" class="btn btn-primary my-4">Sign in</button>
                                 </div>
                             </form>
+                         
+
                         </div>
                     </div>
                 </div>
@@ -130,12 +139,18 @@ include 'login-backend.php';
             </div>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
     <script src="../../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
     <script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="../../assets/js/ipm.js"></script>
+    <script src="../../app/php/admin/script/login.js"></script>
+    <script src="../../app/php/admin/script/validation.min.js"></script>
+
+  
 </body>
 
 </html>

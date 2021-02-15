@@ -54,7 +54,6 @@
 								<tbody>
 									<tr>
 										<td class="table-user">
-											<img src="../../assets/img/theme/team-1.jpg" class="avatar rounded-circle mr-3">
 											<b>John Michael</b>
 										</td>
 										<td>
@@ -74,7 +73,6 @@
 									</tr>
 									<tr>
 										<td class="table-user">
-											<img src="../../assets/img/theme/team-2.jpg" class="avatar rounded-circle mr-3">
 											<b>Alex Smith</b>
 										</td>
 										<td>
@@ -94,7 +92,6 @@
 									</tr>
 									<tr>
 										<td class="table-user">
-											<img src="../../assets/img/theme/team-3.jpg" class="avatar rounded-circle mr-3">
 											<b>Samantha Ivy</b>
 										</td>
 										<td>
@@ -114,7 +111,6 @@
 									</tr>
 									<tr>
 										<td class="table-user">
-											<img src="../../assets/img/theme/team-1.jpg" class="avatar rounded-circle mr-3">
 											<b>John Michael</b>
 										</td>
 										<td>
@@ -134,7 +130,6 @@
 									</tr>
 									<tr>
 										<td class="table-user">
-											<img src="../../assets/img/theme/team-2.jpg" class="avatar rounded-circle mr-3">
 											<b>John Michael</b>
 										</td>
 										<td>
