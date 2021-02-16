@@ -1,11 +1,11 @@
 const triggerForm = () => {
-    $('#districten-form').fadeOut();
+    $('#StudentenForm').fadeOut();
     $('#import-form').delay(600).fadeIn();
 }
 
 const triggerformStudent = () => {
     $('#import-form').fadeOut();
-    $('#districten-form').delay(600).fadeIn();
+    $('#StudentenForm').delay(600).fadeIn();
 }
 
 $("#importeren").click(function() {

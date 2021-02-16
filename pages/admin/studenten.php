@@ -64,7 +64,7 @@
 									</li>
 								</ul>
 								<div class="modal-body">
-									<form  action="../../app/php/studenten-registreren.php" id="StudentenForm" method= "POST" >
+									<form  action="../../app/php/admin/studenten-registreren.php" id="StudentenForm" method= "POST" >
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -159,6 +159,7 @@
 							</div>
 						</div>
 					</div>
+			</div>
 					<!-- Footer -->
 					<?php
 					include "../../includes/admin/footer.php"

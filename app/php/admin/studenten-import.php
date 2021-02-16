@@ -6,6 +6,7 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 //READ EXCEL FILE
 require "../../../vendor/autoload.php";
+$err = 2;
 $valid_extensions = array('xls', 'xlsx'); // valid extensions
 if ($_FILES['data']['name'] == "") {
 	echo "errorEmpty";
@@ -26,7 +27,7 @@ if ($_FILES['data']['name'] == "") {
 
 	$isheader = 0;
 	$i = 0;
-	$err = 2;
+
 	//LOOP ECXCEL FILE DATA
 	foreach ($excelSheet->getRowIterator() as $row) {
 		$a = $i++;
@@ -56,6 +57,8 @@ if ($_FILES['data']['name'] == "") {
 			$data = [];
 		}
 	}
+}else{
+	echo "errorEmpty";
 }
 	if ($err == 0) {
 		if (unlink($targetPath)) {
@@ -65,7 +68,5 @@ if ($_FILES['data']['name'] == "") {
 		}
 	} elseif ($err == 1) {
 		echo "error";
-	} else {
-		echo "FATALERROR";
-	}
+	} 
 }
