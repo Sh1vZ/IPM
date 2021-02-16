@@ -48,7 +48,8 @@ function show_data($fetchData){
           <td>".$data['Geboorteplaats']."</td>
           <td>".$data['Student_email']."</td>
           <td class='table-actions'>
-          <a class='link' href='#' class='table-action' data-original-title='Bewerken' onclick='editData(".$data['stud_ID'].")'><i class='fas fa-user-edit' data-toggle='tooltip' data-placement='top' title='Bewerken'></i></a>
+          <button type='button' name='update' id='".$data["stud_ID"]."'
+ class='btn btn-warning btn-xs update'>Update</button>
           <a class='link' href='#' class='table-action' data-original-title='Verwijderen' onclick='deleteData(".$data['stud_ID'].")'><i class='fas fa-trash' data-toggle='tooltip' data-placement='top' title='Verwijderen'></i></i></a>
           </td>  
         </tr>

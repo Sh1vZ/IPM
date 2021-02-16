@@ -30,7 +30,7 @@ function edit_data($conn, $id){
                 
     
 } ?>
-
+<!-- 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
@@ -115,7 +115,7 @@ function edit_data($conn, $id){
 											<button type="submit" name="submit" onclick=UpdateProject(<?=$id;?>) class="btn btn-success ">Toevoegen</button>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
-									</form>
+									</form> -->
 
 									<?php
 

@@ -12,56 +12,78 @@ $(document).on('submit','#studentenForm',function(e){
 }});
 });
 
-function editData(e) {
-  // alert(e);
-  var id = e;
-  // alert(e);
+$("#recordListing").on('click', '.update', function(){
+	var id = $(this).attr("id");
+	var action = 'getRecord';
+	$.ajax({
+		url:'ajax_action.php',
+		method:"POST",
+		data:{id:id, action:action},
+		dataType:"json",
+		success:function(data){
+			$('#recordModal').modal('show');
+			// $('#id').val(data.id);
+			// $('#name').val(data.name);
+			// $('#age').val(data.age);
+			// $('#skills').val(data.skills);				
+			// $('#address').val(data.address);
+			// $('#designation').val(data.designation);	
+			$('.modal-title').html(" Edit Records");
+			$('#action').val('updateRecord');
+			$('#save').val('Save');
+		}
+	})
+});
+// function editData(e) {
+//   // alert(e);
+//   var id = e;
+//   // alert(e);
 
-  $.ajax({
-      type: 'post',
-      url: '../php/update-studenten.php',
-      data: {
-          "x": 1,
-          "id": id,
-      },
-      dataType: "text",
-      success: function (response) {
-          $('#form-container').html(response);
-          $('.selectpicker').selectpicker({});
-          $('#modal').modal('toggle');
-      }
-  });
-}
+//   $.ajax({
+//       type: 'post',
+//       url: '../php/update-studenten.php',
+//       data: {
+//           "x": 1,
+//           "id": id,
+//       },
+//       dataType: "text",
+//       success: function (response) {
+//           $('#form-container').html(response);
+//           $('.selectpicker').selectpicker({});
+//           $('#modal').modal('toggle');
+//       }
+//   });
+// }
 
-function edit(e) {
+// function edit(e) {
 
-  var Anaam = $('#Anaam').val();
-  var Vnaam = $('#Vnaam').val();
-  var GebDatum = $('#GebDatum').val();
-  var GebPlaats = $('#GebPlaats').val();
-  var Email = $('#Email').val();
+//   var Anaam = $('#Anaam').val();
+//   var Vnaam = $('#Vnaam').val();
+//   var GebDatum = $('#GebDatum').val();
+//   var GebPlaats = $('#GebPlaats').val();
+//   var Email = $('#Email').val();
 
 
-  $.ajax({
-      url: '../update-studenten.php',
-      type: 'POST',
-      data: {
-          'update': 1,
-          'id': e,
-          'Anaam': Anaam,
-          'Vnaam': Vnaam,
-          'GebDatum': GebDatum,
-          'GebPlaats': GebPlaats,
-          'Email': Email,
+//   $.ajax({
+//       url: '../update-studenten.php',
+//       type: 'POST',
+//       data: {
+//           'update': 1,
+//           'id': e,
+//           'Anaam': Anaam,
+//           'Vnaam': Vnaam,
+//           'GebDatum': GebDatum,
+//           'GebPlaats': GebPlaats,
+//           'Email': Email,
           
 
-      },
-      success: function (response) {
-          localStorage.setItem("Update", response.OperationStatus)
-          location.reload();
-      }
-  });
-}
+//       },
+//       success: function (response) {
+//           localStorage.setItem("Update", response.OperationStatus)
+//           location.reload();
+//       }
+//   });
+// }
 
 
 

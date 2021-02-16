@@ -1,88 +1,49 @@
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Studenten Registratie</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<ul class="nav nav-tabs">
-									<li class="nav-item">
-										<a class="nav-link active" id='toevoegen' aria-current="page" href="#">Toevoegen</a>
-									</li> 
-									
-								 </ul> 
-								<html>
-								<body>
-								<div class="modal-body">
-								<p id="msg"></p>
-									<form   id="updateForm" method= "POST" >
-										<div class="row">
-                                        <input type="hidden" name="id" id="updateId">
-										
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Achternaam:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-user"></i></span>
-														</div>
-														<input name="Anaam" id="Anaam" class="form-control" placeholder="Input 1"  type="text" >
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Voornaam:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-user"></i></span>
-														</div>
-														<input name="Vnaam" id="Vnaam" class="form-control" placeholder="Input 1"  type="text" >
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Geboorte Datum:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
-														</div>
-														<input name="GebDatum" id="GebDatum" class="form-control" placeholder="Input 1"  type="date" >
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">Geboorte Plaats:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
-														</div>
-														<input name="GebPlaats" id="GebPlaats"class="form-control" placeholder="Input 1"  type="text" >
-													</div>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="">Email:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-														</div>
-														<input name="Email" id="Email" class="form-control" placeholder="Input 1"  type="email" >
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="modal-footer">
-											<button type="submit" name="submit" class="btn btn-success ">Toevoegen</button>
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-									</form>
-
-									</body>
-								</html>
+<div id="recordModal" class="modal fade">
+	<div class="modal-dialog">
+		<form method="post" id="recordForm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" 
+data-dismiss="modal">×</button>
+					<h4 class="modal-title"><i 
+class="fa fa-plus"></i> Add Record</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name" class="control-label">Name</label>
+						<input type="text" class="form-control" 
+id="name" name="name" placeholder="Name" required>			
+					</div>
+					<div class="form-group">
+						<label for="age" class="control-label">Age</label>							
+						<input type="number" class="form-control" 
+id="age" name="age" placeholder="Age">							
+					</div>	   	
+					<div class="form-group">
+						<label for="lastname" class="control-label">Skills</label>							
+						<input type="text" class="form-control"  
+id="skills" name="skills" placeholder="Skills" required>							
+					</div>	 
+					<div class="form-group">
+						<label for="address" class="control-label">Address</label>							
+						<textarea class="form-control" 
+rows="5" id="address" name="address"></textarea>							
+					</div>
+					<div class="form-group">
+						<label for="lastname" class="control-label">Designation</label>							
+						<input type="text" class="form-control" 
+id="designation" name="designation" placeholder="Designation">			
+					</div>						
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" name="id" id="id" />
+					<input type="hidden" name="action" id="action" value="" />
+					<input type="submit" name="save" id="save" 
+class="btn btn-info" value="Save" />
+					<button type="button" class="btn btn-default" 
+data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
