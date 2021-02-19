@@ -21,7 +21,8 @@ $("#import-form").on('submit', (function(e) {
                     allowOutsideClick: false
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
+                        // $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
+                        location.reload();
                     }
                 })
                 $('#import-form').trigger("reset");
@@ -41,4 +42,3 @@ $("#import-form").on('submit', (function(e) {
         },
     });
 }));
-

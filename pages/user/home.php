@@ -76,66 +76,67 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-					<h1 class="text-center">yo, <?=$_SESSION['Achternaam']?></h1>
-					<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae.</p>
+						<h1 class="text-center">yo, <?= $_SESSION['Achternaam'] ?></h1>
+						<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae.</p>
 						<div class="container-fluid cus mt-5 mb-5">
 							<div class="row">
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
-										<div class="col-md-3 mt-1"><img  class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
+										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
 										<div class="col-md-6 mt-1">
 											<h3 class="text-center pb-2">DOC NAAM</h5>
-											<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
+												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-												<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">$13.99</h4>
 											<div class="mt-4 text-center">
-											<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
-										<div class="col-md-3 mt-1"><img  class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
+										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
 										<div class="col-md-6 mt-1">
 											<h3 class="text-center pb-2">DOC NAAM</h5>
-											<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
+												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-												<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">$13.99</h4>
 											<div class="mt-4 text-center">
-											<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
-										<div class="col-md-3 mt-1"><img  class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
+										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
 										<div class="col-md-6 mt-1">
 											<h3 class="text-center pb-2">DOC NAAM</h5>
-											<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
+												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-												<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">$13.99</h4>
 											<div class="mt-4 text-center">
-											<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
-										<div class="col-md-3 mt-1"><img  class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
+										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
 										<div class="col-md-6 mt-1">
 											<h3 class="text-center pb-2">DOC NAAM</h5>
-											<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
+												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-												<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">$13.99</h4>
 											<div class="mt-4 text-center">
-											<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -144,7 +145,44 @@
 					</div>
 				</div>
 			</div>
+
+
+			<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
+
+			<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+				<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h6 class="modal-title" id="modal-title-default">Opwardeer aanvraag</h6>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action="" id="districten-form">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="">Bedrag</label>
+											<div class="input-group input-group-merge">
+												<div class="input-group-prepend">
+													<span class="input-group-text"><i class="fas fa-wallet"></i></span>
+												</div>
+												<input class="form-control" placeholder="Bedrag" id="#" type="number" min="1.0" max="50.0">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary">Toevoegen</button>
+									<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
+
 			<!-- Footer -->
 			<?php
 			include "../../includes/admin/footer.php"
