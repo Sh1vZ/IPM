@@ -16,22 +16,22 @@
 function editData(e) {
     // alert(e);
     var id = e;
-    // alert(e);
+    alert(e);
 
-    $.ajax({
-        type: 'post',
-        url: '../php/update-studenten.php',
-        data: {
-            "x": 1,
-            "id": id,
-        },
-        dataType: "text",
-        success: function(response) {
-            $('#form-container').html(response);
-            $('.selectpicker').selectpicker({});
-            $('#modal').modal('toggle');
-        }
-    });
+    // $.ajax({
+    //     type: 'post',
+    //     url: '../php/update-studenten.php',
+    //     data: {
+    //         "x": 1,
+    //         "id": id,
+    //     },
+    //     dataType: "text",
+    //     success: function(response) {
+    //         $('#form-container').html(response);
+    //         $('.selectpicker').selectpicker({});
+    //         $('#modal').modal('toggle');
+    //     }
+    // });
 }
 
 function edit(e) {
