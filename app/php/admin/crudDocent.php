@@ -15,8 +15,8 @@ include(dirname(__FILE__)."/../conn.php");
 			<td><?=$row['docent_naam'];?></td>
 			<td><?=$row['docent_email'];?></td>
 			<td><?=$row['nummer'];?></td>
-			<td><button type="button" name="delete" class="btn btn-danger btn-xs delete" value=".$row['docent_ID'].">Delete</button></td>
-			<td><button type="button" name="edit" class="btn btn-primary btn-xs edit" value=".$row['docent_ID'].">Edit</button></td>
+			<td><button type="button" name="delete" class="btn btn-danger btn-xs delete" value="<?=$row['docent_ID']?>">Delete</button></td>
+			<td><button type="button" name="edit" class="btn btn-primary btn-xs edit" value="<?=$row['docent_ID']?>">Edit</button></td>
 
 		</tr>
 <?php	
@@ -36,18 +36,15 @@ include(dirname(__FILE__)."/../conn.php");
 			$query = "
 			INSERT INTO docenten (docent_naam, docent_email,nummer) VALUES ('".$_POST["naam"]."', '".$_POST["email"]."','".$_POST["nummer"]."')
 			";
-			$statement = $connect->prepare($query);
-			$statement->execute();
-			echo '<p>Data Inserted...</p>';
+			
+			$conn->query($query);
 		}
 		if($_POST["action"] == "fetch_single")
 		{
 			$query = "
 			SELECT * FROM docenten WHERE docent_ID = '".$_POST["id"]."'
 			";
-			$statement = $connect->prepare($query);
-			$statement->execute();
-			$result = $statement->fetchAll();
+			$result=$conn->query($query);
 			foreach($result as $row)
 			{
 				$output['naam'] = $row['docent_naam'];
@@ -65,16 +62,12 @@ include(dirname(__FILE__)."/../conn.php");
 			nummer = '".$_POST["nummer"]."' 
 			WHERE docent_ID = '".$_POST["hidden_id"]."'
 			";
-			$statement = $connect->prepare($query);
-			$statement->execute();
-			echo '<p>Data Updated</p>';
+			$conn->query($query);
 		}
 		if($_POST["action"] == "delete")
 		{   //delete
 			$query = "DELETE FROM docenten WHERE docent_ID = '".$_POST["id"]."'";
-			$statement = $connect->prepare($query);
-			$statement->execute();
-			echo '<p>Data Deleted</p>';
+			$conn->query($query);
 		}
 	}
 	

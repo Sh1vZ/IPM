@@ -17,14 +17,7 @@ $(document).ready(function(){
 	}
 	
 	
-	$('#submit').click(function(){
-		$('#Mymodal').attr('title', 'Add Data');
-		$('#action').val('insert');
-		$('#form_action').val('Toevoegen');
-		$('#docentenform')[0].reset();
-		$('#form_action').attr('disabled', false);
-		$("#Mymodal").dialog('open');
-	});
+	
 	
 	$('#docentenform').on('submit', function(event){
 		
@@ -36,68 +29,62 @@ $(document).ready(function(){
 				data:form_data,
 				success:function(data)
 				{
-					$('#Mymodal').dialog('close');
+					
 					alert("succes");
 					load_data();
-					$('#form_action').attr('disabled', false);
+					
 				}
 			});
 		
 		
 	});
 	
-
 	
-	$(document).on('click', '.edit', function(){
-		var value = $(this).attr('id');
+
+		$(document).on("click", ".delete", function() { 
+			var value = $(this).val();
+		    var action = 'delete';
+			$.ajax({
+				url: "../../app/php/admin/crudDocent.php",
+				type: "POST",
+				cache: false,
+				data:{
+					id: value,action:action
+				},
+				success: function(dataResult){
+                    alert("you are about to delete this");
+					load_data();
+					var dataResult = JSON.parse(dataResult);
+					
+				}
+			});
+		});
+
+		
+
+	$(document).on('click', '.edit', function(){  
+		
+		var value = $(this).val();
 		var action = 'fetch_single';
-		$.ajax({
-			url:"../../app/php/admin/crudDocent.php",
-			method:"POST",
-			data:{id:id, action:action},
-			dataType:"json",
-			success:function(data)
-			{
+		
+		$.ajax({  
+			 url:"../../app/php/admin/crudDocent.php",  
+			 method:"POST",  
+			 data:{
+				id: value,action:action
+			},
+			 dataType:"json",  
+			 success:function(data){  
+				$("#modal").modal("show");	
 				$('#naam').val(data.naam);
 				$('#email').val(data.email);
                 $('#nummer').val(data.nummer);
-				$('#Mymodal').attr('title', 'Edit Data');
+				$('#modal').attr('title', 'Edit Data');
 				$('#action').val('update');
-				$('#hidden_id').val(id);
-				$('#form_action').val('Update');
-				$('#Mymodal').dialog('open');
-			}
-		});
-	});
-	
-	$('#delete_confirmation').dialog({
-		autoOpen:false,
-		modal: true,
-		buttons:{
-			Ok : function(){
-				var id = $(this).data('id');
-				var action = 'delete';
-				$.ajax({
-					url:"../../app/php/admin/crudDocent.php",
-					method:"POST",
-					data:{id:id, action:action},
-					success:function(data)
-					{
-						$('#delete_confirmation').dialog('close');
-						alert("succes");
-						load_data();
-					}
-				});
-			},
-			Cancel : function(){
-				$(this).dialog('close');
-			}
-		}	
-	});
-	
-	$(document).on('click', '.delete', function(){
-		var value = $(this).attr("id");
-		$('#delete_confirmation').data('id', id).dialog('open');
-	});
+				
+				   
+			 }  
+		});  
+   });  
 	
 });  

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 	<?php
 	include "../../includes/admin/head.php"
 	?>
@@ -66,7 +66,7 @@
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
 
-					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+					<div class="modal " id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -77,7 +77,7 @@
 									</button>
 									
 								</div>
-								<div id="Mymodal" class="modal-body">
+								<div  id="modal-body" class="modal-body">
 									<form method="post" id="docentenform">
 										<div class="row">
 											<div class="col-md-6">
@@ -134,9 +134,7 @@
 					?>
 
 		
-		<div id="delete_confirmation" title="Confirmation">
-		<p>Are you sure you want to Delete this data?</p>
-		</div>
+		
 <script src="../../app/php/admin/script/crudDocent.js"></script>
 
 
