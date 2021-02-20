@@ -187,6 +187,17 @@
 													</div>
 												</div>
 											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="">File:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+														</div>
+														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
+													</div>
+												</div>
+											</div>
 										</div>
 
 										<div class="modal-footer">
