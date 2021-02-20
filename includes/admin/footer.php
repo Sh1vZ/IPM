@@ -27,4 +27,5 @@
   <script src="../../assets/js/ipm.js"></script>
   <script src="../../app/js/admin.js"></script>
   <script src="../../app/js/animation.js"></script>
+  <script src="../../app/js/ajax-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.9.0/dist/sweetalert2.all.min.js"></script>
