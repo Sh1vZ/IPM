@@ -20,7 +20,8 @@ if (!empty($_POST['qrcode'])) {
     $_SESSION['Achternaam'] = $result['Achternaam'];
     $_SESSION['IsActive'] = TRUE;
 echo "success";
-  } else {
+  }
+   else {
     echo "error";
   }
 }

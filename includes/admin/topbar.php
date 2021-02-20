@@ -26,7 +26,8 @@
                   </span>
                   <div class="media-body ml-2 d-none d-lg-block">
 
-                    <span class="mb-0 text-sm  font-weight-bold">John Snow
+                    <span class="mb-0 text-sm  font-weight-bold">
+                    
                     
                     </span>
                   </div>
