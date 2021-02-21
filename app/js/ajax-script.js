@@ -45,59 +45,19 @@ function editData(e) {
 //     });
 // }
 
-function deleteData(e) {
-bootbox.confirm({
-    message: "Bent U zeker dat u deze wilt verwijderen?",
-    buttons: {
-        confirm: {
-            label: 'JA',
-            className: 'btn-danger'
-        },
-        cancel: {
-            label: 'NEE',
-            className: 'btn-success'
-        }
-    },
-    callback: function (result) {
-        if (result) {
-            // AJAX Request
-            $.ajax({
-                url: '../php/delete-studenten.php',
-                type: 'POST',
-                data: {
-                    "Delete-Taak": 1,
-                    "id": e,
-                },
-                success: function (response) {
-                    // Removing row from HTML Table
-                    if (response == 1) {
-                        localStorage.setItem("Delete", response.OperationStatus)
-                        location.reload();
+function deleteData(id) {
 
-                    } else {
-                        bootbox.alert('Record not deleted.');
-                    }
+    if(confirm('bent u zeker?')){
+        $.ajax({
 
-                }
-            });
+
+        type:'post',
+        url:'delete-student.php',
+        data:{deleteId:id},
+        success:function(data){
+            $('#delete'+id).hide('slow')
         }
+
+        });
     }
-});
 }
-
-// var deleteData = function(id){
-
-//     $.ajax({    
-//         type: "GET",
-//         url: "../../app/php/delete-studenten.php", 
-//         data:{deleteId:id},            
-//         dataType: "html",                  
-//         success: function(data){   
-
-//         $('#msg').html(data);
-//        $('#table-container').load('../../app/php/show-studenten.php');
-           
-//         }  
-
-//     });
-// };
