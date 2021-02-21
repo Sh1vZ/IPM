@@ -148,8 +148,3 @@ const updateDocent = (e) => {
         }
     })
 }
-
-const deleteDocent = (e) => {
-    var id = e;
-
-}
