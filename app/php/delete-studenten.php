@@ -1,25 +1,16 @@
 <?php
+include("conn.php");
 
-include('conn.php');
-
-if(isset($_GET['deleteId'])){
-
-    $id= $_GET['deleteId'];
-    delete_data($conn, $id);
-
-}
-
-// delete data query
-function delete_data($conn, $id){
-   
-    $query="DELETE from studenten WHERE stud_ID=$id";
-    $exec= mysqli_query($conn,$query);
-
-    if($exec){
-      echo "Data was deleted successfully";
-    }else{
-        $msg= "Error: " . $query . "<br>" . mysqli_error($conn);
-      echo $msg;
-    }
+if (isset($_POST['delete'])) {
+	$id = $_POST['id'];
+	$sql = "DELETE FROM studenten WHERE stud_ID=? ";
+	$stmt = mysqli_stmt_init($conn);
+	if (!mysqli_stmt_prepare($stmt, $sql)) {
+		echo "sqlError";
+	} else {
+		mysqli_stmt_bind_param($stmt, "i", $id);
+		mysqli_stmt_execute($stmt);
+		echo "success";
+	}
 }
 ?>

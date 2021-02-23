@@ -1,49 +1,83 @@
-<div id="recordModal" class="modal fade">
-	<div class="modal-dialog">
-		<form method="post" id="recordForm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" 
-data-dismiss="modal">×</button>
-					<h4 class="modal-title"><i 
-class="fa fa-plus"></i> Add Record</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="name" class="control-label">Name</label>
-						<input type="text" class="form-control" 
-id="name" name="name" placeholder="Name" required>			
-					</div>
-					<div class="form-group">
-						<label for="age" class="control-label">Age</label>							
-						<input type="number" class="form-control" 
-id="age" name="age" placeholder="Age">							
-					</div>	   	
-					<div class="form-group">
-						<label for="lastname" class="control-label">Skills</label>							
-						<input type="text" class="form-control"  
-id="skills" name="skills" placeholder="Skills" required>							
-					</div>	 
-					<div class="form-group">
-						<label for="address" class="control-label">Address</label>							
-						<textarea class="form-control" 
-rows="5" id="address" name="address"></textarea>							
-					</div>
-					<div class="form-group">
-						<label for="lastname" class="control-label">Designation</label>							
-						<input type="text" class="form-control" 
-id="designation" name="designation" placeholder="Designation">			
-					</div>						
-				</div>
-				<div class="modal-footer">
-					<input type="hidden" name="id" id="id" />
-					<input type="hidden" name="action" id="action" value="" />
-					<input type="submit" name="save" id="save" 
-class="btn btn-info" value="Save" />
-					<button type="button" class="btn btn-default" 
-data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
+<?php
+include("conn.php");
+
+if (isset($_POST['getStudent'])) {
+  $id = $_POST['id'];
+  $sql = "SELECT * FROM studenten WHERE stud_ID=$id";
+  $res = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($res) > 0) {
+    while ($row = mysqli_fetch_assoc($res)) {
+      $Anaam   = $row['Achternaam'];
+      $Vnaam   = $row['Voornaam'];
+      $GebDatum   = $row['Geboortedatum'];
+	  $GebPlaats = $row['Geboorteplaats'];
+	  $Email = $row['Student_email'];
+?>
+      <form method="post" id="studentenUpdate">
+        <div class="row">
+		<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Achternaam:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-user"></i></span>
+														</div>
+														<input name="Anaam" id="Anaam"class="form-control" placeholder="Input 1" value=<?= $Anaam; ?> type="text" >
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Voornaam:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-user"></i></span>
+														</div>
+														<input name="Vnaam" id="Vnaam" class="form-control" placeholder="Input 1" value=<?= $Vnaam; ?> type="text" >
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Geboorte Datum:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
+														</div>
+														<input name="GebDatum" id="GebDatum" class="form-control" placeholder="Input 1"  value=<?= $GebDatum; ?> type="date" >
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Geboorte Plaats:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+														</div>
+														<input name="GebPlaats" id="GebPlaats"class="form-control" placeholder="Input 1" value=<?= $GebPlaats; ?>  type="text" >
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="">Email:</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+														</div>
+														<input name="Email" id="Email" class="form-control" placeholder="Input 1" value=<?= $Email; ?> type="email" >
+													</div>
+												</div>
+											</div>
+										</div>
+        <div class="modal-footer">
+          <button  type="button" onclick=updateStudent(<?= $id; ?>) class="btn btn-primary">Bijwerken </button>
+          <button type="button" onclick=deleteStudent(<?= $id; ?>) class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
+        </div>
+      </form>
+
+<?php
+    }
+  }
+}

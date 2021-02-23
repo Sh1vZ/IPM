@@ -40,7 +40,7 @@ function show_data($fetchData){
       foreach($fetchData as $data){ 
 
   echo "<tbody>
-            <tr>
+            <tr id='delete'>
           <td>".$sn."</td>
           <td>".$data['Achternaam']."</td>
           <td>".$data['Voornaam']."</td>
@@ -48,10 +48,11 @@ function show_data($fetchData){
           <td>".$data['Geboorteplaats']."</td>
           <td>".$data['Student_email']."</td>
           <td class='table-actions'>
-          <button type='button' name='update' onclick='editData(".$data['stud_ID'].")'
- class='btn btn-warning btn-xs update'>Update</button>
-          <a class='link' href='#' class='table-action' data-original-title='Verwijderen' name='delete' onclick='deleteData(".$data['stud_ID'].")'><i class='fas fa-trash' data-toggle='tooltip' data-placement='top' title='Verwijderen'></i></i></a>
+          
          
+          <td><button type='button' name='edit' class='btn btn-primary btn-md edit' value=".$data['stud_ID'].">Bewerken</button>
+      <button type='button' name='delete' class='btn btn-danger btn-md delete' value=".$data['stud_ID'].">Verwijderen</button>
+      </td>
           </td>  
         </tr>
         </tbody>";
