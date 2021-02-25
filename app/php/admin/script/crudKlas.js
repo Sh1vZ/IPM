@@ -1,6 +1,6 @@
 function load_data() {
     $.ajax({
-        url: "../../app/php/admin/fetchDocenten.php",
+        url: "../../app/php/admin/fetchKlas.php",
         type: "POST",
         cache: false,
         success: function(data) {
@@ -10,40 +10,40 @@ function load_data() {
 
 }
 
-$('#docentenform').on('submit', function(e) {
+$('#klassenform').on('submit', function(e) {
     e.preventDefault();
-    var naam = $("#naam").val();
-    var email = $("#email").val();
-    var nummer = $("#nummer").val();
+    var klas = $("#klas").val();
+    var richting = $("#richting").val();
+    var docent = $("#docent").val();
     $.ajax({
-        url: "../../app/php/admin/crudDocent.php",
+        url: "../../app/php/admin/crudKlas.php",
         method: "POST",
         data: {
-            naam: naam,
-            email: email,
-            nummer: nummer,
+            klas: klas,
+            richting: richting,
+            docent: docent,
             insert: 1
         },
         success: function(data) {
             if (data == 'success') {
                 Swal.fire({
                     title: 'Successvol',
-                    text: "docent succesvol ingevoerd",
+                    text: "Klas succesvol ingevoerd",
                     icon: 'success',
                     confirmButtonColor: '#2e8b57',
                     confirmButtonText: 'OK',
                     allowOutsideClick: false
                 }).then((result) => {})
-                $('#docentenform').trigger("reset");
+                $('#klassenform').trigger("reset");
                 load_data();
             }
             else if (data == 'exist') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Probeer opnieuw...',
-                    text: 'Docent bestaat al!',
+                    text: 'Klas bestaat al!',
                  
-                  })
+                })
             }
         }
     });
@@ -73,7 +73,7 @@ $(document).on("click", ".delete", function() {
         if (result.isConfirmed) {
             $.ajax({
                 type: 'POST',
-                url: '../../app/php/admin/crudDocent.php',
+                url: '../../app/php/admin/crudKlas.php',
                 data: {
                     id: id,
                     delete: 1
@@ -87,6 +87,8 @@ $(document).on("click", ".delete", function() {
                         )
                         load_data();
                     }
+                   
+                    
                 }
             })
 
@@ -109,10 +111,10 @@ $(document).on('click', '.edit', function() {
     var id = $(this).val();
     $.ajax({
         type: 'POST',
-        url: '../../app/php/admin/fetchSingleDocent.php',
+        url: '../../app/php/admin/fetchSingleKlas.php',
         data: {
             id: id,
-            getDocent: 1
+            getKlas: 1
         },
         success: function(response) {
             $('#modal-edit').html(response);
@@ -121,26 +123,26 @@ $(document).on('click', '.edit', function() {
     })
 });
 
-const updateDocent = (e) => {
+const updateKlas = (e) => {
     var id = e;
-    var naam = $("#naamU").val();
-    var email = $("#emailU").val();
-    var nummer = $("#nummerU").val();
+    var klas = $("#klasU").val();
+    var richting = $("#richtingU").val();
+    var docent = $("#docentU").val();
     $.ajax({
         type: 'POST',
-        url: '../../app/php/admin/crudDocent.php',
+        url: '../../app/php/admin/crudKlas.php',
         data: {
             id: id,
-            naam: naam,
-            email: email,
-            nummer: nummer,
-            updateDocent: 1
+            klas: klas,
+            richting: richting,
+            docent: docent,
+            updateKlas: 1
         },
         success: function(response) {
             if (response == "success") {
                 Swal.fire({
                     title: 'Succesvol',
-                    text: "Docent succesvol bijgewerkt",
+                    text: "Klas succesvol bijgewerkt",
                     icon: 'success',
                     confirmButtonColor: '#2e8b57',
                     confirmButtonText: 'OK',
@@ -150,13 +152,13 @@ const updateDocent = (e) => {
                         $('#modalEdit').modal('toggle');
                     }
                 })
-                $('#docentenUpdate').trigger("reset");
+                $('#klasUpdate').trigger("reset");
                 load_data();
             } else if (response == 'exist') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Probeer opnieuw...',
-                    text: 'Docent bestaat al!',
+                    text: 'Klas bestaat al!',
                  
                   })
             }

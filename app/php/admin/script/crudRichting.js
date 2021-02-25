@@ -1,6 +1,6 @@
 function load_data() {
     $.ajax({
-        url: "../../app/php/admin/fetchDocenten.php",
+        url: "../../app/php/admin/fetchRichting.php",
         type: "POST",
         cache: false,
         success: function(data) {
@@ -10,38 +10,34 @@ function load_data() {
 
 }
 
-$('#docentenform').on('submit', function(e) {
+$('#richtingform').on('submit', function(e) {
     e.preventDefault();
-    var naam = $("#naam").val();
-    var email = $("#email").val();
-    var nummer = $("#nummer").val();
+    var richting = $("#richting").val();
     $.ajax({
-        url: "../../app/php/admin/crudDocent.php",
+        url: "../../app/php/admin/crudRichting.php",
         method: "POST",
         data: {
-            naam: naam,
-            email: email,
-            nummer: nummer,
+            richting: richting,
             insert: 1
         },
         success: function(data) {
             if (data == 'success') {
                 Swal.fire({
                     title: 'Successvol',
-                    text: "docent succesvol ingevoerd",
+                    text: "Richting succesvol ingevoerd",
                     icon: 'success',
                     confirmButtonColor: '#2e8b57',
                     confirmButtonText: 'OK',
                     allowOutsideClick: false
                 }).then((result) => {})
-                $('#docentenform').trigger("reset");
+                $('#richtingform').trigger("reset");
                 load_data();
             }
             else if (data == 'exist') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Probeer opnieuw...',
-                    text: 'Docent bestaat al!',
+                    text: 'Richting bestaat al!',
                  
                   })
             }
@@ -73,7 +69,7 @@ $(document).on("click", ".delete", function() {
         if (result.isConfirmed) {
             $.ajax({
                 type: 'POST',
-                url: '../../app/php/admin/crudDocent.php',
+                url: '../../app/php/admin/crudRichting.php',
                 data: {
                     id: id,
                     delete: 1
@@ -109,10 +105,10 @@ $(document).on('click', '.edit', function() {
     var id = $(this).val();
     $.ajax({
         type: 'POST',
-        url: '../../app/php/admin/fetchSingleDocent.php',
+        url: '../../app/php/admin/fetchSingleRichting.php',
         data: {
             id: id,
-            getDocent: 1
+            getRichting: 1
         },
         success: function(response) {
             $('#modal-edit').html(response);
@@ -121,26 +117,23 @@ $(document).on('click', '.edit', function() {
     })
 });
 
-const updateDocent = (e) => {
+const updateRichting = (e) => {
     var id = e;
-    var naam = $("#naamU").val();
-    var email = $("#emailU").val();
-    var nummer = $("#nummerU").val();
+    var richting = $("#richtingU").val();
+  
     $.ajax({
         type: 'POST',
-        url: '../../app/php/admin/crudDocent.php',
+        url: '../../app/php/admin/crudRichting.php',
         data: {
             id: id,
-            naam: naam,
-            email: email,
-            nummer: nummer,
-            updateDocent: 1
+            richting: richting,
+            updateRichting: 1
         },
         success: function(response) {
             if (response == "success") {
                 Swal.fire({
                     title: 'Succesvol',
-                    text: "Docent succesvol bijgewerkt",
+                    text: "Richting succesvol bijgewerkt",
                     icon: 'success',
                     confirmButtonColor: '#2e8b57',
                     confirmButtonText: 'OK',
@@ -150,13 +143,13 @@ const updateDocent = (e) => {
                         $('#modalEdit').modal('toggle');
                     }
                 })
-                $('#docentenUpdate').trigger("reset");
+                $('#richtingUpdate').trigger("reset");
                 load_data();
-            } else if (response == 'exist') {
+            }  else if (response == 'exist') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Probeer opnieuw...',
-                    text: 'Docent bestaat al!',
+                    text: 'Richting bestaat al!',
                  
                   })
             }

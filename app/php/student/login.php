@@ -17,11 +17,29 @@ if (!empty($_POST['qrcode'])) {
 
   if (mysqli_num_rows($resultSQL) > 0) {
     session_start();
+    
     $_SESSION['Achternaam'] = $result['Achternaam'];
     $_SESSION['IsActive'] = TRUE;
-echo "success";
+    echo "success";
+          $insertquery = "INSERT INTO log (StudentID)
+          SELECT stud_ID
+          FROM studenten
+          WHERE Achternaam='$username'";
+          $res=mysqli_query($conn,$insertquery);
+
+
   }
    else {
     echo "error";
   }
 }
+
+//   if($_SESSION['IsActive']=TRUE){
+//     $insertquery = "INSERT INTO log (StudentID)
+//     SELECT stud_ID
+//     FROM studenten
+//     WHERE Achternaam";
+//      $res = mysqli_query($conn, $insertquery);
+  
+//     }
+// }
