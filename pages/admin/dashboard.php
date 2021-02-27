@@ -5,6 +5,8 @@ if(!isset($_SESSION['user_session'])){
 }
 
 include_once("../../app/php/conn.php");
+
+
 $sql = "SELECT admin_ID, admin_naam, admin_password FROM admin  WHERE admin_ID='".$_SESSION['user_session']."'";
 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 $row = mysqli_fetch_assoc($resultset);
@@ -132,79 +134,15 @@ $row = mysqli_fetch_assoc($resultset);
 							<table class="table align-items-center table-flush">
 								<thead class="thead-light">
 									<tr>
-										<th scope="col">Page name</th>
-										<th scope="col">Visitors</th>
-										<th scope="col">Unique users</th>
-										<th scope="col">Bounce rate</th>
+										<th scope="col">Student Achternaam</th>
+										<th scope="col">Student Voornaam</th>
+										<th scope="col">Student email</th>
+										<th scope="col">Logdatum</th>
+									
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">
-											a
-										</th>
-										<td>
-											4,569
-										</td>
-										<td>
-											340
-										</td>
-										<td>
-											<i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">
-											a </th>
-										<td>
-											3,985
-										</td>
-										<td>
-											319
-										</td>
-										<td>
-											<i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">
-											a </th>
-										<td>
-											3,513
-										</td>
-										<td>
-											294
-										</td>
-										<td>
-											<i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">
-											a </th>
-										<td>
-											2,050
-										</td>
-										<td>
-											147
-										</td>
-										<td>
-											<i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">
-											a </th>
-										<td>
-											1,795
-										</td>
-										<td>
-											190
-										</td>
-										<td>
-											<i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-										</td>
-									</tr>
+								<tbody id="table">
+									
 								</tbody>
 							</table>
 						</div>
@@ -265,7 +203,16 @@ $row = mysqli_fetch_assoc($resultset);
 			<?php
 			include "../../includes/admin/footer.php"
 			?>
+					
+<script src="../../app/php/admin/script/log.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function(){  
+	load_data();
 
+});
+
+</script>
 </body>
 
 </html>

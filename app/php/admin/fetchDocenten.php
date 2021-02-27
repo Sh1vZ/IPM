@@ -2,7 +2,7 @@
 
 include(dirname(__FILE__) . "/../conn.php");
 
-$sql = "SELECT * FROM docenten";
+$sql = "SELECT * FROM docenten order by docent_ID desc";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
@@ -13,8 +13,8 @@ if ($result->num_rows > 0) {
       <td><?= $row['docent_naam']; ?></td>
       <td><?= $row['docent_email']; ?></td>
       <td><?= $row['nummer']; ?></td>
-      <td><button type="button" name="edit" class="btn btn-primary btn-md edit" value="<?= $row['docent_ID'] ?>">Edit</button>
-      <button type="button" name="delete" class="btn btn-danger btn-md delete" value="<?= $row['docent_ID'] ?>">Delete</button>
+      <td><button type="button" name="edit" class="btn btn-primary btn-md edit" value="<?= $row['docent_ID'] ?>">Bewerken</button>
+      <button type="button" name="delete" class="btn btn-danger btn-md delete" value="<?= $row['docent_ID'] ?>">Verwijderen</button>
       </td>
     </tr>
 <?php
@@ -22,3 +22,4 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
+?>
