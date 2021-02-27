@@ -5,7 +5,10 @@
 	<?php
 	include "../../includes/admin/head.php"
 	?>
+
+<!-- <link rel="stylesheet" href="../../../IPM/assets/js/vendor/sweetalert2/dist/sweetalert2.min.css"> -->
 </head>
+
 
 <body>
 	<?php
@@ -179,9 +182,9 @@
 					<!-- Footer -->
 					<?php
 					include "../../includes/admin/footer.php"
+			
 					?>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="ajax-script.js"></script> -->
+
 
 <script src="../../app/js/ajax-script.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
@@ -192,6 +195,8 @@ $(document).ready(function(){
 });
 
 </script>
+
+
 
 </body>
 

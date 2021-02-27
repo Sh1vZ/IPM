@@ -1,4 +1,4 @@
- <?php
+<?php
 
 include('conn.php');
 						
@@ -11,14 +11,11 @@ if (isset($_POST['updateStudent'])) {
       $GebDatum= $_POST['GebDatum'];
       $GebPlaats = $_POST['GebPlaats'];
       $Email = $_POST['Email'];
-      $page = $_SERVER['PHP_SELF'];
-$sec = "10";
-header("Refresh: $sec; url=$page");
 
-      if (empty($Anaam) || empty($Vnaam) || empty($GebDatum) || empty($GebPlaats) || empty($Email)) {
+      if (empty($path) || empty($naam)) {
          echo 'errorEmpty';
       } else {
-         $sql = "UPDATE studenten SET Achternaam=?,Voornaam=?,Geboortedatum=?, Geboorteplaats=?,Student_email=? WHERE stud_ID=?";
+         $sql = "UPDATE studenten SET Path=?,naam=? WHERE temp_ID=?";
          $stmt = mysqli_stmt_init($conn);
          if (!mysqli_stmt_prepare($stmt, $sql)) {
             echo "sqlError";
@@ -28,8 +25,7 @@ header("Refresh: $sec; url=$page");
             if (mysqli_errno($conn) == 1062) {
                echo "exist";
             } else {
-               // header("Location:../../pages/admin/studenten.php");
-               header("Refresh: $sec; url=$page");
+               echo "success";
             }
          }
       }

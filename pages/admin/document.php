@@ -41,116 +41,9 @@
 							</div>
 						</div>
 						<!-- Light table -->
-						<div class="table-responsive">
-							<table class="table align-items-center table-flush table-striped">
-								<thead class="thead-light">
-									<tr>
-										<th>Author</th>
-										<th>Created at</th>
-										<th>Product</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="table-user">
-											<b>John Michael</b>
-										</td>
-										<td>
-											<span class="text-muted">10/09/2018</span>
-										</td>
-										<td>
-											<a href="#!" class="font-weight-bold">DATA</a>
-										</td>
-										<td class="table-actions">
-											<a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-												<i class="fas fa-user-edit"></i>
-											</a>
-											<a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-												<i class="fas fa-trash"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-user">
-											<b>Alex Smith</b>
-										</td>
-										<td>
-											<span class="text-muted">08/09/2018</span>
-										</td>
-										<td>
-											<a href="#!" class="font-weight-bold">DATA</a>
-										</td>
-										<td class="table-actions">
-											<a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-												<i class="fas fa-user-edit"></i>
-											</a>
-											<a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-												<i class="fas fa-trash"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-user">
-											<b>Samantha Ivy</b>
-										</td>
-										<td>
-											<span class="text-muted">30/08/2018</span>
-										</td>
-										<td>
-											<a href="#!" class="font-weight-bold">DATA</a>
-										</td>
-										<td class="table-actions">
-											<a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-												<i class="fas fa-user-edit"></i>
-											</a>
-											<a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-												<i class="fas fa-trash"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-user">
-											<b>John Michael</b>
-										</td>
-										<td>
-											<span class="text-muted">10/09/2018</span>
-										</td>
-										<td>
-											<a href="#!" class="font-weight-bold">DATA</a>
-										</td>
-										<td class="table-actions">
-											<a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-												<i class="fas fa-user-edit"></i>
-											</a>
-											<a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-												<i class="fas fa-trash"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-user">
-											<b>John Michael</b>
-										</td>
-										<td>
-											<span class="text-muted">10/09/2018</span>
-										</td>
-										<td>
-											<a href="#!" class="font-weight-bold">DATA</a>
-										</td>
-										<td class="table-actions">
-											<a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-												<i class="fas fa-user-edit"></i>
-											</a>
-											<a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-												<i class="fas fa-trash"></i>
-											</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+						<?Php
+                       include('../../app/php/show-documenten.php');
+					   ?>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
 
 					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
@@ -163,30 +56,20 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="" id="districten-form">
+									<form method="post" id="documenten-form">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">INPUT</label>
+													<label for="">Document naam</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="text">
+														<input class="form-control" idate="naam" placeholder="Naam"  type="text">
 													</div>
 												</div>
 											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">INPUT</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="text">
-													</div>
-												</div>
-											</div>
+											
 											<div class="col-md-12">
 												<div class="form-group">
 													<label for="">File:</label>
@@ -194,14 +77,14 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
+														<input class="form-control" id='path' placeholder="Input 1"  type="file" accept=".xls,.xlsx">
 													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="modal-footer">
-											<button type="button" class="btn btn-primary">Toevoegen</button>
+										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="Toevoegen" />
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
@@ -213,6 +96,17 @@
 					<?php
 					include "../../includes/admin/footer.php"
 					?>
+
+<script src="../../app/js/ajax-script.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function(){  
+	load_data();
+
+});
+
+</script>
+
 
 </body>
 

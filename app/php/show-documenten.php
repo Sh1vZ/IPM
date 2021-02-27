@@ -1,4 +1,4 @@
- <?php
+<?php
 
 include("conn.php");
 
@@ -6,7 +6,7 @@ $fetchData= fetch_data($conn);
 show_data($fetchData);
 // fetch query
 function fetch_data($conn){
-  $query="SELECT * from studenten";
+  $query="SELECT * from template";
   $exec=mysqli_query($conn, $query);
   if(mysqli_num_rows($exec)>0){
 
@@ -26,11 +26,8 @@ function show_data($fetchData){
  <thead class="thead-light">
         <tr>
         <th>#</th>
-        <th>Achternaam</th>
-        <th>Voornaam</th>
-        <th>Geboortedatum</th>
-        <th>Geboorteplaats</th>
-        <th>Email adres</th>
+        <th>Path</th>
+        <th>Naam</th>
         <th></th>
         </tr>
         </thead>';
@@ -39,19 +36,16 @@ function show_data($fetchData){
       $sn=1;
       foreach($fetchData as $data){ 
 
-  echo "<tbody id='table'>
+  echo "<tbody>
             <tr id='delete'>
           <td>".$sn."</td>
-          <td>".$data['Achternaam']."</td>
-          <td>".$data['Voornaam']."</td>
-          <td>".$data['Geboortedatum']."</td>
-          <td>".$data['Geboorteplaats']."</td>
-          <td>".$data['Student_email']."</td>
+          <td>".$data['Path']."</td>
+          <td>".$data['naam']."</td>
           <td class='table-actions'>
           
          
-          <td><button type='button' name='edit' class='btn btn-primary btn-md edit' value=".$data['stud_ID'].">Bewerken</button>
-      <button type='button' name='delete' class='btn btn-danger btn-md delete' value=".$data['stud_ID'].">Verwijderen</button>
+          <td><button type='button' name='edit' class='btn btn-primary btn-md edit' value=".$data['temp_ID'].">Bewerken</button>
+      <button type='button' name='deleteDoc' class='btn btn-danger btn-md delete' value=".$data['temp_ID'].">Verwijderen</button>
       </td>
           </td>  
         </tr>
@@ -68,4 +62,3 @@ function show_data($fetchData){
   echo "</table>";
 }
 ?>
-
