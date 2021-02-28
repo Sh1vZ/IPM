@@ -1,21 +1,17 @@
-<?php 
-	require('../../app/php/conn.php');
-	
-	$docentq="select * from docenten ";
+<?php
+require('../../app/php/conn.php');
+$docentq="select * from docenten ";
 	$rs = mysqli_query($conn,$docentq);
 	$richtingq="select * from richtingen";
 	$res = mysqli_query($conn,$richtingq);
-	
+
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
 
-  
 	<?php
 	include "../../includes/admin/head.php"
 	?>
@@ -60,8 +56,8 @@
 								<thead class="thead-light">
 									<tr>
 										<th>Vak</th>
-										<th>Vak docent</th>
 										<th>Vak richting</th>
+										<th>Vakdocent</th>
 										<th>Acties</th>
 									</tr>
 								</thead>
@@ -100,34 +96,12 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Docent</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-														</div>
-														<input required list="docentlist" type="text" class="form-control" id="docent" name="docent" placeholder="Docent">
-														<datalist id="docentlist">
-													<?php
-											
-													if (mysqli_num_rows($rs) > 0) {
-														while ($row = mysqli_fetch_assoc($rs)) {
-																echo "<option value=" . $row['docent_ID'] . ">" . $row['docent_naam'] . "</option>";
-														}
-													}
-								
-													?>
-													</datalist>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
 													<label for="">Richting</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
-														<input required list="richtinglist" type="text" class="form-control"id="richting" name="richting" placeholder="Richting">
+														<input list="richtinglist" class="form-control" placeholder="Richting" id="richting" name="richting" type="text" required>
 														<datalist id="richtinglist">
 													<?php
 											
@@ -139,7 +113,28 @@
 								
 													?>
 													</datalist>
-							
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="">Vak docent</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+														</div>
+														<input list="docentlist" class="form-control" placeholder="Vakdocent" id="docent" name="docent" type="text" required>
+														<datalist id="docentlist">
+													<?php
+											
+													if (mysqli_num_rows($rs) > 0) {
+														while ($row = mysqli_fetch_assoc($rs)) {
+															echo "<option value=" . $row['docent_ID'] . ">" . $row['docent_naam'] . "</option>";
+														}
+													}
+								
+													?>
+													</datalist>
 													</div>
 												</div>
 											</div>
