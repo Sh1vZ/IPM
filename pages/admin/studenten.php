@@ -43,9 +43,24 @@
 								</div>
 							</div>
 						</div>
-						<?Php
-                       include('../../app/php/show-studenten.php');
-					   ?>
+						<div class="table-responsive">
+						<table class="table align-items-center table-flush datatabel table-striped">
+								<thead class="thead-light">
+									<tr>
+										<th>Achternaam</th>
+										<th>Voornaam</th>
+										<th>Geboortedatum</th>
+										<th>Geboorteplaats</th>
+										<th>Email</th>
+										<th>Acties</th>
+									</tr>
+								</thead>
+								<tbody id="table">
+									
+								</tbody>
+								
+							</table>
+							
 						</div>
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
@@ -67,7 +82,7 @@
 									</li>
 								</ul>
 								<div class="modal-body">
-									<form  action="../../app/php/admin/studenten-registreren.php" id="StudentenForm" method= "POST" >
+									<form  id="StudentenForm" method= "POST" >
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -76,7 +91,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
-														<input name="Anaam" id="Anaam"class="form-control" placeholder="Input 1"  type="text" >
+														<input name="Anaam" id="Anaami"class="form-control" placeholder="Input 1"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -87,7 +102,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
-														<input name="Vnaam" id="Vnaam" class="form-control" placeholder="Input 1"  type="text" >
+														<input name="Vnaam" id="Vnaami" class="form-control" placeholder="Input 1"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -98,7 +113,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
 														</div>
-														<input name="GebDatum" id="GebDatum" class="form-control" placeholder="Input 1"  type="date" >
+														<input name="GebDatum" id="GebDatumi" class="form-control" placeholder="Input 1"  type="date" >
 													</div>
 												</div>
 											</div>
@@ -109,7 +124,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
 														</div>
-														<input name="GebPlaats" id="GebPlaats"class="form-control" placeholder="Input 1"  type="text" >
+														<input name="GebPlaats" id="GebPlaatsi"class="form-control" placeholder="Input 1"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -120,14 +135,14 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input name="Email" id="Email" class="form-control" placeholder="Input 1"  type="email" >
+														<input name="Email" id="Emaili" class="form-control" placeholder="Input 1"  type="email" >
 													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" name="submit" class="btn btn-success ">Toevoegen</button>
+										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="Toevoegen" />
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
@@ -186,7 +201,7 @@
 					?>
 
 
-<script src="../../app/js/ajax-script.js"></script>
+<script src="../../app/php/admin/script/crudStudent.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){  

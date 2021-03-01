@@ -10,10 +10,10 @@ if (isset($_POST["insert"])) {
 			echo 'errorEmpty';
 		} else {
 			
-					$sql = "INSERT INTO documenten(Path, naam) VALUES(?,?)";
+					$sql = "INSERT INTO template(Path, naam) VALUES(?,?)";
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
-						echo "sqlError";
+						echo mysqli_error($conn);
 					} else {
 						mysqli_stmt_bind_param($stmt, "ss", $path, $naam);
 						mysqli_stmt_execute($stmt);

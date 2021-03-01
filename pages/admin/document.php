@@ -65,7 +65,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
-														<input class="form-control" idate="naam" placeholder="Naam"  type="text">
+														<input class="form-control" id="naam" placeholder="Naam"  type="text">
 													</div>
 												</div>
 											</div>
@@ -77,7 +77,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" id='path' placeholder="Input 1"  type="file" accept=".xls,.xlsx">
+														<input class="form-control" id="path" placeholder="Input 1"  type="file" accept=".doc,.docx">
 													</div>
 												</div>
 											</div>

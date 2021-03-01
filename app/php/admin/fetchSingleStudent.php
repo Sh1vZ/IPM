@@ -1,6 +1,6 @@
 <?php
-include("conn.php");
 
+include(dirname(__FILE__) . "/../conn.php");
 if (isset($_POST['getStudent'])) {
   $id = $_POST['id'];
   $sql = "SELECT * FROM studenten WHERE stud_ID=$id";
@@ -72,7 +72,7 @@ if (isset($_POST['getStudent'])) {
 											</div>
 										</div>
         <div class="modal-footer">
-          <button  type="button" onclick=updateStudent(<?= $id; ?>);window.location.reload()  data-dismiss="modal" class="btn btn-primary">Bijwerken </button>
+          <button  type="button" onclick=updateStudent(<?= $id; ?>) class="btn btn-primary">Bijwerken </button>
           <button type="button" onclick=deleteStudent(<?= $id; ?>) class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
         </div>
       </form>
@@ -83,11 +83,5 @@ if (isset($_POST['getStudent'])) {
 }
 ?>
 
-<!-- <script src="../../app/js/ajax-script.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<script>
-$(document).ready(function(){  
-	load_data();
 
-}); -->
 
