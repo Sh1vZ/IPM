@@ -10,19 +10,18 @@ function load_data() {
 
 }
 
-
 $('#vakform').on('submit', function(e) {
     e.preventDefault();
     var vak = $("#vak").val();
-    var docent = $("#docent").val();
     var richting = $("#richting").val();
+    var docent = $("#docent").val();
     $.ajax({
         url: "../../app/php/admin/crudVak.php",
         method: "POST",
         data: {
             vak: vak,
-            docent: docent,
             richting: richting,
+            docent: docent,
             insert: 1
         },
         success: function(data) {
@@ -44,7 +43,7 @@ $('#vakform').on('submit', function(e) {
                     title: 'Probeer opnieuw...',
                     text: 'Vak bestaat al!',
                  
-                  })
+                })
             }
         }
     });
@@ -88,6 +87,8 @@ $(document).on("click", ".delete", function() {
                         )
                         load_data();
                     }
+                   
+                    
                 }
             })
 
@@ -125,13 +126,16 @@ $(document).on('click', '.edit', function() {
 const updateVak = (e) => {
     var id = e;
     var vak = $("#vakU").val();
-  
+    var richting = $("#richtingU").val();
+    var docent = $("#docentU").val();
     $.ajax({
         type: 'POST',
         url: '../../app/php/admin/crudVak.php',
         data: {
             id: id,
             vak: vak,
+            richting: richting,
+            docent: docent,
             updateVak: 1
         },
         success: function(response) {
@@ -150,7 +154,7 @@ const updateVak = (e) => {
                 })
                 $('#vakUpdate').trigger("reset");
                 load_data();
-            }  else if (response == 'exist') {
+            } else if (response == 'exist') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Probeer opnieuw...',

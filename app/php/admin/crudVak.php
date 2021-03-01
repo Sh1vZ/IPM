@@ -3,9 +3,9 @@ include(dirname(__FILE__) . "/../conn.php");
 if (isset($_POST["insert"])) {
 	//insert
 		$vak = $_POST['vak'];
-		$docent = $_POST['docent'];
 		$richting = $_POST['richting'];
-		if (empty($vak) || empty($docent) || empty($richting)) {
+		$docent = $_POST['docent'];
+		if (empty($vak) || empty($richting) || empty($docent)) {
 			echo 'errorEmpty';
 		} else {
 			$sql = "SELECT Vaknaam FROM vakken WHERE Vaknaam= ?";
@@ -20,12 +20,12 @@ if (isset($_POST["insert"])) {
 				if ($resultcheck > 0) {
 					echo "exist";
 				} else {
-					$sql = "INSERT INTO vakken(Vaknaam,Vak_docent,Vak_richting) VALUES(?,?,?)";
+					$sql = "INSERT INTO vakken(Vaknaam,Vak_richting,Vak_docent) VALUES(?,?,?)";
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
 						echo "sqlError";
 					} else {
-						mysqli_stmt_bind_param($stmt, "sii", $vak, $docent, $richting);
+						mysqli_stmt_bind_param($stmt, "sii", $vak, $richting, $docent);
 						mysqli_stmt_execute($stmt);
 						echo "success";
 					}
@@ -38,17 +38,17 @@ if (isset($_POST["insert"])) {
 if (isset($_POST['updateVak'])) {
 	$id = $_POST['id'];
 	$vak = $_POST['vak'];
-	$docent = $_POST['docent'];
 	$richting = $_POST['richting'];
-	if (empty($vak) || empty($docent) || empty($richting)) {
+	$docent = $_POST['docent'];
+	if (empty($vak) || empty($richting) || empty($docent)) {
 		echo 'errorEmpty';
 	} else {
-		$sql = "UPDATE vakken SET Vaknaam=?, Vak_docent=?,Vak_richting=? WHERE vak_ID=?";
+		$sql = "UPDATE vakken SET Vaknaam=?, Vak_richting=?, Vak_docent=? WHERE vak_ID=?";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			echo "sqlError";
 		} else {
-			mysqli_stmt_bind_param($stmt, "siii", $vak, $docent, $richting, $id);
+			mysqli_stmt_bind_param($stmt, "siii", $vak, $richting, $docent, $id);
 			mysqli_stmt_execute($stmt);
 			if (mysqli_errno($conn) == 1062) {
 				echo "exist";
@@ -58,6 +58,8 @@ if (isset($_POST['updateVak'])) {
 		}
 	}
 }
+
+
 
 if (isset($_POST['delete'])) {
 	$id = $_POST['id'];
