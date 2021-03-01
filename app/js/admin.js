@@ -1,3 +1,15 @@
+function load_data() {
+    $.ajax({
+        url: "../../app/php/admin/fetchStudenten.php",
+        type: "POST",
+        cache: false,
+        success: function(data) {
+            $('#table').html(data);
+        }
+    });
+
+}
+
 $("#import-form").on('submit', (function(e) {
     e.preventDefault();
     $.ajax({
@@ -21,8 +33,9 @@ $("#import-form").on('submit', (function(e) {
                     allowOutsideClick: false
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
-                        location.reload();
+                        $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
+                            // location.reload();
+                        load_data();
                     }
                 })
                 $('#import-form').trigger("reset");

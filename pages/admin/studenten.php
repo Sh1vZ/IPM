@@ -194,12 +194,12 @@
 							</div>
 						</div>
 					</div>
+			</div>
 					<!-- Footer -->
 					<?php
 					include "../../includes/admin/footer.php"
 			
 					?>
-
 
 <script src="../../app/php/admin/script/crudStudent.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
@@ -208,11 +208,7 @@ $(document).ready(function(){
 	load_data();
 
 });
-
 </script>
-
-
-
 </body>
 
 </html>
