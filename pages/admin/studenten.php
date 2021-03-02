@@ -35,12 +35,6 @@
 								<div class="col-6">
 									<h3 class="mb-0">Studenten</h3>
 								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Exporteren</span>
-									</a>
-								</div>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -91,7 +85,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
-														<input name="Anaam" id="Anaami"class="form-control" placeholder="Input 1"  type="text" >
+														<input name="Anaam" id="Anaami"class="form-control" placeholder="Achternaam"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -102,7 +96,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
-														<input name="Vnaam" id="Vnaami" class="form-control" placeholder="Input 1"  type="text" >
+														<input name="Vnaam" id="Vnaami" class="form-control" placeholder="Voornaam"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -113,7 +107,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-calendar"></i></span>
 														</div>
-														<input name="GebDatum" id="GebDatumi" class="form-control" placeholder="Input 1"  type="date" >
+														<input name="GebDatum" id="GebDatumi" class="form-control" placeholder="Geboorte Datum"  type="date" >
 													</div>
 												</div>
 											</div>
@@ -124,7 +118,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
 														</div>
-														<input name="GebPlaats" id="GebPlaatsi"class="form-control" placeholder="Input 1"  type="text" >
+														<input name="GebPlaats" id="GebPlaatsi"class="form-control" placeholder="Geboorte Plaats"  type="text" >
 													</div>
 												</div>
 											</div>
@@ -135,7 +129,7 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input name="Email" id="Emaili" class="form-control" placeholder="Input 1"  type="email" >
+														<input name="Email" id="Emaili" class="form-control" placeholder="Email"  type="email" >
 													</div>
 												</div>
 											</div>
@@ -194,12 +188,12 @@
 							</div>
 						</div>
 					</div>
+			</div>
 					<!-- Footer -->
 					<?php
 					include "../../includes/admin/footer.php"
 			
 					?>
-
 
 <script src="../../app/php/admin/script/crudStudent.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
@@ -208,11 +202,7 @@ $(document).ready(function(){
 	load_data();
 
 });
-
 </script>
-
-
-
 </body>
 
 </html>

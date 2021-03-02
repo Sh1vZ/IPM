@@ -11,12 +11,11 @@ if (isset($_POST['getRichting'])) {
 ?>
       <form method="post" id="richtingUpdate">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group">
-              <label for="">Richting</label>
-              <div class="input-group input-group-merge">
+              <label for="">Richting:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input class="form-control" placeholder="Richting" id="richtingU" name="richting" type="text" value=<?= $richting; ?> required>
               </div>

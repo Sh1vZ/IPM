@@ -42,12 +42,7 @@ $docentq="select * from docenten ";
 								<div class="col-6">
 									<h3 class="mb-0">Vakken</h3>
 								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Export</span>
-									</a>
-								</div>
+							
 							</div>
 						</div>
 						<!-- Light table -->
@@ -85,10 +80,10 @@ $docentq="select * from docenten ";
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Vak</label>
+													<label for="">Vak:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-cubes"></i></span>
 														</div>
 														<input class="form-control" placeholder="Vak" id="vak" name="vak" type="text" required>
 													</div>
@@ -96,13 +91,12 @@ $docentq="select * from docenten ";
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Richting</label>
-													<div class="input-group input-group-merge">
+													<label for="">Richting:</label>
+													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input list="richtinglist" class="form-control" placeholder="Richting" id="richting" name="richting" type="text" required>
-														<datalist id="richtinglist">
+														<datalist id="richtinglist" >
 													<?php
 											
 													if (mysqli_num_rows($res) > 0) {
@@ -119,9 +113,8 @@ $docentq="select * from docenten ";
 											<div class="col-md-12">
 												<div class="form-group">
 													<label for="">Vak docent</label>
-													<div class="input-group input-group-merge">
+													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input list="docentlist" class="form-control" placeholder="Vakdocent" id="docent" name="docent" type="text" required>
 														<datalist id="docentlist">

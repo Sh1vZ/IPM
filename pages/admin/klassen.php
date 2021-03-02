@@ -1,9 +1,9 @@
 <?php
 require('../../app/php/conn.php');
-$docentq="select * from docenten ";
-	$rs = mysqli_query($conn,$docentq);
-	$richtingq="select * from richtingen";
-	$res = mysqli_query($conn,$richtingq);
+$docentq = "select * from docenten ";
+$rs = mysqli_query($conn, $docentq);
+$richtingq = "select * from richtingen";
+$res = mysqli_query($conn, $richtingq);
 
 
 ?>
@@ -42,17 +42,12 @@ $docentq="select * from docenten ";
 								<div class="col-6">
 									<h3 class="mb-0">Klassen</h3>
 								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Export</span>
-									</a>
-								</div>
+								
 							</div>
 						</div>
 						<!-- Light table -->
 						<div class="table-responsive">
-						<table class="table align-items-center table-flush datatabel table-striped">
+							<table class="table align-items-center table-flush datatabel table-striped">
 								<thead class="thead-light">
 									<tr>
 										<th>Klas</th>
@@ -62,11 +57,11 @@ $docentq="select * from docenten ";
 									</tr>
 								</thead>
 								<tbody id="table">
-									
+
 								</tbody>
-								
+
 							</table>
-							
+
 						</div>
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
@@ -80,15 +75,15 @@ $docentq="select * from docenten ";
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
-								<div  id="modal-body" class="modal-body">
-								<form method="post" id="klassenform">
+								<div id="modal-body" class="modal-body">
+									<form method="post" id="klassenform">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Klas</label>
+													<label for="">Klas:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-cubes"></i></span>
 														</div>
 														<input class="form-control" placeholder="Klas" id="klas" name="klas" type="text" required>
 													</div>
@@ -96,52 +91,50 @@ $docentq="select * from docenten ";
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Richting</label>
-													<div class="input-group input-group-merge">
+													<label for="">Richting:</label>
+													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input list="richtinglist" class="form-control" placeholder="Richting" id="richting" name="richting" type="text" required>
 														<datalist id="richtinglist">
-													<?php
-											
-													if (mysqli_num_rows($res) > 0) {
-														while ($row = mysqli_fetch_assoc($res)) {
-															echo "<option value=" . $row['richting_ID'] . ">" . $row['Richtingnaam'] . "</option>";
-														}
-													}
-								
-													?>
-													</datalist>
+															<?php
+
+															if (mysqli_num_rows($res) > 0) {
+																while ($row = mysqli_fetch_assoc($res)) {
+																	echo "<option value=" . $row['richting_ID'] . ">" . $row['Richtingnaam'] . "</option>";
+																}
+															}
+
+															?>
+														</datalist>
 													</div>
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<label for="">Klassedocent</label>
-													<div class="input-group input-group-merge">
+													<label for="">Klassedocent:</label>
+													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
 														<input list="docentlist" class="form-control" placeholder="Klassedocent" id="docent" name="docent" type="text" required>
 														<datalist id="docentlist">
-													<?php
-											
-													if (mysqli_num_rows($rs) > 0) {
-														while ($row = mysqli_fetch_assoc($rs)) {
-															echo "<option value=" . $row['docent_ID'] . ">" . $row['docent_naam'] . "</option>";
-														}
-													}
-								
-													?>
-													</datalist>
+															<?php
+
+															if (mysqli_num_rows($rs) > 0) {
+																while ($row = mysqli_fetch_assoc($rs)) {
+																	echo "<option value=" . $row['docent_ID'] . ">" . $row['docent_naam'] . "</option>";
+																}
+															}
+
+															?>
+														</datalist>
 													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="modal-footer">
-										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="Toevoegen" />
+											<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="Toevoegen" />
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
@@ -159,8 +152,8 @@ $docentq="select * from docenten ";
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
-								<div  id="modal-edit" class="modal-body">
-			
+								<div id="modal-edit" class="modal-body">
+
 								</div>
 							</div>
 						</div>
@@ -170,17 +163,16 @@ $docentq="select * from docenten ";
 					include "../../includes/admin/footer.php"
 					?>
 
-		
-		
-<script src="../../app/php/admin/script/crudKlas.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<script>
-$(document).ready(function(){  
-	load_data();
 
-});
 
-</script>
+					<script src="../../app/php/admin/script/crudKlas.js"></script>
+					<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+					<script>
+						$(document).ready(function() {
+							load_data();
+
+						});
+					</script>
 </body>
 
 

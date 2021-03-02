@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +8,7 @@
     <meta name="author" content="Creative Tim">
     <title>IPM | Admin Login</title>
     <!-- Favicon -->
-   
+
     <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
@@ -31,8 +28,8 @@
                 <h3 class="text-white "><img src="../../assets/img/brand/favicon.png" class="navbar-brand-img nav-img" alt="..."> IPM</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
                 <div class="navbar-collapse-header">
                     <div class="row">
@@ -42,9 +39,9 @@
                         </div>
                         <div class="col-6 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                              <span></span>
-                              <span></span>
-                          </button>
+                                <span></span>
+                                <span></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -52,9 +49,9 @@
                     <li class="nav-item btn-icon">
                         <a href="../../index.php">
                             <button class="btn btn-secondary btn-lg btn-block" type="button">
-                              <span class="btn-inner--icon"><i class="fa fa-lock fa-lg"></i></span>
-                              <span class="btn-inner--text">Student Login</span>
-                          </button>
+                                <span class="btn-inner--icon"><i class="fa fa-lock fa-lg"></i></span>
+                                <span class="btn-inner--text">Student Login</span>
+                            </button>
                         </a>
                     </li>
                 </ul>
@@ -70,15 +67,15 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Welcome!</h1>
-                            <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
+                            <p class="text-lead text-white">Vul gegevens in.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="separator separator-bottom separator-skew zindex-100">
                 <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
             </div>
         </div>
         <!-- Page content -->
@@ -87,22 +84,24 @@
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-header bg-transparent pb-4">
-                       
-                            <div class="text-muted text-center mt-2 mb-3"><h3>Sign in</h3> </div>
+
+                            <div class="text-muted text-center mt-2 mb-3">
+                                <h3>Sign in</h3>
+                            </div>
                             <span id="error">
                         </div>
                         <div class="card-body px-lg-5 py-lg-3">
-                       
+
                             <form role="form" method="post" id="login-form">
-                            
-                            <div class="form-group">
-                            
-                            <div class="input-group input-group-merge input-group-alternative">
+
+                                <div class="form-group">
+
+                                    <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                                         </div>
-                                        
-                                        <input class="form-control" placeholder="Naam" id="username" type="text" name="username"  required>
+
+                                        <input class="form-control" placeholder="Naam" id="username" type="text" name="username" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -117,7 +116,7 @@
                                     <button type="submit" name="login_button" id="login_button" class="btn btn-primary my-4">Sign in</button>
                                 </div>
                             </form>
-                         
+
 
                         </div>
                     </div>
@@ -150,7 +149,7 @@
     <script src="../../app/php/admin/script/login.js"></script>
     <script src="../../app/php/admin/script/validation.min.js"></script>
 
-  
+
 </body>
 
 </html>

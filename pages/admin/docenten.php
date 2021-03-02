@@ -37,12 +37,7 @@
 								<div class="col-6">
 									<h3 class="mb-0">Docenten</h3>
 								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Export</span>
-									</a>
-								</div>
+								
 							</div>
 						</div>
 						<!-- Light table -->
@@ -80,10 +75,10 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Naam</label>
+													<label for="">Naam:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-user"></i></span>
 														</div>
 														<input class="form-control" placeholder="Naam" id="naam" name="naam" type="text" required>
 													</div>
@@ -91,10 +86,10 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="">Email adress</label>
+													<label for="">Email adress:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
 														<input class="form-control" placeholder="Email" id="email" name="email" type="email" required>
 													</div>
@@ -102,10 +97,10 @@
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<label for="">Telefoon nummer</label>
+													<label for="">Telefoon nummer:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-phone"></i></span>
 														</div>
 														<input class="form-control" placeholder="Telefoonnummer" id="nummer" name="nummer" type="number" required>
 													</div>
