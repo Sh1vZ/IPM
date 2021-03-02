@@ -15,10 +15,9 @@ if (isset($_POST['getDocent'])) {
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Naam</label>
-              <div class="input-group input-group-merge">
+              <label for="">Naam:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input class="form-control" placeholder="Naam" id="naamU" name="naam" type="text" value=<?= $naam; ?> required>
               </div>
@@ -26,10 +25,9 @@ if (isset($_POST['getDocent'])) {
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Email adress</label>
-              <div class="input-group input-group-merge">
+              <label for="">Email adress:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input class="form-control" placeholder="Email" id="emailU" name="email" type="email" value=<?= $mail; ?> required>
               </div>
@@ -37,10 +35,9 @@ if (isset($_POST['getDocent'])) {
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label for="">Telefoon nummer</label>
-              <div class="input-group input-group-merge">
+              <label for="">Telefoon nummer:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input class="form-control" placeholder="Telefoonnummer" id="nummerU" name="nummer" type="number" value=<?= $nummer; ?> required>
               </div>

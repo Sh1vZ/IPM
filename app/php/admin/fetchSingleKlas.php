@@ -20,10 +20,9 @@ if (isset($_POST['getKlas'])) {
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Klas</label>
-              <div class="input-group input-group-merge">
+              <label for="">Klas:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input class="form-control" placeholder="Klas" id="klasU" name="klas" type="text" value=<?= $klas; ?> required>
               </div>
@@ -31,10 +30,9 @@ if (isset($_POST['getKlas'])) {
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Richting</label>
-              <div class="input-group input-group-merge">
+              <label for="">Richting:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input list="richtinglist" class="form-control" placeholder="Richting" id="richtingU" name="richting" type="number" value=<?= $richting; ?> required>
                 <datalist id="richtinglist">
@@ -53,10 +51,9 @@ if (isset($_POST['getKlas'])) {
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label for="">Klassedocent</label>
-              <div class="input-group input-group-merge">
+              <label for="">Klassedocent:</label>
+              <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
                 <input list="docentlist" class="form-control" placeholder="klassedocent" id="docentU" name="docent" type="number" value=<?= $docent; ?> required>
                 <datalist id="docentlist">

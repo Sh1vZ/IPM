@@ -34,12 +34,7 @@
 								<div class="col-6">
 									<h3 class="mb-0">Richtingen</h3>
 								</div>
-								<div class="col-6 text-right">
-									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-										<span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-										<span class="btn-inner--text">Export</span>
-									</a>
-								</div>
+								
 							</div>
 						</div>
 						<!-- Light table -->
@@ -73,12 +68,12 @@
 								<div id="modal-body" class="modal-body">
 									<form method="post" id="richtingform">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-12">
 												<div class="form-group">
-													<label for="">Richting</label>
+													<label for="">Richting:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-directions"></i></span>
 														</div>
 														<input class="form-control" placeholder="Richting" id="richting" name="richting" type="text" required>
 													</div>
