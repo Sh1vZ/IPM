@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 08, 2021 at 11:53 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 02, 2021 at 11:38 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,13 +28,22 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `admin_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `admin_ID` int(11) NOT NULL AUTO_INCREMENT,
   `admin_naam` varchar(25) DEFAULT NULL,
   `admin_voornaam` varchar(250) DEFAULT NULL,
   `admin_email` varchar(250) DEFAULT NULL,
-  `admin_password` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `admin_password` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`admin_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_ID`, `admin_naam`, `admin_voornaam`, `admin_email`, `admin_password`) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -41,12 +51,16 @@ CREATE TABLE `admin` (
 -- Table structure for table `cijfers`
 --
 
-CREATE TABLE `cijfers` (
-  `cijf_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cijfers`;
+CREATE TABLE IF NOT EXISTS `cijfers` (
+  `cijf_ID` int(11) NOT NULL AUTO_INCREMENT,
   `StudentKlasID` int(11) DEFAULT NULL,
   `VakID` int(11) DEFAULT NULL,
   `Periode` int(11) DEFAULT NULL,
-  `Cijfer` decimal(2,1) DEFAULT NULL
+  `Cijfer` decimal(2,1) DEFAULT NULL,
+  PRIMARY KEY (`cijf_ID`),
+  KEY `cijfers_ibfk_1` (`StudentKlasID`),
+  KEY `cijfers_ibfk_2` (`VakID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -55,12 +69,21 @@ CREATE TABLE `cijfers` (
 -- Table structure for table `docenten`
 --
 
-CREATE TABLE `docenten` (
-  `docent_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `docenten`;
+CREATE TABLE IF NOT EXISTS `docenten` (
+  `docent_ID` int(11) NOT NULL AUTO_INCREMENT,
   `docent_naam` varchar(25) DEFAULT NULL,
   `docent_email` varchar(250) DEFAULT NULL,
-  `nummer` decimal(12,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nummer` decimal(12,0) DEFAULT NULL,
+  PRIMARY KEY (`docent_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `docenten`
+--
+
+INSERT INTO `docenten` (`docent_ID`, `docent_naam`, `docent_email`, `nummer`) VALUES
+(1, 'Debbie', 'debbie@gmail.com', '531862');
 
 -- --------------------------------------------------------
 
@@ -68,11 +91,15 @@ CREATE TABLE `docenten` (
 -- Table structure for table `klassen`
 --
 
-CREATE TABLE `klassen` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `klassen`;
+CREATE TABLE IF NOT EXISTS `klassen` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Klas` varchar(50) DEFAULT NULL,
   `RichtingID` int(11) DEFAULT NULL,
-  `Klas_docent` int(11) DEFAULT NULL
+  `Klas_docent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `klassen_ibfk_1` (`RichtingID`),
+  KEY `klassen_ibfk_2` (`Klas_docent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -81,11 +108,15 @@ CREATE TABLE `klassen` (
 -- Table structure for table `log`
 --
 
-CREATE TABLE `log` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE IF NOT EXISTS `log` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `StudentID` int(11) DEFAULT NULL,
   `KlasID` int(11) DEFAULT NULL,
-  `Logdatum` datetime DEFAULT current_timestamp()
+  `Logdatum` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`),
+  KEY `log_ibfk_1` (`KlasID`),
+  KEY `log_ibfk_2` (`StudentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -94,9 +125,11 @@ CREATE TABLE `log` (
 -- Table structure for table `richtingen`
 --
 
-CREATE TABLE `richtingen` (
-  `richting_ID` int(11) NOT NULL,
-  `Richtingnaam` varchar(50) DEFAULT NULL
+DROP TABLE IF EXISTS `richtingen`;
+CREATE TABLE IF NOT EXISTS `richtingen` (
+  `richting_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Richtingnaam` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`richting_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -105,8 +138,9 @@ CREATE TABLE `richtingen` (
 -- Table structure for table `studenten`
 --
 
-CREATE TABLE `studenten` (
-  `stud_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `studenten`;
+CREATE TABLE IF NOT EXISTS `studenten` (
+  `stud_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Achternaam` varchar(50) DEFAULT NULL,
   `Voornaam` varchar(50) DEFAULT NULL,
   `Geboortedatum` date DEFAULT NULL,
@@ -114,16 +148,20 @@ CREATE TABLE `studenten` (
   `Student_email` varchar(50) DEFAULT NULL,
   `Student_pincode` varchar(50) DEFAULT NULL,
   `Saldo` double(10,2) DEFAULT NULL,
-  `img` varchar(240) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `img` varchar(240) NOT NULL,
+  PRIMARY KEY (`stud_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `studenten`
 --
 
 INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `Geboorteplaats`, `Student_email`, `Student_pincode`, `Saldo`, `img`) VALUES
-(1, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 32.00, 'Kristof_Roberto_411525'),
-(2, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_298944');
+(16, 'Issi', 'Pinas', '2021-02-17', 'Nickerie', 'issi@g.com', '831583', NULL, 'Pinas_Issi_874711'),
+(17, 'Dina', 'Jan', '2021-02-02', 'Paramaribo', 'jan@gmail.com', '180112', NULL, 'Jane_Dina_735310'),
+(18, 'Ian', 'Pinas', '2021-02-10', 'Paramaribo', 'ian@g.com', '955119', NULL, 'Pinas_Ian_600094'),
+(20, 'Mendes', 'Hannah', '2021-02-17', 'Nickerie', 'hannah@gmail.com', '581382', NULL, 'Hannah_Mendes_423125'),
+(23, 'Gilly', 'Jess', '2021-02-09', 'Wanica', 'j@gmail.com', '359453', NULL, 'Jess_Gill_437806');
 
 -- --------------------------------------------------------
 
@@ -131,11 +169,15 @@ INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `
 -- Table structure for table `studentklas`
 --
 
-CREATE TABLE `studentklas` (
-  `st_klas_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `studentklas`;
+CREATE TABLE IF NOT EXISTS `studentklas` (
+  `st_klas_ID` int(11) NOT NULL AUTO_INCREMENT,
   `StudentID` int(11) DEFAULT NULL,
   `KlasID` int(11) DEFAULT NULL,
-  `Schooljaar` varchar(50) DEFAULT '2020/2021'
+  `Schooljaar` varchar(50) DEFAULT '2020/2021',
+  PRIMARY KEY (`st_klas_ID`),
+  KEY `studentklas_ibfk_1` (`KlasID`),
+  KEY `studentklas_ibfk_2` (`StudentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -144,13 +186,17 @@ CREATE TABLE `studentklas` (
 -- Table structure for table `student_template`
 --
 
-CREATE TABLE `student_template` (
-  `st_temp_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `student_template`;
+CREATE TABLE IF NOT EXISTS `student_template` (
+  `st_temp_ID` int(11) NOT NULL AUTO_INCREMENT,
   `StudentID` int(11) DEFAULT NULL,
   `Type_document` int(11) DEFAULT NULL,
   `Aanvraag_datum` date DEFAULT NULL,
   `verval_datum` date DEFAULT NULL,
-  `reden` varchar(250) DEFAULT NULL
+  `reden` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`st_temp_ID`),
+  KEY `student_template_ibfk_1` (`StudentID`),
+  KEY `student_template_ibfk_2` (`Type_document`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -159,11 +205,21 @@ CREATE TABLE `student_template` (
 -- Table structure for table `template`
 --
 
-CREATE TABLE `template` (
-  `temp_ID` int(11) NOT NULL,
-  `Path` varchar(250) DEFAULT NULL,
-  `naam` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `template`;
+CREATE TABLE IF NOT EXISTS `template` (
+  `temp_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Path` longblob,
+  `naam` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`temp_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `template`
+--
+
+INSERT INTO `template` (`temp_ID`, `Path`, `naam`) VALUES
+(2, 0x433a66616b657061746844616d61726973204a61636f74742062726965662031322066656220323032312e646f6378, 'laatbrief'),
+(5, 0x433a5c66616b65706174685c5a6f6f6d20636f6e74616374656e20696e7374727563746965732e646f6378, 'brieven');
 
 -- --------------------------------------------------------
 
@@ -171,164 +227,16 @@ CREATE TABLE `template` (
 -- Table structure for table `vakken`
 --
 
-CREATE TABLE `vakken` (
-  `vak_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `vakken`;
+CREATE TABLE IF NOT EXISTS `vakken` (
+  `vak_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Vaknaam` varchar(50) DEFAULT NULL,
   `Vak_docent` int(11) DEFAULT NULL,
-  `Vak_richting` int(11) DEFAULT NULL
+  `Vak_richting` int(11) DEFAULT NULL,
+  PRIMARY KEY (`vak_ID`),
+  KEY `vakken_ibfk_1` (`Vak_docent`),
+  KEY `vakken_ibfk_2` (`Vak_richting`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_ID`);
-
---
--- Indexes for table `cijfers`
---
-ALTER TABLE `cijfers`
-  ADD PRIMARY KEY (`cijf_ID`),
-  ADD KEY `cijfers_ibfk_1` (`StudentKlasID`),
-  ADD KEY `cijfers_ibfk_2` (`VakID`);
-
---
--- Indexes for table `docenten`
---
-ALTER TABLE `docenten`
-  ADD PRIMARY KEY (`docent_ID`);
-
---
--- Indexes for table `klassen`
---
-ALTER TABLE `klassen`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `klassen_ibfk_1` (`RichtingID`),
-  ADD KEY `klassen_ibfk_2` (`Klas_docent`);
-
---
--- Indexes for table `log`
---
-ALTER TABLE `log`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `log_ibfk_1` (`KlasID`),
-  ADD KEY `log_ibfk_2` (`StudentID`);
-
---
--- Indexes for table `richtingen`
---
-ALTER TABLE `richtingen`
-  ADD PRIMARY KEY (`richting_ID`);
-
---
--- Indexes for table `studenten`
---
-ALTER TABLE `studenten`
-  ADD PRIMARY KEY (`stud_ID`);
-
---
--- Indexes for table `studentklas`
---
-ALTER TABLE `studentklas`
-  ADD PRIMARY KEY (`st_klas_ID`),
-  ADD KEY `studentklas_ibfk_1` (`KlasID`),
-  ADD KEY `studentklas_ibfk_2` (`StudentID`);
-
---
--- Indexes for table `student_template`
---
-ALTER TABLE `student_template`
-  ADD PRIMARY KEY (`st_temp_ID`),
-  ADD KEY `student_template_ibfk_1` (`StudentID`),
-  ADD KEY `student_template_ibfk_2` (`Type_document`);
-
---
--- Indexes for table `template`
---
-ALTER TABLE `template`
-  ADD PRIMARY KEY (`temp_ID`);
-
---
--- Indexes for table `vakken`
---
-ALTER TABLE `vakken`
-  ADD PRIMARY KEY (`vak_ID`),
-  ADD KEY `vakken_ibfk_1` (`Vak_docent`),
-  ADD KEY `vakken_ibfk_2` (`Vak_richting`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cijfers`
---
-ALTER TABLE `cijfers`
-  MODIFY `cijf_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `docenten`
---
-ALTER TABLE `docenten`
-  MODIFY `docent_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `klassen`
---
-ALTER TABLE `klassen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `log`
---
-ALTER TABLE `log`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `richtingen`
---
-ALTER TABLE `richtingen`
-  MODIFY `richting_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `studenten`
---
-ALTER TABLE `studenten`
-  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `studentklas`
---
-ALTER TABLE `studentklas`
-  MODIFY `st_klas_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_template`
---
-ALTER TABLE `student_template`
-  MODIFY `st_temp_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `template`
---
-ALTER TABLE `template`
-  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vakken`
---
-ALTER TABLE `vakken`
-  MODIFY `vak_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
