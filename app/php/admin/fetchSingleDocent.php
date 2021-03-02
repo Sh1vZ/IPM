@@ -20,7 +20,7 @@ if (isset($_POST['getDocent'])) {
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
-                <input class="form-control" placeholder="Naam" id="naamU" name="naam" type="text" value=<?= $naam; ?> required>
+                <input class="form-control" placeholder="Naam" id="naamU" name="naam" type="text" value=<?= $naam; ?>>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@ if (isset($_POST['getDocent'])) {
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" id="emailU" name="email" type="email" value=<?= $mail; ?> required>
+                <input class="form-control" placeholder="Email" id="emailU" name="email" type="email" value=<?= $mail; ?> >
               </div>
             </div>
           </div>

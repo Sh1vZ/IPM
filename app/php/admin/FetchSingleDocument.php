@@ -11,7 +11,7 @@ if (isset($_POST['getDocument'])) {
       $path   = $row['Path'];
     
 ?>
-      <form method="post" id="documentenUpdate">
+      <form method="post" id="documentenUpdate" enctype="multipart/form-data">
       <div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -32,7 +32,7 @@ if (isset($_POST['getDocument'])) {
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" id="pathU" placeholder="File"  type="file" accept=".doc,.docx" value=<?= $path; ?> required>
+														<input class="form-control" id="pathU" placeholder="File"  type="file" value=<?= $path; ?> required>
 													</div>
 												</div>
 											</div>

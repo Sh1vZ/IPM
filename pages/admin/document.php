@@ -73,7 +73,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form method="post" id="documentenform">
+									<form method="post" id="documentenform"  enctype="multipart/form-data">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -94,12 +94,12 @@
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" id="path" placeholder="File"  type="file" accept=".doc,.docx">
+														<input class="form-control" id="path" placeholder="File"  type="file" >
 													</div>
 												</div>
 											</div>
 										</div>
-
+										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
 										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="Toevoegen" />
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
@@ -109,6 +109,7 @@
 							</div>
 						</div>
 					</div>
+				
 
 					<div class="modal fade " id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">

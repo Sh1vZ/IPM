@@ -112,7 +112,7 @@ $(document).on('click', '.edit', function() {
         url: '../../app/php/admin/fetchSingleDocument.php',
         data: {
             id: id,
-            getDocent: 1
+            getDocument: 1
         },
         success: function(response) {
             $('#modal-edit').html(response);
@@ -121,10 +121,11 @@ $(document).on('click', '.edit', function() {
     })
 });
 
-const updateDocent = (e) => {
+const updateDocument = (e) => {
     var id = e;
     var naam = $("#naamU").val();
-    var email = $("#pathU").val();
+    var path = $("#pathU").val();
+   
  
     $.ajax({
         type: 'POST',
