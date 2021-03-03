@@ -160,7 +160,12 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action="" id="bedragForm">
+							<div style="margin: auto;width: 60%;">
+	<div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	</div>
+	<p id="message"></p>
+			<form action="" id="bedragForm">
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
@@ -169,13 +174,13 @@
 												<div class="input-group-prepend">
 													<span class="input-group-text"><i class="fas fa-wallet"></i></span>
 												</div>
-												<input class="form-control" placeholder="Bedrag" id="bedrag" name="bedrag" type="number">
+												<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" min="1.0" max="50.0">
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="submit" id="butsave" class="btn btn-primary">Toevoegen</button>
+									<button type="submit" class="btn btn-primary">Toevoegen</button>
 									<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 								</div>
 							</form>
@@ -192,37 +197,21 @@
 			?>
 			<script>
 			$(document).ready(function() {
-				$('#butsave').on('click', function() {
-					$("#butsave").attr("disabled", "disabled");
-					var bedrag = $('#bedrag').val();
-					if(bedrag!=""){
-						$.ajax({
-							url: "../../app/php/student/bedrag.php",
-							type: "POST",
-							data: {
-								bedrag: bedrag
-							},
-							cache: false,
-							success: function(dataResult){
-								var dataResult = JSON.parse(dataResult);
-								if(dataResult.statusCode==200){
-									$("#butsave").removeAttr("disabled");
-									$('#bedragForm').find('input:text').val('');
-									$("#success").show();
-									$('#success').html('Data added successfully !');
-								}
-								else if(dataResult.statusCode==201){
-								   alert("Error occured !");
-								}
-
-							}
-						});
-					}
-					else{
-						alert('Please fill in the field !');
-					}
-				});
-			});
+	                $("#bedragForm").submit(function(e) {
+	                    e.preventDefault();
+											var bedrag = $('#bedrag').val();
+	                    $.ajax( {
+	                        url: "../../app/php/student/bedrag.php",
+	                        method: "post",
+	                        data: {bedrag: bedrag},
+	                        dataType: "text",
+	                        success: function(strMessage) {
+	                            $("#message").text(strMessage);
+	                            $("#bedragForm")[0].reset();
+	                        }
+	                    });
+	                });
+	            });
 			</script>
 </body>
 
