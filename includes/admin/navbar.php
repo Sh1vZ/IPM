@@ -39,7 +39,7 @@ return $colors[array_rand($colors)];
           <li class="nav-item">
             <a class="nav-link <?php echo ($first_part == 'dashboard.php') ? "active" : "" ?>" href="./dashboard.php">
               <i class="fas fa-tachometer-alt <?=randomColors()?>"></i>
-              <span class="nav-link-text">Home</span>
+              <span class="nav-link-text">Startpagina</span>
             </a>
           </li>
           <li class="nav-item">
@@ -52,6 +52,12 @@ return $colors[array_rand($colors)];
             <a class="nav-link <?php echo ($first_part == 'klassen-formatie.php') ? "active" : "" ?>" href="./klassen-formatie.php">
             <i class="fas fa-users <?=randomColors()?>"></i>
               <span class="nav-link-text">Klassen Formaties</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($first_part == 'Log-screen.php') ? "active" : "" ?>" href="./Log-screen.php">
+            <i class="fas fa-clipboard-list <?=randomColors()?>"></i>
+              <span class="nav-link-text">Log</span>
             </a>
           </li>
           <li class="nav-item">

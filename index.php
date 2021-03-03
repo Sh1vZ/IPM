@@ -66,8 +66,8 @@
 				<div class="header-body text-center mb-7">
 					<div class="row justify-content-center">
 						<div class="col-xl-5 col-lg-6 col-md-8 px-5">
-							<h1 class="text-white">Welcome!</h1>
-							<p class="text-lead text-white">Scan QrCode</p>
+							<h1 class="text-white">Welkom!</h1>
+							<p class="text-lead text-white">Scan QrCode om in te loggen!</p>
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 				<div class="col-lg-5 col-md-7">
 					<div class="card bg-secondary border-0 mb-0">
 						<div class="card-header bg-transparent pb-4">
-							<div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
+							<div class="text-muted text-center mt-2 mb-3"><small>Inloggen met</small></div>
 							<div class="btn-wrapper text-center">
 								<button class="btn btn-neutral btn-icon" data-toggle="modal" data-target="#exampleModalCenter" onclick="camera()">
 									<span class="btn-inner--icon"><i class="fas fa-qrcode"></i></span>
@@ -94,7 +94,7 @@
 						</div>
 						<div class="card-body px-lg-5 py-lg-3">
 							<div class="text-center text-muted mb-4">
-								<small>Or sign in with credentials</small>
+								<small>Of log in met inloggegevens</small>
 							</div>
 							<form role="form" id="studentenForm">
 								<div class="form-group">
@@ -106,7 +106,7 @@
 									</div>
 								</div>
 								<div class="text-center">
-									<button type="submit" id="loginQR" class="btn btn-primary my-4">Sign in</button>
+									<button type="submit" id="loginQR" class="btn btn-primary my-4">Log in</button>
 								</div>
 							</form>
 						</div>
@@ -129,7 +129,7 @@
 						<div id="app" class="row box">
 							<div class="col-md-12 sidebar">
 								<ul>
-									<li v-if="cameras.length === 0" class="empty">No cameras found</li>
+									<li v-if="cameras.length === 0" class="empty">Geen cameras gevonden</li>
 									<li v-for="camera in cameras">
 										<span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active"><input type="radio" class="align-middle mr-1" checked> {{ formatName(camera.name) }}</span>
 										<span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">

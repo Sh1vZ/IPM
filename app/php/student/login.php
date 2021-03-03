@@ -34,12 +34,3 @@ if (!empty($_POST['qrcode'])) {
   }
 }
 
-//   if($_SESSION['IsActive']=TRUE){
-//     $insertquery = "INSERT INTO log (StudentID)
-//     SELECT stud_ID
-//     FROM studenten
-//     WHERE Achternaam";
-//      $res = mysqli_query($conn, $insertquery);
-  
-//     }
-// }

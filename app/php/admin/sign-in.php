@@ -15,7 +15,7 @@ if(isset($_POST['login_button'])) {
 	} 
 	
 	else {				
-		echo "Email or password incorrect. Please try again"; 
+		echo "Gebruikersnaam of wachtwoord incorrect"; 
 	}		
 }
 ?>

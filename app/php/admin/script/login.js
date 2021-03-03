@@ -12,9 +12,9 @@ $('document').ready(function() {
 		},
 		messages: {
 			password:{
-			  required: "please enter your password"
+			  required: "password verplicht"
 			 },
-			username: "please enter your username",
+			username: "gebruikersnaam verplicht",
 		},
 		submitHandler: submitForm	
 	});	   
@@ -27,11 +27,11 @@ $('document').ready(function() {
 			data : data,
 			beforeSend: function(){	
 				$("#error").fadeOut();
-				$("#login_button").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+				$("#login_button").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; bezig ...');
 			},
 			success : function(response){						
 				if(response=="ok"){									
-					$("#login_button").html(' Signing In ...');
+					$("#login_button").html(' Inloggen ...');
 					setTimeout(' window.location.href = "./dashboard.php"; ',400);
 				} else {									
 					$("#error").fadeIn(1000, function(){						
