@@ -169,7 +169,7 @@
 												<div class="input-group-prepend">
 													<span class="input-group-text"><i class="fas fa-wallet"></i></span>
 												</div>
-												<input class="form-control" placeholder="Bedrag" id="bedrag" name="bedrag" type="number" min="1.0" max="50.0">
+												<input class="form-control" placeholder="Bedrag" id="bedrag" name="bedrag" type="number">
 											</div>
 										</div>
 									</div>

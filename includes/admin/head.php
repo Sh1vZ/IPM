@@ -29,6 +29,10 @@ $first_part = $components[4];
 		echo "Vakken";
 	} elseif ($first_part == 'klassen.php') {
 		echo "Klassen";
+	}elseif ($first_part == 'home.php') {
+		echo "Home";
+	}elseif ($first_part == 'topup.php') {
+		echo "Top Up";
 	}
 
 	?>
