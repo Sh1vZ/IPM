@@ -86,6 +86,7 @@ include_once("../../app/php/conn.php");
 
 						</div>
 					</div>
+			</div>
 
 					<!-- Footer -->
 					<?php
