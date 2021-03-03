@@ -1,0 +1,67 @@
+.fab {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    font-weight: 600;
+    display: inline-block;
+    padding: .325rem .625rem;
+    user-select: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 25%;
+    background: #5e72e4;
+}
+
+.fab:active {
+    background: #da3052;
+}
+
+.ratings i {
+    font-size: 16px;
+    color: red
+}
+
+.strike-text {
+    color: red;
+    text-decoration: line-through
+}
+
+.product-image {
+    width: 100%
+}
+
+.dot {
+    height: 7px;
+    width: 7px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 3px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.spec-1 {
+    color: #938787;
+    font-size: 15px
+}
+
+h5 {
+    font-weight: 400
+}
+
+.para {
+    font-size: 16px
+}
+
+.btn-fw {
+    width: 100%
+}
+
+.saldoContainer {
+    margin-left: 20px;
+    width: 300px;
+}
