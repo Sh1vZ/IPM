@@ -148,6 +148,7 @@
     <script src="../../assets/js/ipm.js"></script>
     <script src="../../app/php/admin/script/login.js"></script>
     <script src="../../app/php/admin/script/validation.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 </body>

@@ -13,9 +13,11 @@ if(isset($_POST['login_button'])) {
 		echo "ok";
 		$_SESSION['user_session'] = $row['admin_ID'];
 	} 
-	
+	elseif (empty($user_password) || empty($user_name)) {
+		echo "errorEmpty";}
+
 	else {				
-		echo "Gebruikersnaam of wachtwoord incorrect"; 
+		echo "wrong"; 
 	}		
 }
 ?>
