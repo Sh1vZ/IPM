@@ -49,4 +49,3 @@ $first_part = $components[4];
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../assets/css/ipm.css" type="text/css">
 <link rel="stylesheet" href="../../assets/css/custom.css" type="text/css">
-<link rel="stylesheet" href="../assets/vendor/sweetalert2/dist/sweetalert2.min.css">

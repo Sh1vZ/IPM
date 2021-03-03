@@ -60,3 +60,8 @@ h5 {
 .btn-fw {
     width: 100%
 }
+
+.saldoContainer {
+    margin-left: 20px;
+    width: 300px;
+}
