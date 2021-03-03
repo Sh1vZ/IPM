@@ -4,6 +4,7 @@
 <html>
 
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<?php
 	include "../../includes/admin/head.php"
 	?>
@@ -159,7 +160,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action="" id="districten-form">
+							<form action="" id="bedragForm">
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
@@ -168,13 +169,13 @@
 												<div class="input-group-prepend">
 													<span class="input-group-text"><i class="fas fa-wallet"></i></span>
 												</div>
-												<input class="form-control" placeholder="Bedrag" id="#" type="number" min="1.0" max="50.0">
+												<input class="form-control" placeholder="Bedrag" id="bedrag" name="bedrag" type="number" min="1.0" max="50.0">
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">Toevoegen</button>
+									<button type="submit" id="butsave" class="btn btn-primary">Toevoegen</button>
 									<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 								</div>
 							</form>
@@ -183,11 +184,46 @@
 				</div>
 			</div>
 
+
 			<!-- Footer -->
 			<?php
 			include "../../includes/admin/footer.php"
-			?>
 
+			?>
+			<script>
+			$(document).ready(function() {
+				$('#butsave').on('click', function() {
+					$("#butsave").attr("disabled", "disabled");
+					var bedrag = $('#bedrag').val();
+					if(bedrag!=""){
+						$.ajax({
+							url: "../../app/php/student/bedrag.php",
+							type: "POST",
+							data: {
+								bedrag: bedrag
+							},
+							cache: false,
+							success: function(dataResult){
+								var dataResult = JSON.parse(dataResult);
+								if(dataResult.statusCode==200){
+									$("#butsave").removeAttr("disabled");
+									$('#bedragForm').find('input:text').val('');
+									$("#success").show();
+									$('#success').html('Data added successfully !');
+								}
+								else if(dataResult.statusCode==201){
+								   alert("Error occured !");
+								}
+
+							}
+						});
+					}
+					else{
+						alert('Please fill in the field !');
+					}
+				});
+			});
+			</script>
 </body>
 
 </html>
