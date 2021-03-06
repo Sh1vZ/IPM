@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 02, 2021 at 11:38 PM
+-- Generation Time: Mar 06, 2021 at 04:00 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -208,18 +208,20 @@ CREATE TABLE IF NOT EXISTS `student_template` (
 DROP TABLE IF EXISTS `template`;
 CREATE TABLE IF NOT EXISTS `template` (
   `temp_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Path` longblob,
+  `Path` varchar(255) DEFAULT NULL,
   `naam` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`temp_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `template`
 --
 
 INSERT INTO `template` (`temp_ID`, `Path`, `naam`) VALUES
-(2, 0x433a66616b657061746844616d61726973204a61636f74742062726965662031322066656220323032312e646f6378, 'laatbrief'),
-(5, 0x433a5c66616b65706174685c5a6f6f6d20636f6e74616374656e20696e7374727563746965732e646f6378, 'brieven');
+(14, '6042fa575b7455.86275198.docx', 'ouderochtend'),
+(15, '6042fa946ef903.63851850.docx', 'admin'),
+(21, '6042fd8d7daf66.39004745.docx', 'Laatbrief'),
+(22, '6042fdcf9f9c20.72836880.docx', 'Dispensatiebrief');
 
 -- --------------------------------------------------------
 

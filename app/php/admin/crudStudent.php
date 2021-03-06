@@ -36,33 +36,7 @@ if (isset($_POST["insert"])) {
 }
 
 
-// convert illegal input value to ligal value formate
-// function legal_input($value)
-// {
-//     $value = trim($value);
-//     $value = stripslashes($value);
-//     $value = htmlspecialchars($value);
-//     return $value;
-// }
 
-// // // function to insert user data into database table
-// function insert_data($Anaam, $Vnaam, $GebDatum, $GebPlaats, $Email)
-// {
-//     global $db;
-//     $pin = rand(100000, 999999);
-//     $b = generateQrcode($Anaam, $Vnaam, $pin);
-//     $a = Generate($Anaam, $Vnaam, $GebDatum, $Email, $b);
-//     $query = "INSERT INTO studenten(Voornaam,Achternaam,Geboortedatum,Geboorteplaats,Student_email,Student_pincode,img) VALUES('$Anaam','$Vnaam','$GebDatum','$GebPlaats','$Email','$pin','$a')";
-
-//     $execute = mysqli_query($db, $query);
-//     if ($execute == true) {
-//         echo "success";
-//         // header("Location:../../../pages/admin/studenten.php");
-//     } else {
-//         echo  "Error: "  . mysqli_error($db);
-//     }
-// }
-// }
 
 
 if (isset($_POST['updateStudent'])) {
