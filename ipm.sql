@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2021 at 03:11 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- Generation Time: Mar 06, 2021 at 07:06 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,6 +34,13 @@ CREATE TABLE `admin` (
   `admin_email` varchar(250) DEFAULT NULL,
   `admin_password` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_ID`, `admin_naam`, `admin_voornaam`, `admin_email`, `admin_password`) VALUES
+(1, 'admin', 'admin', 'admin@sr.d', '1234');
 
 -- --------------------------------------------------------
 
@@ -89,6 +95,15 @@ CREATE TABLE `log` (
   `Logdatum` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`ID`, `StudentID`, `KlasID`, `Logdatum`) VALUES
+(1, 2, NULL, '2021-03-06 09:26:29'),
+(2, 2, NULL, '2021-03-06 09:29:34'),
+(3, 2, NULL, '2021-03-06 09:30:09');
+
 -- --------------------------------------------------------
 
 --
@@ -125,7 +140,7 @@ CREATE TABLE `studenten` (
 
 INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `Geboorteplaats`, `Student_email`, `Student_pincode`, `Saldo`, `img`, `IsActive`) VALUES
 (1, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 47.00, 'Kristof_Roberto_411525', 1),
-(2, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_298944', 1),
+(2, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 35.00, 'Smalman_Titus_298944', 1),
 (3, 'qwerty', 'qwerty', '2001-02-08', 'Paramaribo', 'test@gmail.com', '105605', 35.00, '', 0),
 (4, 'test', 'test', '2021-02-12', 'test', 'test@gmail.com', '879836', 40.00, '', 0),
 (5, 'test2', 'test2', '2000-02-01', 'Paramaribo', 'test3@gmail.com', '859470', 26.00, '', 0);
@@ -164,23 +179,33 @@ CREATE TABLE `student_template` (
 -- Table structure for table `template`
 --
 
-DROP TABLE IF EXISTS `template`;
-CREATE TABLE IF NOT EXISTS `template` (
-  `temp_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Path` varchar(255) DEFAULT NULL,
-  `naam` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`temp_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `template` (
+  `temp_ID` int(11) NOT NULL,
+  `Path` varchar(250) DEFAULT NULL,
+  `naam` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `upreq`
+-- Dumping data for table `template`
 --
 
 INSERT INTO `template` (`temp_ID`, `Path`, `naam`) VALUES
-(14, '6042fa575b7455.86275198.docx', 'ouderochtend'),
-(15, '6042fa946ef903.63851850.docx', 'admin'),
-(21, '6042fd8d7daf66.39004745.docx', 'Laatbrief'),
-(22, '6042fdcf9f9c20.72836880.docx', 'Dispensatiebrief');
+(1, '6043757fdce060.82060757.docx', 'daaaa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upreq`
+--
+
+CREATE TABLE `upreq` (
+  `ID` int(11) NOT NULL,
+  `Student_ID` int(5) NOT NULL,
+  `Bedrag` double(10,2) NOT NULL,
+  `Datum` date NOT NULL,
+  `Status` varchar(5) DEFAULT 'False',
+  `AccDatum` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -292,7 +317,7 @@ ALTER TABLE `vakken`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cijfers`
@@ -316,7 +341,7 @@ ALTER TABLE `klassen`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `richtingen`
@@ -346,13 +371,13 @@ ALTER TABLE `student_template`
 -- AUTO_INCREMENT for table `template`
 --
 ALTER TABLE `template`
-  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `upreq`
 --
 ALTER TABLE `upreq`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vakken`

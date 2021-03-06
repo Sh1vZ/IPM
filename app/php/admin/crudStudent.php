@@ -24,7 +24,7 @@ if (isset($_POST["insert"])) {
         echo 'errorEmpty';
     } else {
 
-        $sql = " INSERT INTO studenten(Voornaam,Achternaam,Geboortedatum,Geboorteplaats,Student_email,Student_pincode,img) VALUES('$Vnaam','$Anaam','$GebDatum','$GebPlaats','$Email','$pin','$a')";
+        $sql = " INSERT INTO studenten(Voornaam,Achternaam,Geboortedatum,Geboorteplaats,Student_email,Student_pincode,img,Saldo) VALUES('$Vnaam','$Anaam','$GebDatum','$GebPlaats','$Email','$pin','$a', 0)";
         $execute = mysqli_query($db, $sql);
         if ($execute == true) {
             echo "success";
