@@ -44,8 +44,7 @@ include_once("../../app/php/conn.php");
                 <tr>
                 <th>Student Naam</th>
                 <th>Bedrag</th>
-                <th>Datum</th>
-                <th>Accept</th>
+                <th>Datum Geaccepteerd</th>
                 </tr>
               </thead>
 
@@ -56,7 +55,7 @@ include_once("../../app/php/conn.php");
 
             <script>
                 var ajax = new XMLHttpRequest();
-                ajax.open("GET", "../../app/php/admin/data.php", true);
+                ajax.open("GET", "../../app/php/admin/accdata.php", true);
                 ajax.send();
 
                 ajax.onreadystatechange = function() {
@@ -66,13 +65,12 @@ include_once("../../app/php/conn.php");
 
                         var html = "";
                         for(var a = 0; a < data.length; a++) {
-                            var stud_ID = data[a].stud_ID;
                             var Achternaam = data[a].Achternaam;
                             var Voornaam = data[a].Voornaam;
                             var Bedrag = data[a].Bedrag;
-                            var Datum = data[a].Datum;
+                            var AccDatum = data[a].AccDatum;
 
-                            html += "<tr><td>" + Achternaam +  " " + Voornaam + "</td><td>" + "SRD " + Bedrag + "</td><td>" + Datum + "</td><td><form method='post'><input type='hidden' name='edit_id' value='"+stud_ID+"'><button class='btn btn-primary' type='submit' name='Acc'>Accept</button></form></td></tr>";
+                            html += "<tr><td>" + Achternaam +  " " + Voornaam + "</td><td>" + "SRD " + Bedrag + "</td><td>" + AccDatum + "</td></tr>";
 
                         }
 

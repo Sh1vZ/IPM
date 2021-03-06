@@ -18,7 +18,7 @@ return $colors[array_rand($colors)];
     <!-- Brand -->
     <div class="sidenav-header d-flex align-items-center">
       <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-        <img src="../../assets/img/brand/favicon.png" class="navbar-brand-img" alt="..."> IPM
+        <img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
       </a>
       <div class="ml-auto">
         <!-- Sidenav toggler -->
@@ -39,7 +39,7 @@ return $colors[array_rand($colors)];
           <li class="nav-item">
             <a class="nav-link <?php echo ($first_part == 'dashboard.php') ? "active" : "" ?>" href="./dashboard.php">
               <i class="fas fa-tachometer-alt <?=randomColors()?>"></i>
-              <span class="nav-link-text">Startpagina</span>
+              <span class="nav-link-text">Home</span>
             </a>
           </li>
           <li class="nav-item">
@@ -55,17 +55,11 @@ return $colors[array_rand($colors)];
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo ($first_part == 'Log-screen.php') ? "active" : "" ?>" href="./Log-screen.php">
-            <i class="fas fa-clipboard-list <?=randomColors()?>"></i>
-              <span class="nav-link-text">Log</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php echo ($first_part == 'studenten.php' || $first_part == 'docenten.php' || $first_part == 'richtingen.php'|| $first_part == 'vakken.php' ||$first_part == 'klassen.php' || $first_part == 'cijferlijsten.php' || $first_part == 'topup.php' ) ? "active" : "" ?>" href="#navbar-components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-components">
+            <a class="nav-link <?php echo ($first_part == 'studenten.php' || $first_part == 'docenten.php' || $first_part == 'richtingen.php'|| $first_part == 'vakken.php' ||$first_part == 'klassen.php' || $first_part == 'cijferlijsten.php' || $first_part == 'topup.php' || $first_part == 'accreq.php' ) ? "active" : "" ?>" href="#navbar-components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-components">
               <i class="ni ni-ui-04 <?=randomColors()?>"></i>
               <span class="nav-link-text">School</span>
             </a>
-            <div class="collapse <?php echo ($first_part == 'studenten.php' || $first_part == 'docenten.php' || $first_part == 'richtingen.php'|| $first_part == 'vakken.php' ||$first_part == 'klassen.php' || $first_part == 'cijferlijsten.php' || $first_part == 'topup.php' ) ? "show" : "" ?> " id="navbar-components">
+            <div class="collapse <?php echo ($first_part == 'studenten.php' || $first_part == 'docenten.php' || $first_part == 'richtingen.php'|| $first_part == 'vakken.php' ||$first_part == 'klassen.php' || $first_part == 'cijferlijsten.php' || $first_part == 'topup.php' || $first_part == 'accreq.php' ) ? "show" : "" ?> " id="navbar-components">
               <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
                   <a class="nav-link <?php echo ($first_part == 'studenten.php') ? "active" : "" ?>" href="./studenten.php">
@@ -109,6 +103,13 @@ return $colors[array_rand($colors)];
                     <span class="nav-link-text">Top-up tabel</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link <?php echo ($first_part == 'accreq.php') ? "active" : "" ?>" href="./accreq.php">
+                    <i class="fas fa-comment-dollar <?=randomColors()?>"></i>
+                    <span class="nav-link-text">Geaccepteerd Bedrag</span>
+                  </a>
+                </li>
+
 
               </ul>
             </div>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2021 at 05:26 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Mar 06, 2021 at 03:11 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,13 +35,6 @@ CREATE TABLE `admin` (
   `admin_email` varchar(250) DEFAULT NULL,
   `admin_password` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`admin_ID`, `admin_naam`, `admin_voornaam`, `admin_email`, `admin_password`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -69,13 +63,6 @@ CREATE TABLE `docenten` (
   `nummer` decimal(12,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `docenten`
---
-
-INSERT INTO `docenten` (`docent_ID`, `docent_naam`, `docent_email`, `nummer`) VALUES
-(1, 'Debbie', 'debbie@gmail.com', '531862');
-
 -- --------------------------------------------------------
 
 --
@@ -101,16 +88,6 @@ CREATE TABLE `log` (
   `KlasID` int(11) DEFAULT NULL,
   `Logdatum` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `log`
---
-
-INSERT INTO `log` (`ID`, `StudentID`, `KlasID`, `Logdatum`) VALUES
-(1, 28, NULL, '2021-03-03 12:18:57'),
-(2, 28, NULL, '2021-03-03 13:09:27'),
-(3, 28, NULL, '2021-03-03 13:15:22'),
-(4, 29, NULL, '2021-03-03 13:21:17');
 
 -- --------------------------------------------------------
 
@@ -138,8 +115,20 @@ CREATE TABLE `studenten` (
   `Student_email` varchar(50) DEFAULT NULL,
   `Student_pincode` varchar(50) DEFAULT NULL,
   `Saldo` double(10,2) DEFAULT NULL,
-  `img` varchar(240) NOT NULL
+  `img` varchar(240) NOT NULL,
+  `IsActive` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `studenten`
+--
+
+INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `Geboorteplaats`, `Student_email`, `Student_pincode`, `Saldo`, `img`, `IsActive`) VALUES
+(1, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 47.00, 'Kristof_Roberto_411525', 1),
+(2, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_298944', 1),
+(3, 'qwerty', 'qwerty', '2001-02-08', 'Paramaribo', 'test@gmail.com', '105605', 35.00, '', 0),
+(4, 'test', 'test', '2021-02-12', 'test', 'test@gmail.com', '879836', 40.00, '', 0),
+(5, 'test2', 'test2', '2000-02-01', 'Paramaribo', 'test3@gmail.com', '859470', 26.00, '', 0);
 
 -- --------------------------------------------------------
 
@@ -175,33 +164,23 @@ CREATE TABLE `student_template` (
 -- Table structure for table `template`
 --
 
-CREATE TABLE `template` (
-  `temp_ID` int(11) NOT NULL,
-  `Path` longblob DEFAULT NULL,
-  `naam` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `template`;
+CREATE TABLE IF NOT EXISTS `template` (
+  `temp_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Path` varchar(255) DEFAULT NULL,
+  `naam` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`temp_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `template`
+-- Dumping data for table `upreq`
 --
 
 INSERT INTO `template` (`temp_ID`, `Path`, `naam`) VALUES
-(2, 0x433a66616b657061746844616d61726973204a61636f74742062726965662031322066656220323032312e646f6378, 'laatbrief'),
-(5, 0x433a5c66616b65706174685c5a6f6f6d20636f6e74616374656e20696e7374727563746965732e646f6378, 'brieven');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `upreq`
---
-
-CREATE TABLE `upreq` (
-  `ID` int(11) NOT NULL,
-  `Student_ID` int(5) NOT NULL,
-  `Bedrag` int(5) NOT NULL,
-  `Datum` date NOT NULL,
-  `Status` varchar(5) DEFAULT 'False'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(14, '6042fa575b7455.86275198.docx', 'ouderochtend'),
+(15, '6042fa946ef903.63851850.docx', 'admin'),
+(21, '6042fd8d7daf66.39004745.docx', 'Laatbrief'),
+(22, '6042fdcf9f9c20.72836880.docx', 'Dispensatiebrief');
 
 -- --------------------------------------------------------
 
@@ -313,7 +292,7 @@ ALTER TABLE `vakken`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cijfers`
@@ -325,7 +304,7 @@ ALTER TABLE `cijfers`
 -- AUTO_INCREMENT for table `docenten`
 --
 ALTER TABLE `docenten`
-  MODIFY `docent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `docent_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `klassen`
@@ -337,7 +316,7 @@ ALTER TABLE `klassen`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `richtingen`
@@ -349,7 +328,7 @@ ALTER TABLE `richtingen`
 -- AUTO_INCREMENT for table `studenten`
 --
 ALTER TABLE `studenten`
-  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `studentklas`
@@ -367,13 +346,13 @@ ALTER TABLE `student_template`
 -- AUTO_INCREMENT for table `template`
 --
 ALTER TABLE `template`
-  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `upreq`
 --
 ALTER TABLE `upreq`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `vakken`

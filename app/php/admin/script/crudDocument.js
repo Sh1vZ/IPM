@@ -11,32 +11,34 @@ function load_data() {
 }
 
 $('#documentenform').on('submit', function(e) {
-    e.preventDefault();
-    var naam = $("#naam").val();
-    var path = $("#path").val();
-
-    $.ajax({
-        url: "../../app/php/admin/crudDocument.php",
-        method: "POST",
-        data: {
-            naam: naam,
-            path: path,
-          
-            insert: 1
-        },
-        success: function(data) {
-            if (data == 'success') {
-                Swal.fire({
-                    title: 'Successvol',
-                    text: "document succesvol ingevoerd",
-                    icon: 'success',
-                    confirmButtonColor: '#2e8b57',
-                    confirmButtonText: 'OK',
-                    allowOutsideClick: false
-                }).then((result) => {})
-                $('#documentenform').trigger("reset");
-                load_data();
-            }
+   
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: "../../app/php/admin/upload.php",
+            data: new FormData(this),
+            // dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function(){
+                $('.submit').attr("disabled","disabled");
+              
+            },
+   
+            success: function(data) {
+                if (data == 'success') {
+                    Swal.fire({
+                        title: 'Successvol',
+                        text: "Document succesvol ingevoerd",
+                        icon: 'success',
+                        confirmButtonColor: '#2e8b57',
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false
+                    }).then((result) => {})
+                    $('documentenform').trigger("reset");
+                    load_data();
+                }
             else if (data == 'exist') {
                 Swal.fire({
                     icon: 'error',
@@ -163,3 +165,46 @@ const updateDocument = (e) => {
         }
     })
 }
+
+$('#import-form-documenten').on('submit', function(e) {
+    e.preventDefault();
+    var naam = $("#naam").val();
+    var file = $("#file").val();
+    var student= $("#student").val();
+
+    $.ajax({
+        url: "../../app/php/admin/export.php",
+        method: "POST",
+        data: {
+            naam: naam,
+            file: file,
+            student: student,
+           
+          
+            insert: 1
+        },
+        success: function(data) {
+            if (data == 'success') {
+                Swal.fire({
+                    title: 'Successvol',
+                    text: "Laatbrief succesvol ingevoerd",
+                    icon: 'success',
+                    confirmButtonColor: '#2e8b57',
+                    confirmButtonText: 'OK',
+                    allowOutsideClick: false
+                }).then((result) => {})
+                $('#import-form-documenten').trigger("reset");
+                load_data();
+            }
+            else if (data == 'exist') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Probeer opnieuw...',
+                    text: 'Laatbrief bestaat al!',
+                 
+                  })
+            }
+        }
+    });
+});
+
