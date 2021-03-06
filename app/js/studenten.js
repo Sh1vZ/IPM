@@ -40,3 +40,14 @@ $("#studentenForm").on('submit', (function(e) {
         },
     });
 }));
+
+
+const Getsaldo = () => {
+    $.ajax({
+        method: "POST",
+        url: "../../app/php/admin/getSaldo.php",
+        success: function(data) {
+            $('#valSaldo').html(`Saldo: SRD ${data}`);
+        }
+    });
+}

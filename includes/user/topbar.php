@@ -4,16 +4,6 @@
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <!-- Navbar links -->
        <ul class="navbar-nav align-items-center ml-md-auto">
-         <li class="nav-item d-xl-none">
-           <!-- Sidenav toggler -->
-           <div class="pr-3 sidenav-toggler sidenav-toggler-light" data-action="sidenav-pin" data-target="#sidenav-main">
-             <div class="sidenav-toggler-inner">
-               <i class="sidenav-toggler-line"></i>
-               <i class="sidenav-toggler-line"></i>
-               <i class="sidenav-toggler-line"></i>
-             </div>
-           </div>
-         </li>
          <ul class="navbar-nav align-items-center ml-auto ml-md-0">
            <li class="nav-item dropdown">
              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

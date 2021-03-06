@@ -43,7 +43,7 @@ $("#file").change(function() {
 						<div class="card-header border-0">
 							<div class="row">
 								<div class="col-6">
-									<h3 class="mb-0">Striped table</h3>
+									<h3 class="mb-0">Documenten</h3>
 								</div>
 								<div class="col-6 text-right">
 									<a href="#" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">

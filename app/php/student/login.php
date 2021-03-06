@@ -19,6 +19,7 @@ if (!empty($_POST['qrcode'])) {
     session_start();
     
     $_SESSION['Achternaam'] = $result['Achternaam'];
+    $_SESSION['stud_ID'] = $result['stud_ID'];
     $_SESSION['IsActive'] = TRUE;
     echo "success";
           $insertquery = "INSERT INTO log (StudentID)
@@ -34,12 +35,3 @@ if (!empty($_POST['qrcode'])) {
   }
 }
 
-//   if($_SESSION['IsActive']=TRUE){
-//     $insertquery = "INSERT INTO log (StudentID)
-//     SELECT stud_ID
-//     FROM studenten
-//     WHERE Achternaam";
-//      $res = mysqli_query($conn, $insertquery);
-  
-//     }
-// }

@@ -7,10 +7,6 @@ if(!isset($_SESSION['user_session'])){
 include_once("../../app/php/conn.php");
 
 
-$sql = "SELECT admin_ID, admin_naam, admin_password FROM admin  WHERE admin_ID='".$_SESSION['user_session']."'";
-$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-$row = mysqli_fetch_assoc($resultset);
-
 ?>
 
 
@@ -49,7 +45,8 @@ $row = mysqli_fetch_assoc($resultset);
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+									<h5 class="card-title text-uppercase text-muted mb-0">Totaal verkeer</h5>
+							
 									<span class="h2 font-weight-bold mb-0">350,897</span>
 								</div>
 								<div class="col-auto">
@@ -67,8 +64,8 @@ $row = mysqli_fetch_assoc($resultset);
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-									<span class="h2 font-weight-bold mb-0">2,356</span>
+									<h5 class="card-title text-uppercase text-muted mb-0">Gebruikers</h5>
+									<span class="h2 font-weight-bold mb-0">26</span>
 								</div>
 								<div class="col-auto">
 									<div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -85,7 +82,7 @@ $row = mysqli_fetch_assoc($resultset);
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+									<h5 class="card-title text-uppercase text-muted mb-0">Verzoeken</h5>
 									<span class="h2 font-weight-bold mb-0">924</span>
 								</div>
 								<div class="col-auto">
@@ -103,7 +100,7 @@ $row = mysqli_fetch_assoc($resultset);
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+									<h5 class="card-title text-uppercase text-muted mb-0">Prestatie</h5>
 									<span class="h2 font-weight-bold mb-0">49,65%</span>
 								</div>
 								<div class="col-auto">
@@ -125,7 +122,7 @@ $row = mysqli_fetch_assoc($resultset);
 									<h3 class="mb-0">Log</h3>
 								</div>
 								<div class="col text-right">
-									<a href="#!" class="btn btn-sm btn-primary">See all</a>
+									<a href="./Log-screen.php" class="btn btn-sm btn-primary">Alles bezichtigen</a>
 								</div>
 							</div>
 						</div>
@@ -206,6 +203,7 @@ $row = mysqli_fetch_assoc($resultset);
 					
 <script src="../../app/php/admin/script/log.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 <script>
 $(document).ready(function(){  
 	load_data();

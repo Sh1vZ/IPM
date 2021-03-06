@@ -4,6 +4,7 @@
 <html>
 
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<?php
 	include "../../includes/admin/head.php"
 	?>
@@ -14,7 +15,7 @@
 	<!-- Main content -->
 	<div class="main-content" id="panel">
 		<?php
-		include "../../includes/admin/topbar.php"
+		include "../../includes/user/topbar.php"
 		?>
 		<!-- Header -->
 		<!-- Header -->
@@ -23,58 +24,10 @@
 		</div>
 		<!-- Page content -->
 		<div class="container-fluid mt--6">
-
-			<!-- <div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<h1 class="text-center">yo</h1>
-					<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae.</p>
-						<div class="row pt-4 pl-4 pr-4">
-						<div class="col-md-4">
-								<div class="card">
-									<img  style="height: 300px; width:300px; margin:0 auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Circle-icons-document.svg/1024px-Circle-icons-document.svg.png" class="card-img-top" alt="..." />
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">
-											Some quick example text to build on the card title and make up the bulk of the
-											card's content.
-										</p>
-										<a href="#!" class="btn  btn-primary" style="width: 100%;">Download $14</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="card">
-									<img  style="height: 300px; width:300px; margin:0 auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Circle-icons-document.svg/1024px-Circle-icons-document.svg.png" class="card-img-top" alt="..." />
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">
-											Some quick example text to build on the card title and make up the bulk of the
-											card's content.
-										</p>
-										<a href="#!" class="btn  btn-primary" style="width: 100%;">Download $14</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="card">
-									<img  style="height: 300px; width:300px; margin:0 auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Circle-icons-document.svg/1024px-Circle-icons-document.svg.png" class="card-img-top" alt="..." />
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">
-											Some quick example text to build on the card title and make up the bulk of the
-											card's content.
-										</p>
-										<a href="#!" class="btn  btn-primary" style="width: 100%;">Download $14</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 			<div class="row">
 				<div class="col-md-12">
+					<h3 id='valSaldo' class="text-right">
+						</h3>
 					<div class="card">
 						<h1 class="text-center">yo, <?= $_SESSION['Achternaam'] ?></h1>
 						<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, beatae.</p>
@@ -159,35 +112,64 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action="" id="districten-form">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="form-group">
-											<label for="">Bedrag</label>
-											<div class="input-group input-group-merge">
-												<div class="input-group-prepend">
-													<span class="input-group-text"><i class="fas fa-wallet"></i></span>
+							<div style="margin: auto;width: 60%;">
+								<div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+								</div>
+								<p id="message"></p>
+								<form action="" id="bedragForm">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="">Bedrag</label>
+												<div class="input-group input-group-merge">
+													<div class="input-group-prepend">
+														<span class="input-group-text"><i class="fas fa-wallet"></i></span>
+													</div>
+													<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" min="1.0" max="50.0">
 												</div>
-												<input class="form-control" placeholder="Bedrag" id="#" type="number" min="1.0" max="50.0">
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">Toevoegen</button>
-									<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-								</div>
-							</form>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary">Toevoegen</button>
+										<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- Footer -->
-			<?php
-			include "../../includes/admin/footer.php"
-			?>
 
+				<!-- Footer -->
+				<?php
+				include "../../includes/admin/footer.php"
+
+				?>
+				 <script src="../../app/js/studenten.js"></script>
+				<script>
+					$(document).ready(function() {
+						$("#bedragForm").submit(function(e) {
+							e.preventDefault();
+							var bedrag = $('#bedrag').val();
+							$.ajax({
+								url: "../../app/php/student/bedrag.php",
+								method: "post",
+								data: {
+									bedrag: bedrag
+								},
+								dataType: "text",
+								success: function(strMessage) {
+									$("#message").text(strMessage);
+									$("#bedragForm")[0].reset();
+								}
+							});
+						});
+
+						Getsaldo();
+					});
+				</script>
 </body>
 
 </html>

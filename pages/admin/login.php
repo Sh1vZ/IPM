@@ -66,8 +66,8 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                            <h1 class="text-white">Welcome!</h1>
-                            <p class="text-lead text-white">Vul gegevens in.</p>
+                            <h1 class="text-white">Welkom!</h1>
+                            <p class="text-lead text-white">Vul uw inloggegevens in.</p>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         <div class="card-header bg-transparent pb-4">
 
                             <div class="text-muted text-center mt-2 mb-3">
-                                <h3>Sign in</h3>
+                                <h3>Log in</h3>
                             </div>
                             <span id="error">
                         </div>
@@ -101,7 +101,7 @@
                                             <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                                         </div>
 
-                                        <input class="form-control" placeholder="Naam" id="username" type="text" name="username" required>
+                                        <input class="form-control" placeholder="Gebruikersnaam" id="username" type="text" name="username" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" name="login_button" id="login_button" class="btn btn-primary my-4">Sign in</button>
+                                    <button type="submit" name="login_button" id="login_button" class="btn btn-primary my-4">Log in</button>
                                 </div>
                             </form>
 
@@ -148,6 +148,7 @@
     <script src="../../assets/js/ipm.js"></script>
     <script src="../../app/php/admin/script/login.js"></script>
     <script src="../../app/php/admin/script/validation.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 </body>
