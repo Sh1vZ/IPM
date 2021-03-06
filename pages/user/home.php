@@ -41,7 +41,7 @@
 												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">SRD 1,00</h4>
 											<div class="mt-4 text-center">
 												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
 											</div>
@@ -56,7 +56,7 @@
 												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">SRD 1,00</h4>
 											<div class="mt-4 text-center">
 												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
 											</div>
@@ -71,7 +71,7 @@
 												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">SRD 1,00</h4>
 											<div class="mt-4 text-center">
 												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
 											</div>
@@ -86,7 +86,7 @@
 												<p class="text-justify para mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, quo?</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">$13.99</h4>
+											<h4 class="text-center mt-6">SRD 1,00</h4>
 											<div class="mt-4 text-center">
 												<button class=" btn btn-primary " style="width: auto;" type="button">Download</button>
 											</div>
@@ -126,7 +126,7 @@
 													<div class="input-group-prepend">
 														<span class="input-group-text"><i class="fas fa-wallet"></i></span>
 													</div>
-													<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" step='0.01'  max="50.00">
+													<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" min="1.0" max="50.0">
 												</div>
 											</div>
 										</div>
@@ -150,8 +150,24 @@
 				 <script src="../../app/js/studenten.js"></script>
 				<script>
 					$(document).ready(function() {
+						$("#bedragForm").submit(function(e) {
+							e.preventDefault();
+							var bedrag = $('#bedrag').val();
+							$.ajax({
+								url: "../../app/php/student/bedrag.php",
+								method: "post",
+								data: {
+									bedrag: bedrag
+								},
+								dataType: "text",
+								success: function(strMessage) {
+									$("#message").text(strMessage);
+									$("#bedragForm")[0].reset();
+								}
+							});
+						});
+
 						Getsaldo();
-						const refInterval = window.setInterval('Getsaldo()', 5000);
 					});
 				</script>
 </body>

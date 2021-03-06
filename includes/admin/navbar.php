@@ -39,7 +39,7 @@ return $colors[array_rand($colors)];
           <li class="nav-item">
             <a class="nav-link <?php echo ($first_part == 'dashboard.php') ? "active" : "" ?>" href="./dashboard.php">
               <i class="fas fa-tachometer-alt <?=randomColors()?>"></i>
-              <span class="nav-link-text">Home</span>
+              <span class="nav-link-text">Startpagina</span>
             </a>
           </li>
           <li class="nav-item">
