@@ -19,6 +19,6 @@ if ($result->num_rows > 0) {
 <?php
   }
 } else {
-  echo "0 results";
+  echo "Geen resultaten, voeg dit zelfs toe";
 }
 ?>
