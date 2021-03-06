@@ -1,7 +1,8 @@
 <?php
-
+include(dirname(__FILE__) . "/../conn.php");
 if(isset($_POST['Acc'])){
-  $id = $_POST['edit_id'];
+  $id = $_POST['id'];
+  $rid = $_POST['rid'];
   $dt=date("Y-m-d");
     $sql  = "SELECT * FROM studenten WHERE stud_ID='$id'";
     $res = mysqli_query($conn, $sql);
@@ -10,12 +11,12 @@ if(isset($_POST['Acc'])){
       $res1 = mysqli_query($conn, $sql1);
 
       if ($res1) {
-        $sql2  = "UPDATE studenten INNER JOIN upreq ON studenten.stud_ID = upreq.Student_ID SET Saldo = Saldo + Bedrag WHERE stud_ID='$id'";
+        $sql2  = "UPDATE studenten INNER JOIN upreq ON studenten.stud_ID = upreq.Student_ID SET Saldo = Saldo + Bedrag WHERE stud_ID='$id' AND ID=$rid";
         $res2 = mysqli_query($conn, $sql2);
 
       }
       if ($res2) {
-        echo '<script>alert("Opwaardering geaccepteerd")</script>';
+        echo 'success';
 
       }
     } else {

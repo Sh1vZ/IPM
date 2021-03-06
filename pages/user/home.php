@@ -126,7 +126,7 @@
 													<div class="input-group-prepend">
 														<span class="input-group-text"><i class="fas fa-wallet"></i></span>
 													</div>
-													<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" min="1.0" max="50.0">
+													<input class="form-control" placeholder="Bedrag" id="bedrag" type="number" step='0.01'  max="50.00">
 												</div>
 											</div>
 										</div>
@@ -150,24 +150,8 @@
 				 <script src="../../app/js/studenten.js"></script>
 				<script>
 					$(document).ready(function() {
-						$("#bedragForm").submit(function(e) {
-							e.preventDefault();
-							var bedrag = $('#bedrag').val();
-							$.ajax({
-								url: "../../app/php/student/bedrag.php",
-								method: "post",
-								data: {
-									bedrag: bedrag
-								},
-								dataType: "text",
-								success: function(strMessage) {
-									$("#message").text(strMessage);
-									$("#bedragForm")[0].reset();
-								}
-							});
-						});
-
 						Getsaldo();
+						const refInterval = window.setInterval('Getsaldo()', 5000);
 					});
 				</script>
 </body>

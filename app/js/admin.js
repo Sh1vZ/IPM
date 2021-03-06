@@ -55,3 +55,67 @@ $("#import-form").on('submit', (function(e) {
         },
     });
 }));
+
+
+
+const acceptBedrag = (id, f) => {
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Bent u zeker?',
+        text: `U gaat dit bedrag accepteren`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ja,accepteer!',
+        cancelButtonText: 'Annuleren!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "../../app/php/admin/accbedrag.php",
+                type: "POST",
+                cache: false,
+                data: {
+                    id: id,
+                    rid: f,
+                    Acc: 1
+                },
+                success: function(data) {
+                    if (data == "success") {
+                        Swal.fire({
+                            title: 'Successvol',
+                            text: "Bedrag geaccepteerd.",
+                            icon: 'success',
+                            confirmButtonColor: '#2e8b57',
+                            confirmButtonText: 'Ok',
+                            allowOutsideClick: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload()
+                            }
+                        })
+                    }
+                }
+            });
+
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Anuleerd',
+                'U heeft niets geaccepteerd',
+                'error'
+            )
+        }
+    })
+
+
+}

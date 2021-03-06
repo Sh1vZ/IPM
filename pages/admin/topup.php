@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("../../app/php/conn.php");
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -36,67 +36,63 @@ include_once("../../app/php/conn.php");
 							<div class="row">
 								<div class="col-6">
 									<h3 class="mb-0">Top-up</h3>
-							</div>
+								</div>
 							</div>
 						</div>
-            <table class="table align-items-center table-flush table-striped">
-              <thead class="thead-light">
-                <tr>
-                <th>Student Naam</th>
-                <th>Bedrag</th>
-                <th>Datum</th>
-                <th>Accept</th>
-                </tr>
-              </thead>
+						<table class="table align-items-center table-flush table-striped">
+							<thead class="thead-light">
+								<tr>
+									<th>Student Naam</th>
+									<th>Bedrag</th>
+									<th>Datum</th>
+									<th>Accept</th>
+								</tr>
+							</thead>
 
 
-                <tbody id="data"></tbody>
-            </table>
+							<tbody id="data"></tbody>
+						</table>
 
 
-            <script>
-                var ajax = new XMLHttpRequest();
-                ajax.open("GET", "../../app/php/admin/data.php", true);
-                ajax.send();
+						<script>
+							var ajax = new XMLHttpRequest();
+							ajax.open("GET", "../../app/php/admin/data.php", true);
+							ajax.send();
 
-                ajax.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var data = JSON.parse(this.responseText);
-                        console.log(data);
+							ajax.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var data = JSON.parse(this.responseText);
+									console.log(data);
 
-                        var html = "";
-                        for(var a = 0; a < data.length; a++) {
-                            var stud_ID = data[a].stud_ID;
-                            var Achternaam = data[a].Achternaam;
-                            var Voornaam = data[a].Voornaam;
-                            var Bedrag = data[a].Bedrag;
-                            var Datum = data[a].Datum;
+									var html = "";
+									for (var a = 0; a < data.length; a++) {
+										var stud_ID = data[a].stud_ID;
+										var Achternaam = data[a].Achternaam;
+										var Voornaam = data[a].Voornaam;
+										var Bedrag = data[a].Bedrag;
+										var Datum = data[a].Datum;
+										var ID = data[a].ID;
 
-                            html += "<tr><td>" + Achternaam +  " " + Voornaam + "</td><td>" + "SRD " + Bedrag + "</td><td>" + Datum + "</td><td><form method='post'><input type='hidden' name='edit_id' value='"+stud_ID+"'><button class='btn btn-primary' type='submit' name='Acc'>Accept</button></form></td></tr>";
+										html += "<tr><td>" + Achternaam + " " + Voornaam + "</td><td>" + "SRD " + Bedrag + "</td><td>" + Datum + `</td><td><button class='btn btn-primary' onclick=acceptBedrag(${stud_ID},${ID})>Accept</button></td></tr>`;
 
-                        }
+									}
 
-                        document.getElementById("data").innerHTML += html;
+									document.getElementById("data").innerHTML += html;
 
-                    }
+								}
 
-                };
-
-            </script>
-
-						</div>
+							};
+						</script>
 					</div>
+				</div>
+			</div>
 
-					<!-- Footer -->
-					<?php
-					include "../../includes/admin/footer.php";
-          include "../../app/php/admin/accbedrag.php";
+			<!-- Footer -->
+			<?php
+			include "../../includes/admin/footer.php";
+			include "../../app/php/admin/accbedrag.php";
 
-					?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="ajax-script.js"></script>
-
+			?>
 </body>
 
 </html>

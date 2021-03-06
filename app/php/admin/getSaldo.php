@@ -14,6 +14,11 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   while ($row = mysqli_fetch_assoc($res)) {
     $saldo = $row['Saldo'];
   }
-  echo $saldo;
+  if ($saldo == NULL) {
+    echo "00.00";
+  } else {
+
+    echo $saldo;
+  }
 }
 mysqli_stmt_close($stmt);

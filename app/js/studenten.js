@@ -41,6 +41,45 @@ $("#studentenForm").on('submit', (function(e) {
     });
 }));
 
+$("#bedragForm").submit(function(e) {
+    e.preventDefault();
+    var bedrag = $('#bedrag').val();
+    $.ajax({
+        url: "../../app/php/student/bedrag.php",
+        method: "post",
+        data: {
+            bedrag: bedrag
+        },
+        dataType: "text",
+        success: function(data) {
+            if (data == 'exist') {
+                Swal.fire({
+                    title: 'Error',
+                    text: "U heeft al een opvraag gedaan.",
+                    icon: 'error',
+                    confirmButtonColor: '#2e8b57',
+                    confirmButtonText: 'Ok',
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {}
+                })
+            }
+            if (data == 'success') {
+                Swal.fire({
+                    title: 'Successvol',
+                    text: "Bedrag opvraag gestuurd.",
+                    icon: 'success',
+                    confirmButtonColor: '#2e8b57',
+                    confirmButtonText: 'Ok',
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {}
+                    $("#bedragForm")[0].reset();
+                })
+            }
+        }
+    });
+});
 
 const Getsaldo = () => {
     $.ajax({
