@@ -32,12 +32,12 @@
 								<div class="col-6">
 									<h3 class="mb-0">Studenten log</h3>
 									<br>
-									<h4 class="mb-0">Login</h4>
+									<h4 class="mb-0">Opwaardeer log</h4>
 								</div>
 								<div class="col-6 text-right">
-								<button  type="button" onclick="opwaardeer()" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Student opwaardering">
+									<button  type="button" onclick="login()" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Student Login">
 										<span class="btn-inner--icon"><i class="fas fa-forward"></i></span>
-										<span class="btn-inner--text">Student opwaardering</span>
+										<span class="btn-inner--text">Student login</span>
                                     </button>
 								</div>
 							</div>
@@ -47,13 +47,13 @@
 							<table class="table align-items-center table-flush table-striped">
 								<thead class="thead-light">
 									<tr>
-										<th>Student voornaam</th>
-										<th>Student achternaam</th>
-										<th>email adress</th>
-										<th>Inlogdatum</th>
+										<th>Student</th>
+										<th>Bedrag</th>
+										<th>Datum aangevraagd</th>
+										<th>Datum geaccepteerd</th>
 									</tr>
 								</thead>
-								<tbody id="table1">
+								<tbody id="table2">
 									
 								</tbody>
 							</table>
@@ -72,8 +72,8 @@ $(document).ready(function(){
 	load_data();
 
 });
-function opwaardeer() {
-    location.replace("./opwaardeerLog.php")
+function login() {
+    location.replace("./Log-screen.php")
   }
 </script>
 

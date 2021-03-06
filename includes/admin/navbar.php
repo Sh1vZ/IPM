@@ -55,6 +55,18 @@ return $colors[array_rand($colors)];
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link <?php echo ($first_part == 'Log-screen.php') ? "active" : "" ?>" href="./Log-screen.php">
+            <i class="fas fa-clipboard-list <?=randomColors()?>"></i>
+              <span class="nav-link-text">Studenten log</span>
+            </a>
+          </li>
+          <li class="nav-item">
+                  <a class="nav-link <?php echo ($first_part == 'topup.php') ? "active" : "" ?>" href="./topup.php">
+                    <i class="fas fa-comment-dollar <?=randomColors()?>"></i>
+                    <span class="nav-link-text">Top-up verzoeken</span>
+                  </a>
+                </li>
+          <li class="nav-item">
             <a class="nav-link <?php echo ($first_part == 'studenten.php' || $first_part == 'docenten.php' || $first_part == 'richtingen.php'|| $first_part == 'vakken.php' ||$first_part == 'klassen.php' || $first_part == 'cijferlijsten.php' || $first_part == 'topup.php' || $first_part == 'accreq.php' ) ? "active" : "" ?>" href="#navbar-components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-components">
               <i class="ni ni-ui-04 <?=randomColors()?>"></i>
               <span class="nav-link-text">School</span>
@@ -97,18 +109,8 @@ return $colors[array_rand($colors)];
                     <span class="nav-link-text">Cijferlijsten</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link <?php echo ($first_part == 'topup.php') ? "active" : "" ?>" href="./topup.php">
-                    <i class="fas fa-comment-dollar <?=randomColors()?>"></i>
-                    <span class="nav-link-text">Top-up tabel</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link <?php echo ($first_part == 'accreq.php') ? "active" : "" ?>" href="./accreq.php">
-                    <i class="fas fa-comment-dollar <?=randomColors()?>"></i>
-                    <span class="nav-link-text">Geaccepteerd Bedrag</span>
-                  </a>
-                </li>
+             
+               
 
 
               </ul>

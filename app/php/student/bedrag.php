@@ -7,9 +7,9 @@ $dt=date("Y-m-d");
 $bedrag=$_POST['bedrag'];
 $sql = "INSERT INTO upreq (ID, Student_ID, Bedrag, Datum, Status) VALUES (NULL, '$stud_ID', '$bedrag', '$dt', 'False')";
 if (mysqli_query($conn, $sql)) {
-echo "data inserted";}
+echo "Opwaardeer aanvraag succesvol!";}
 else {
-echo "failed";
+echo "Opwaardering mislukt, probeer opnieuw!";
 }
 mysqli_close($conn);
 
