@@ -18,7 +18,7 @@ return $colors[array_rand($colors)];
     <!-- Brand -->
     <div class="sidenav-header d-flex align-items-center">
       <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-        <img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+        <img src="../../assets/img/brand/logo.png" class="navbar-brand-img" alt="...">
       </a>
       <div class="ml-auto">
         <!-- Sidenav toggler -->
