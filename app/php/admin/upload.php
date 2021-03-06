@@ -20,7 +20,7 @@ if(isset($_POST['name'])|| isset($_POST['file'])){
     if(in_array($fileActualExt, $allowed)){
        if($fileError === 0){
          $fileNameNew = uniqid('', true).".". $fileActualExt;
-         $fileDestination = 'uploadDoc/'.$fileNameNew;
+         $fileDestination = '../../../app/uploads/documenten/'.$fileNameNew;
          move_uploaded_file($fileTmpName, $fileDestination);
 
          $sql =" INSERT INTO template (naam,Path) VALUES('$naam','$fileNameNew')";
