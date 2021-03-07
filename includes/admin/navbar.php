@@ -17,8 +17,8 @@ return $colors[array_rand($colors)];
   <div class="scrollbar-inner">
     <!-- Brand -->
     <div class="sidenav-header d-flex align-items-center">
-      <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-        <img src="../../assets/img/brand/logo.png" class="navbar-brand-img" alt="...">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/img/brand/favicon.png" class="navbar-brand-img" alt="..." style="max-height:4rem"> IPM
       </a>
       <div class="ml-auto">
         <!-- Sidenav toggler -->
