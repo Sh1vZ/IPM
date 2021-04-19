@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2021 at 07:06 PM
+-- Generation Time: Apr 19, 2021 at 10:32 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -50,8 +50,9 @@ INSERT INTO `admin` (`admin_ID`, `admin_naam`, `admin_voornaam`, `admin_email`, 
 
 CREATE TABLE `cijfers` (
   `cijf_ID` int(11) NOT NULL,
-  `StudentKlasID` int(11) DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
   `VakID` int(11) DEFAULT NULL,
+  `klas_id` int(11) NOT NULL,
   `Periode` int(11) DEFAULT NULL,
   `Cijfer` decimal(2,1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -69,6 +70,15 @@ CREATE TABLE `docenten` (
   `nummer` decimal(12,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `docenten`
+--
+
+INSERT INTO `docenten` (`docent_ID`, `docent_naam`, `docent_email`, `nummer`) VALUES
+(1, 'Juf wiskunde', 'gicaxu@mailinator.com', '68'),
+(2, 'juf engels', 'macun@mailinator.com', '29'),
+(3, 'juf ned', 'qifijarubo@mailinator.com', '9');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +91,14 @@ CREATE TABLE `klassen` (
   `RichtingID` int(11) DEFAULT NULL,
   `Klas_docent` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `klassen`
+--
+
+INSERT INTO `klassen` (`ID`, `Klas`, `RichtingID`, `Klas_docent`) VALUES
+(1, '2.06', 1, 1),
+(2, '3.06', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -95,15 +113,6 @@ CREATE TABLE `log` (
   `Logdatum` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `log`
---
-
-INSERT INTO `log` (`ID`, `StudentID`, `KlasID`, `Logdatum`) VALUES
-(1, 2, NULL, '2021-03-06 09:26:29'),
-(2, 2, NULL, '2021-03-06 09:29:34'),
-(3, 2, NULL, '2021-03-06 09:30:09');
-
 -- --------------------------------------------------------
 
 --
@@ -114,6 +123,14 @@ CREATE TABLE `richtingen` (
   `richting_ID` int(11) NOT NULL,
   `Richtingnaam` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `richtingen`
+--
+
+INSERT INTO `richtingen` (`richting_ID`, `Richtingnaam`) VALUES
+(1, 'ict'),
+(2, 'wtb');
 
 -- --------------------------------------------------------
 
@@ -139,11 +156,8 @@ CREATE TABLE `studenten` (
 --
 
 INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `Geboorteplaats`, `Student_email`, `Student_pincode`, `Saldo`, `img`, `IsActive`) VALUES
-(1, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 47.00, 'Kristof_Roberto_411525', 1),
-(2, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 35.00, 'Smalman_Titus_298944', 1),
-(3, 'qwerty', 'qwerty', '2001-02-08', 'Paramaribo', 'test@gmail.com', '105605', 35.00, '', 0),
-(4, 'test', 'test', '2021-02-12', 'test', 'test@gmail.com', '879836', 40.00, '', 0),
-(5, 'test2', 'test2', '2000-02-01', 'Paramaribo', 'test3@gmail.com', '859470', 26.00, '', 0);
+(5, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 32.00, 'Kristof_Roberto_848438', 0),
+(6, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_898330', 0);
 
 -- --------------------------------------------------------
 
@@ -221,6 +235,15 @@ CREATE TABLE `vakken` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `vakken`
+--
+
+INSERT INTO `vakken` (`vak_ID`, `Vaknaam`, `Vak_docent`, `Vak_richting`) VALUES
+(1, 'wiskunde', 1, 1),
+(2, 'engels', 2, 2),
+(4, 'nederlands', 3, 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -235,8 +258,9 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `cijfers`
   ADD PRIMARY KEY (`cijf_ID`),
-  ADD KEY `cijfers_ibfk_1` (`StudentKlasID`),
-  ADD KEY `cijfers_ibfk_2` (`VakID`);
+  ADD KEY `cijfers_ibfk_2` (`VakID`),
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `klas_id` (`klas_id`);
 
 --
 -- Indexes for table `docenten`
@@ -329,13 +353,13 @@ ALTER TABLE `cijfers`
 -- AUTO_INCREMENT for table `docenten`
 --
 ALTER TABLE `docenten`
-  MODIFY `docent_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `docent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `klassen`
 --
 ALTER TABLE `klassen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `log`
@@ -347,13 +371,13 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `richtingen`
 --
 ALTER TABLE `richtingen`
-  MODIFY `richting_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `richting_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `studenten`
 --
 ALTER TABLE `studenten`
-  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `studentklas`
@@ -383,7 +407,7 @@ ALTER TABLE `upreq`
 -- AUTO_INCREMENT for table `vakken`
 --
 ALTER TABLE `vakken`
-  MODIFY `vak_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vak_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -393,8 +417,9 @@ ALTER TABLE `vakken`
 -- Constraints for table `cijfers`
 --
 ALTER TABLE `cijfers`
-  ADD CONSTRAINT `cijfers_ibfk_1` FOREIGN KEY (`StudentKlasID`) REFERENCES `studentklas` (`st_klas_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cijfers_ibfk_2` FOREIGN KEY (`VakID`) REFERENCES `vakken` (`vak_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cijfers_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `studenten` (`stud_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cijfers_ibfk_2` FOREIGN KEY (`VakID`) REFERENCES `vakken` (`vak_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cijfers_ibfk_3` FOREIGN KEY (`klas_id`) REFERENCES `klassen` (`ID`);
 
 --
 -- Constraints for table `klassen`
