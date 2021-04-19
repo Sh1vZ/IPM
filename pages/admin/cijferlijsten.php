@@ -157,46 +157,35 @@
 						</div>
 					</div>
 					<button type="button" class="fab" data-toggle="modal" data-target="#modal"><i class="ni ni-fat-add ni-2x"></i></button>
-
 					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Cijferlijsten Registratie</h6>
+									<h6 class="modal-title" id="modal-title-default">Cijfers Importeren</h6>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="" id="districten-form">
+									<!-- importeer modal -->
+									<form action="" id="cijfer-import-form" >
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-12">
 												<div class="form-group">
-													<label for="">INPUT</label>
+													<label for="">File:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="text">
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="">INPUT</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-														</div>
-														<input class="form-control" placeholder="Input 1" id="#" type="text">
+														<input class="form-control" name='data' placeholder="Input 1" id="#" type="file" accept=".xls,.xlsx">
 													</div>
 												</div>
 											</div>
 										</div>
-
 										<div class="modal-footer">
-											<button type="button" class="btn btn-primary">Toevoegen</button>
-											<button type="button" class="btn btn-success ml-auto">Import</button>
+										<div class="import">
+											<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>
+										</div>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>

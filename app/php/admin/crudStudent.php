@@ -82,7 +82,16 @@ if (isset($_POST['updateStudent'])) {
                         echo "success";
                     }
                 } else {
-                    echo "sqlError";
+                   $b = generateQrcode($Anaam, $Vnaam, $pin);
+                    $a = Generate($Anaam, $Vnaam, $GebDatum, $Email, $b);
+                    mysqli_stmt_bind_param($stmt, "ssssssi", $Anaam, $Vnaam, $GebDatum, $GebPlaats, $Email, $a, $id);
+                    mysqli_stmt_execute($stmt);
+                    if (mysqli_errno($conn) == 1062) {
+                        echo "exist";
+                    } else {
+                        // header("Location:../../pages/admin/studenten.php");
+                        echo "success";
+                    }
                 }
             }
         }
