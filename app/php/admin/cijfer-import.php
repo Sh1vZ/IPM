@@ -63,11 +63,17 @@ if ($_FILES['data']['name'] == "") {
         if (mysqli_num_rows($ress) > 0) {
           while ($row = mysqli_fetch_assoc($ress)) {
             $sid   = $row['stud_ID'];
+            $sel = "SELECT * FROM cijfers WHERE student_id=$sid AND VakID=$vid AND klas_id=$kid";
+            $result = mysqli_query($conn, $sel);
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+              }
+            } else {
+              $insert = "INSERT INTO cijfers (student_id,VakID,klas_id,Periode,Cijfer) VALUES ($sid,$vid,$kid,'$data[5]',$data[6])";
+              $ex = mysqli_query($conn, $insert);
+            }
           }
         }
-
-        $insert = "INSERT INTO cijfers (student_id,VakID,klas_id,Periode,Cijfer) VALUES ($sid,$vid,$kid,'$data[5]',$data[6])";
-        $ex = mysqli_query($conn, $insert);
       } else {
         $isheader = 1;
         $data = [];
