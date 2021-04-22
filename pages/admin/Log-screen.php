@@ -35,10 +35,10 @@
 									<h4 class="mb-0">Login</h4>
 								</div>
 								<div class="col-6 text-right">
-								<button  type="button" onclick="opwaardeer()" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Student opwaardering">
+									<button type="button" onclick="opwaardeer()" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip" data-original-title="Student opwaardering">
 										<span class="btn-inner--icon"><i class="fas fa-forward"></i></span>
 										<span class="btn-inner--text">Student opwaardering</span>
-                                    </button>
+									</button>
 								</div>
 							</div>
 						</div>
@@ -54,28 +54,29 @@
 									</tr>
 								</thead>
 								<tbody id="table1">
-									
+
 								</tbody>
 							</table>
 						</div>
 					</div>
-					
-				
+
+
 					<!-- Footer -->
 					<?php
 					include "../../includes/admin/footer.php"
 					?>
-                    <script src="../../app/php/admin/script/log.js"></script>
-                    
-<script>
-$(document).ready(function(){  
-	load_data();
+					<script src="../../app/php/admin/script/log.js"></script>
 
-});
-function opwaardeer() {
-    location.replace("./opwaardeerLog.php")
-  }
-</script>
+					<script>
+						$(document).ready(function() {
+							load_data();
+
+						});
+
+						function opwaardeer() {
+							location.replace("./opwaardeerLog.php")
+						}
+					</script>
 
 </body>
 

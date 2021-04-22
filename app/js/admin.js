@@ -98,6 +98,18 @@ $("#cijfer-import-form").on('submit', (function(e) {
                         $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
                     }
                 })
+            } else if (response == "bestaat") {
+                Swal.fire({
+                    title: 'data bestaat al in systeem',
+                    text: 'controleer data',
+                    icon: 'error',
+                    confirmButtonColor: '#2e8b57',
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
+                    }
+                })
             }
         },
     });
