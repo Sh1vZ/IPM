@@ -81,8 +81,7 @@ $("#cijfer-import-form").on('submit', (function(e) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $(".import").html('<button type="submit" id="importBtn" class="btn btn-success ">Importeren</button>')
-                            // location.reload();
-                        load_data();
+                        location.reload();
                     }
                 })
                 $('#import-form').trigger("reset");

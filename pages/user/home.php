@@ -331,7 +331,6 @@ include("../../../IPM/app/php/conn.php");
 				<!-- Footer -->
 				<?php
 				include "../../includes/admin/footer.php"
-
 				?>
 				 <script src="../../app/js/studenten.js"></script>
 				<script>
