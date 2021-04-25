@@ -1,7 +1,7 @@
 <?php
 include(dirname(__FILE__) . "/../conn.php");
 
-require "../../../vendor/autoload.php";
+require "../../../Studentenkaart composer/vendor/autoload.php";
 include 'generateStudentenkaart.php';
 
 $db = $conn; // database connection  

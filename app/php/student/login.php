@@ -19,6 +19,7 @@ if (!empty($_POST['qrcode'])) {
     session_start();
     
     $_SESSION['Achternaam'] = $result['Achternaam'];
+    $_SESSION['Voornaam'] = $result['Voornaam'];
     $_SESSION['stud_ID'] = $result['stud_ID'];
     $_SESSION['IsActive'] = TRUE;
     echo "success";

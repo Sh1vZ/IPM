@@ -1,0 +1,24 @@
+
+{
+    "name": "name/pdftk",
+    "authors": [
+        {
+            "name": "Dam3012",
+            "email": "damaris.jacott.natin@gmail.com"
+        }
+    ],
+    "autoload" : {
+
+        "psr-4" : {
+
+                "Classes\\":"../classes"
+
+        }
+    },
+    "require": {
+        "mikehaertl/php-pdftk": "^0.8.0"
+    }
+
+    
+}
+
