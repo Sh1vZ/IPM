@@ -32,7 +32,7 @@ class GenerateLaatbrief {
 
                         $filename = 'Laatbrief_'.$achternaam.'_'. $voornaam.'.pdf';
 
-                        $pdf = new Pdf('C:\wamp64\www\IPM\IPM\template_Laatbrief.pdf', [
+                        $pdf = new Pdf('C:\wamp64\www\IPM\IPM\app\uploads\documenten\template_Laatbrief.pdf', [
                               
                               
                               'command' => 'C:\Program Files (x86)\PDFtk Server\bin\pdftk.exe',
@@ -41,20 +41,6 @@ class GenerateLaatbrief {
                         $pdf->fillForm($data)
                         ->flatten()
                         ->saveAs( __DIR__ .'/completed/' . $filename);
-                     
-                        
-                        if ($pdf ->saveAs( __DIR__ .'/completed/' . $filename)) {
-
-                        $Path2= $filename;
-                        $_SESSION['Path2'] = $Path2;
-                        
-                              print "success";
-
-                              
-
-                        }else {$error = $pdf->getError();
-                               print $error;}
-
                          return $filename;
                   }
 
@@ -66,7 +52,7 @@ class GenerateLaatbrief {
             
       }
 }
-      
+?>    
 
                        
                       

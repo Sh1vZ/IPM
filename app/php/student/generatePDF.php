@@ -2,7 +2,7 @@
 
 use Classes\GeneratePDF;
 // require_once '../../../classes';
-
+session_start();
 require "../../../../IPM/classes/GeneratePDF.php";
 
 
@@ -35,11 +35,8 @@ if (isset($_POST["insert"])) {
  
         $pdf = new GeneratePdf;
         $response = $pdf-> generate($data);
-    
-        // print "success";
-        //  var_dump($response);
-
-        // header("../../../app/pages/user/home.php");
+        header('Location:../../../pages/user/downloadPDF.php?link='. $response);
+        
 
 }
                         }}

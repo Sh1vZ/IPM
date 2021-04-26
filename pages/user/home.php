@@ -58,7 +58,9 @@ include("../../../IPM/app/php/conn.php");
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
 											<h4 class="text-center mt-6">SRD 5,00</h4>
 											<div class="mt-4 text-center">
-											<button type="button" id="invulBtn" class="btn btn-primary" data-toggle="modal" data-target="#modalBrief">Genereren</button>
+											<form  method="post" action="../../app/php/student/generatePDF.php ">
+											<button type="submit" name="insert" id="DespenBtn" class="btn btn-primary" >Genereren</button>
+											</form>
 											</div>
 										</div>
 									</div>
@@ -111,15 +113,12 @@ include("../../../IPM/app/php/conn.php");
 								</ul>
 								<!-- action="../../app/php/admin/upload.php" -->
 								<div class="modal-body">
-									<form method="POST" id="genDispensatie"  enctype="multipart/form-data">
+									<form method="POST"  action="../../app/php/student/generatePDF.php" enctype="multipart/form-data">
 									
 										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
-										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="PDF Genereren" />
-											<?php 
-											$file="../../classes/completed/";
-											$path= $_SESSION['Path'];
-											?>
+										<input type="submit" name="form_action" class="btn btn-primary" value="PDF Genereren" id="submitbutton" onclick="return changeText('submitbutton');" />
+											
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									</form>
@@ -143,15 +142,9 @@ include("../../../IPM/app/php/conn.php");
 									
 										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
-										<div id="reloadPath">
-										<?php 
 										
-											$file="../../classes/completed/";
-											$path= $_SESSION['Path'];
-											?>
-											</div>
-											<a href= "<?php echo $file.$path; ?>" target="_blank" class="btn btn-primary"> Openen</a>
-											<a href= "<?php echo $file.$path; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
+											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" id="pathOpen" target="_blank" class="btn btn-primary"> Openen</a>
+											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
 									
@@ -177,13 +170,10 @@ include("../../../IPM/app/php/conn.php");
 										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
 										
-											<?php 
-											$file="../../classes/completed/";
-											$path2= $_SESSION['Path2'];
-											?>
+											
 									
-											<a href= "<?php echo $file.$path2; ?>" id="downlBtn" class="btn btn-primary" target="_blank" > Openen</a>
-											<a href= "<?php echo $file.$path2; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
+											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" id="downlBtn" class="btn btn-primary" target="_blank" > Openen</a>
+											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
 											
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
 										</div>
@@ -210,7 +200,7 @@ include("../../../IPM/app/php/conn.php");
 								</div>
 								
 								<div class="modal-body">
-									<form method="POST" id="genLaatbrief"  enctype="multipart/form-data">
+									<form method="POST" action="../../app/php/student/generateLaatbrief.php" enctype="multipart/form-data">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -269,7 +259,7 @@ include("../../../IPM/app/php/conn.php");
 											</div>
 										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
-										<input type="submit" name="form_action" id="form_action" class="btn btn-primary" value="PDF Genereren" />
+										<input type="submit" name="insertLaatbrief" id="form_action" class="btn btn-primary" value="PDF Genereren" />
 										
 											
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
@@ -357,8 +347,8 @@ include("../../../IPM/app/php/conn.php");
 				</script>
 
 
-<script src="../../app/php/student/script/GeneratePDFS.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+
 
 <script>
 $(document).ready(function(){  
@@ -369,6 +359,9 @@ $(document).ready(function(){
 </script>
 
 <script src="../../app/js/animation2.js"></script>
+
+
+
 
 
 </body>

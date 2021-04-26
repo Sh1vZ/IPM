@@ -50,11 +50,10 @@ if (isset($_POST["insertLaatbrief"])) {
  
         $pdf = new GenerateLaatbrief;
         $response = $pdf-> generate($data);
+        header('Location:../../../pages/user/downloadPDF.php?link='. $response);
     
        
         //  var_dump($response);
-
-        
 
 }}}
 
