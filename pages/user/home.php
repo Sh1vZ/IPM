@@ -81,6 +81,24 @@ include("../../../IPM/app/php/conn.php");
 									</div>
 								</div>
 
+								<div class="col-md-6 p-4">
+									<div class="row p-2 bg-white border rounded">
+										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
+										<div class="col-md-6 mt-1">
+											<h3 class="text-center pb-2">Ouderochtendbrief</h5>
+												<p class="text-justify para mb-0">Genereer de ouderochtenbrief en download het.</p>
+										</div>
+										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
+											<h4 class="text-center mt-6">SRD 5,00</h4>
+											<div class="mt-4 text-center">
+											<form  method="post" action="../../app/php/student/generateOuderbrief.php ">
+											<button type="submit" name="insertOuderbrief"  class="btn btn-primary" >Genereren</button>
+											</form>
+											</div>
+										</div>
+									</div>
+								</div>
+
 								<?php
 							//  }} 
 							 ?>

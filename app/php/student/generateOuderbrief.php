@@ -1,15 +1,15 @@
 <?php
 
-use Classes\GenerateLaatbrief;
+use Classes\GenerateOuderbrief;
 // require_once '../../../classes';
 
 
-require "../../../../IPM/classes/GenerateLaatbrief.php";
+require "../../../../IPM/classes/GenerateOuderbrief.php";
 
 require_once '../../../../IPM/PDFGen Composer/vendor/autoload.php';//
 include("../conn.php");
 
-if (isset($_POST["insertLaatbrief"])) {
+if (isset($_POST["insertOuderbrief"])) {
 
   
 
@@ -28,29 +28,20 @@ if (isset($_POST["insertLaatbrief"])) {
          $voornaam=$row['Voornaam'];
          $klas=$row['Klas'];
          $richting= $row['Richtingnaam'];
-        $datum= $_POST['datum'];
-           $tijd= $_POST['tijd'];
-         $lesuur= $_POST['lesuur'];
-         $docent= $_POST['docent'];
-         $reden=$_POST['reden'];
+        
 
 	
         $data=[
-            'naam' => $achternaam . ' ' . $voornaam,
+            'student' => $achternaam . ' ' . $voornaam,
             'klas' => $klas,
-            'richting' => $richting,
-            'datum' => $datum,
-            'tijd' => $tijd,
-            'blok' => $lesuur,
-            'docent' => $docent,
-            'reden' => $reden
-
+            'richting' => $richting
+            
  ];
 
  
-        $pdf = new GenerateLaatbrief;
+        $pdf = new GenerateOuderbrief;
         $response = $pdf-> generate($data);
-          header('Location:../../../pages/user/downloadPDF.php?link='. $response);
+        header('Location:../../../pages/user/downloadPDF.php?link='. $response);
     
        
         //  var_dump($response);
