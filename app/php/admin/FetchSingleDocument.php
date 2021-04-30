@@ -9,6 +9,7 @@ if (isset($_POST['getDocument'])) {
     while ($row = mysqli_fetch_assoc($res)) {
       $naam   = $row['naam'];
       $path   = $row['Path'];
+	  $prijs  = $row['Prijs'];
     
 ?>
       <form method="post" id="documentenUpdate" enctype="multipart/form-data">
@@ -20,22 +21,39 @@ if (isset($_POST['getDocument'])) {
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
-														<input class="form-control" id="naamU" placeholder="Naam"  type="text" value=<?= $naam; ?> required>
+														<select name="naamU" id="naamU" class="form-control" aria-label="Default select example" >
+														<option selected>Selecteer</option>
+                                                        <option value="Dispensatiebrief">Dispensatiebrief</option>
+                                                        <option value="Ouderochtendbrief">Ouderochtendbrief</option>
+                                                        <option value="Laatbrief">Laatbrief</option>
+														
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Prijs</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+														</div>
+														<input class="form-control" id="prijsU"  placeholder="SRD" value=<?= $prijs; ?> type="text">
 													</div>
 												</div>
 											</div>
 											
-											<div class="col-md-12">
+											<!-- <div class="col-md-12">
 												<div class="form-group">
 													<label for="">File:</label>
 													<div class="input-group input-group-merge">
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
 														</div>
-														<input class="form-control" id="pathU" placeholder="File"  type="file" value=<?= $path; ?> required>
+														<input class="form-control" name="file" placeholder="File"  type="file" value=<?= $path; ?> required>
 													</div>
 												</div>
-											</div>
+											</div> -->
 										</div>
 
 

@@ -126,16 +126,16 @@ $(document).on('click', '.edit', function() {
 const updateDocument = (e) => {
     var id = e;
     var naam = $("#naamU").val();
-    var path = $("#pathU").val();
-   
+    var prijs = $("#prijsU").val();
  
+
     $.ajax({
         type: 'POST',
         url: '../../app/php/admin/crudDocument.php',
         data: {
             id: id,
             naam: naam,
-            path: path,
+            prijs: prijs,
             updateDocument: 1
         },
         success: function(response) {

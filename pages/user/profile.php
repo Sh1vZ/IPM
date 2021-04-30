@@ -25,8 +25,8 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello <?= $_SESSION['Achternaam'] ?></h1>
-            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+            <h1 class="display-2 text-white">Hallo <?= $_SESSION['Voornaam'].' '.$_SESSION['Achternaam'] ?></h1>
+            <p class="text-white mt-0 mb-5">Dit is jouw profiel pagina. Hier kan je jouw informatie zien en jouw studentenkaart bekijken en downloaden</p>
           </div>
         </div>
       </div>

@@ -31,15 +31,28 @@ if (isset($_POST["insert"])) {
             'Klas' => $klas,
             'Richting' => $richting
  ];
-        
- 
-        $pdf = new GeneratePdf;
-        $response = $pdf-> generate($data);
-        header('Location:../../../pages/user/downloadPDF.php?link='. $response);
-        
+       
+ $sql2="SELECT Prijs FROM template where naam='Dispensatiebrief'";
+ $res = mysqli_query($conn, $sql2);
+                        if (mysqli_num_rows($res) > 0) {
+                            while ($row = mysqli_fetch_assoc($res)) {
+                              $prijs= $row['Prijs'];
+
+$sql3=" UPDATE studenten
+ SET Saldo = Saldo - $prijs
+WHERE stud_ID = $studID";
+$res = mysqli_query($conn, $sql3);
+                            }} 
+ $pdf = new GeneratePdf;
+ $response = $pdf-> generate($data);
+  header('Location:../../../pages/user/downloadPDF.php?link='. $response);
+       
 
 }
-                        }}
+}}
+                       
+                       
+                        
 
 
 

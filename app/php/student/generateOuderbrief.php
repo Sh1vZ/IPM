@@ -38,6 +38,18 @@ if (isset($_POST["insertOuderbrief"])) {
             
  ];
 
+ $sql2="SELECT Prijs FROM template where naam='Ouderochtendbrief'";
+ $res = mysqli_query($conn, $sql2);
+                        if (mysqli_num_rows($res) > 0) {
+                            while ($row = mysqli_fetch_assoc($res)) {
+                              $prijs= $row['Prijs'];
+
+$sql3=" UPDATE studenten
+ SET Saldo = Saldo - $prijs
+WHERE stud_ID = $studID";
+$res = mysqli_query($conn, $sql3);
+                            }}
+
  
         $pdf = new GenerateOuderbrief;
         $response = $pdf-> generate($data);

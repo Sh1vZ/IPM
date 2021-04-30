@@ -23,17 +23,19 @@ if (isset($_POST["insert"])) {
 if (isset($_POST['updateDocument'])) {
 	$id = $_POST['id'];
 	$naam = $_POST['naam'];
-	$path = $_POST['path'];
+	$prijs = $_POST['prijs'];
+	
+	
 
 	if (empty($naam)) {
 		echo 'errorEmpty';
 	} else {
-		$sql = "UPDATE template SET naam=?, Path=? WHERE temp_ID=?";
+		$sql = "UPDATE template SET naam=?, Prijs=? WHERE temp_ID=?";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			echo "sqlError";
 		} else {
-			mysqli_stmt_bind_param($stmt, "ssi", $naam, $path, $id);
+			mysqli_stmt_bind_param($stmt, "sii", $naam, $prijs, $id);
 			mysqli_stmt_execute($stmt);
 			if (mysqli_errno($conn) == 1062) {
 				echo "exist";

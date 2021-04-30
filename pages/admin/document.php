@@ -60,6 +60,7 @@ $("#file").change(function() {
 								<thead class="thead-light">
 									<tr>
 										<th>Naam</th>
+										<th>Prijs</th>
 										<th>Bekijken</th>
 										<th>Downloaden</th>
 									
@@ -105,7 +106,26 @@ $("#file").change(function() {
 														<div class="input-group-prepend">
 															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
 														</div>
-														<input class="form-control" id="name" name="name" placeholder="Naam"  type="text">
+														<select name="name" id="name" class="form-control" aria-label="Default select example" >
+														<option selected>Selecteer</option>
+                                                        <option value="Dispensatiebrief">Dispensatiebrief</option>
+                                                        <option value="Ouderochtendbrief">Ouderochtendbrief</option>
+                                                        <option value="Laatbrief">Laatbrief</option>
+ 
+                                                         </select>
+														
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="">Prijs</label>
+													<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+														</div>
+														<input class="form-control" id="prijs" name="prijs" placeholder="SRD" type="text">
 													</div>
 												</div>
 											</div>
@@ -221,7 +241,7 @@ $("#file").change(function() {
 					include "../../includes/admin/footer.php"
 					?>
 
-<script src="../../app/php/admin/script/crudDocument.js"></script>
+<script src="../../app/php/admin/script/crudDocu.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
 <script>

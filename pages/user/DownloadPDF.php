@@ -33,7 +33,7 @@ include("../../../IPM/app/php/conn.php");
 					<h3 id='valSaldo' class="text-right">
 						</h3>
 					<div class="card">
-						<h1 class="text-center">Welkom op de download pagina, <?= $_SESSION['Achternaam'] ?></h1>
+						<h1 class="text-center">Welkom op de download pagina, <?= $_SESSION['Voornaam'] ?></h1>
 						<p class="text-center">Download of open Uw brief.</p>
 
 					</div>

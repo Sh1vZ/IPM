@@ -33,16 +33,16 @@ include("../../../IPM/app/php/conn.php");
 					<h3 id='valSaldo' class="text-right">
 						</h3>
 					<div class="card">
-						<h1 class="text-center">Welkom, <?= $_SESSION['Achternaam'] ?></h1>
+						<h1 class="text-center">Welkom, <?= $_SESSION['Voornaam'].' '.$_SESSION['Achternaam'] ?></h1>
 						<p class="text-center">Dit is een overzicht van de documenten die je kunt downloaden.</p>
 
 						<?php 
-// 		$sql = "SELECT * FROM template order by temp_ID desc";
-// $result = $conn->query($sql);
-// if ($result->num_rows > 0) {
+		$sql = "SELECT * FROM template where naam='Dispensatiebrief'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
 
 
-//   while ($row = $result->fetch_assoc()) {
+  while ($row = $result->fetch_assoc()) {
   
 ?>
 
@@ -56,7 +56,7 @@ include("../../../IPM/app/php/conn.php");
 												<p class="text-justify para mb-0">Deze brief is een aanvraag voor dispensatie. Klik op download om te downloaden</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">SRD 5,00</h4>
+											<h4 class="text-center mt-6">SRD <?php echo $row['Prijs']; }}?> </h4>
 											<div class="mt-4 text-center">
 											<form  method="post" action="../../app/php/student/generatePDF.php ">
 											<button type="submit" name="insert" id="DespenBtn" class="btn btn-primary" >Genereren</button>
@@ -65,6 +65,12 @@ include("../../../IPM/app/php/conn.php");
 										</div>
 									</div>
 								</div>
+							<?php	$sql = "SELECT * FROM template where naam='Laatbrief'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+
+
+  while ($row = $result->fetch_assoc()) { ?>
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
 										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
@@ -73,13 +79,20 @@ include("../../../IPM/app/php/conn.php");
 												<p class="text-justify para mb-0">Vul jou laatbrief in en download het.</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">SRD 5,00</h4>
+											<h4 class="text-center mt-6">SRD <?php echo $row['Prijs']; }}?></h4>
 											<div class="mt-4 text-center">
 											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLaatBrief">Invullen</button>
 											</div>
 										</div>
 									</div>
 								</div>
+
+								<?php	$sql = "SELECT * FROM template where naam='Ouderochtendbrief'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+
+
+  while ($row = $result->fetch_assoc()) { ?>
 
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
@@ -89,7 +102,7 @@ include("../../../IPM/app/php/conn.php");
 												<p class="text-justify para mb-0">Genereer de ouderochtenbrief en download het.</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">SRD 5,00</h4>
+											<h4 class="text-center mt-6">SRD <?php echo $row['Prijs']; }}?></h4>
 											<div class="mt-4 text-center">
 											<form  method="post" action="../../app/php/student/generateOuderbrief.php ">
 											<button type="submit" name="insertOuderbrief"  class="btn btn-primary" >Genereren</button>
@@ -110,102 +123,7 @@ include("../../../IPM/app/php/conn.php");
 				</div>
 			</div>
 
-			<!-- begin invul modal -->
-
-			<div class="modal fade" id="modalBrief" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Dispensatiebrief invullen</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<ul class="nav nav-tabs">
-									<li class="nav-item">
-										<a class="nav-link active" id='documenten' aria-current="page" href="#">Dispensatiebrief</a>
-									</li>
-									<!-- <li class="nav-item">
-										<a class="nav-link" id='laatbrieven' href="#">Laatbrieven</a>
-									</li> -->
-								</ul>
-								<!-- action="../../app/php/admin/upload.php" -->
-								<div class="modal-body">
-									<form method="POST"  action="../../app/php/student/generatePDF.php" enctype="multipart/form-data">
-									
-										<!-- accept=".doc,.docx" -->
-										<div class="modal-footer">
-										<input type="submit" name="form_action" class="btn btn-primary" value="PDF Genereren" id="submitbutton" onclick="return changeText('submitbutton');" />
-											
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-			</div>
-		</div>
-
-		<div class="modal fade" id="modalDownlDispen" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Dispensatie brief downloaden</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									
-									
-										<!-- accept=".doc,.docx" -->
-										<div class="modal-footer">
-										
-											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" id="pathOpen" target="_blank" class="btn btn-primary"> Openen</a>
-											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-									
-								</div>
-							</div>
-						</div>
-			</div>
-		</div>
-
-		<div class="modal fade" id="modalDownlLaatB" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title" id="modal-title-default">Laatbrief downloaden</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-		
-								<div class="modal-body">
-									
-									
-										<!-- accept=".doc,.docx" -->
-										<div class="modal-footer">
-										
-											
-									
-											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" id="downlBtn" class="btn btn-primary" target="_blank" > Openen</a>
-											<a href= "../../../IPM/classes/completed/<?php echo $_GET['link']; ?>" target="_blank" class="btn btn-primary" download> Downloaden</a>
-											
-											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
-										</div>
-
-								</div>
-							</div>
-						</div>
-			</div>
-		</div>
-			
-
-		
-
-			<!-- einde dispensatie modal -->
+			<!-- begin laatbrief modal -->
 
 			<div class="modal fade" id="modalLaatBrief" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
 						<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">

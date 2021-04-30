@@ -11,7 +11,7 @@ use FFI\Exception;
 
 session_start();
 
-include("C:\wamp64\www\IPM\IPM\app\php\conn.php");
+
 
 class GenerateLaatbrief {
 
@@ -20,7 +20,7 @@ class GenerateLaatbrief {
       {      
 
                   try {
-                        include("C:\wamp64\www\IPM\IPM\app\php\conn.php");
+                        include(dirname(__FILE__) . "/../app/php/conn.php");
                         $studID = $_SESSION['stud_ID'];
                         $sql = "SELECT * from studenten where stud_ID= '". $studID ."'";
                         $res = mysqli_query($conn, $sql);
@@ -32,7 +32,7 @@ class GenerateLaatbrief {
 
                         $filename = 'Laatbrief_'.$achternaam.'_'. $voornaam.'.pdf';
 
-                        $pdf = new Pdf('C:\wamp64\www\IPM\IPM\app\uploads\documenten\template_Laatbrief.pdf', [
+                        $pdf = new Pdf(dirname(__FILE__) . "/../app/uploads/documenten/template_Laatbrief.pdf", [
                               
                               
                               'command' => 'C:\Program Files (x86)\PDFtk Server\bin\pdftk.exe',

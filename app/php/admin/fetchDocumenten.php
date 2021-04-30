@@ -11,10 +11,12 @@ if ($result->num_rows > 0) {
 ?>
     <tr>
       <td><?= $row['naam']; ?></td>
+      <td><?php echo"SRD "; ?><?= $row['Prijs']; ?></td>
       
       <td><a  href="../../../IPM/app/uploads/documenten/<?php echo $row['Path'] ?>" target="_blank">Bekijken</a></td>
 
       <td><a href="../../../IPM/app/uploads/documenten/<?php echo $row['Path']; ?>" download>Downloaden</td>
+     
       <td><button type="button" name="edit" class="btn btn-primary btn-md edit" value="<?= $row['temp_ID'] ?>">Bewerken</button>
       <button type="button" name="delete" class="btn btn-danger btn-md delete" value="<?= $row['temp_ID'] ?>">Verwijderen</button>
       </td>
