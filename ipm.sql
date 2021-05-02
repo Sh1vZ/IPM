@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 10:32 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: May 02, 2021 at 04:27 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -113,6 +113,39 @@ CREATE TABLE `log` (
   `Logdatum` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`ID`, `StudentID`, `KlasID`, `Logdatum`) VALUES
+(1, 5, NULL, '2021-04-21 23:40:51'),
+(2, 5, NULL, '2021-04-22 00:36:55'),
+(3, 5, NULL, '2021-04-22 09:50:22'),
+(4, 5, NULL, '2021-04-22 17:05:53'),
+(5, 5, NULL, '2021-04-22 17:18:01'),
+(6, 5, NULL, '2021-04-22 21:25:45'),
+(7, 5, NULL, '2021-04-23 14:05:15'),
+(8, 5, NULL, '2021-04-23 14:15:56'),
+(9, 5, NULL, '2021-04-24 10:57:49'),
+(10, 5, NULL, '2021-04-25 08:30:35'),
+(11, 5, NULL, '2021-04-25 08:36:37'),
+(12, 5, NULL, '2021-04-25 14:15:16'),
+(13, 5, NULL, '2021-04-26 01:00:28'),
+(14, 5, NULL, '2021-04-26 08:09:59'),
+(15, 7, NULL, '2021-04-26 10:08:43'),
+(16, 7, NULL, '2021-04-26 10:08:43'),
+(17, 5, NULL, '2021-04-26 10:12:15'),
+(18, 8, NULL, '2021-04-26 10:16:00'),
+(19, 5, NULL, '2021-04-26 10:27:45'),
+(20, 8, NULL, '2021-04-26 10:29:41'),
+(21, 7, NULL, '2021-04-26 10:35:54'),
+(22, 5, NULL, '2021-04-27 11:25:29'),
+(23, 5, NULL, '2021-04-27 18:23:21'),
+(24, 5, NULL, '2021-04-27 18:52:33'),
+(25, 5, NULL, '2021-04-28 16:35:05'),
+(26, 5, NULL, '2021-04-30 18:20:47'),
+(27, 5, NULL, '2021-04-30 18:56:22');
+
 -- --------------------------------------------------------
 
 --
@@ -156,8 +189,10 @@ CREATE TABLE `studenten` (
 --
 
 INSERT INTO `studenten` (`stud_ID`, `Achternaam`, `Voornaam`, `Geboortedatum`, `Geboorteplaats`, `Student_email`, `Student_pincode`, `Saldo`, `img`, `IsActive`) VALUES
-(5, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 32.00, 'Kristof_Roberto_848438', 0),
-(6, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_898330', 0);
+(5, 'Kristof', 'Roberto', '2010-11-05', 'Missouri', 'rkristof0@utexas.edu', '506501', 20.00, 'Kristof_Roberto_848438', 0),
+(6, 'Smalman', 'Titus', '2013-07-12', 'District of Columbia', 'tsmalman1@imageshack.us', '638978', 5.00, 'Smalman_Titus_898330', 0),
+(7, 'Pengel', 'Dina', '2021-04-01', 'Paramaribo', 'dina@natin.com', '640762', 20.00, 'Pengel_Dina_140835', 0),
+(8, 'Pinas', 'Ivonne', '2021-04-06', 'Para', 'Ivonne@gmail.com', '932489', 0.00, 'Pinas_Ivonne_869027', 0);
 
 -- --------------------------------------------------------
 
@@ -172,6 +207,14 @@ CREATE TABLE `studentklas` (
   `Schooljaar` varchar(50) DEFAULT '2020/2021'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `studentklas`
+--
+
+INSERT INTO `studentklas` (`st_klas_ID`, `StudentID`, `KlasID`, `Schooljaar`) VALUES
+(1, 5, 1, '2020/2021'),
+(2, 7, 2, '2020/2021');
+
 -- --------------------------------------------------------
 
 --
@@ -182,10 +225,26 @@ CREATE TABLE `student_template` (
   `st_temp_ID` int(11) NOT NULL,
   `StudentID` int(11) DEFAULT NULL,
   `Type_document` int(11) DEFAULT NULL,
+  `Path` varchar(255) NOT NULL,
   `Aanvraag_datum` date DEFAULT NULL,
   `verval_datum` date DEFAULT NULL,
   `reden` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_template`
+--
+
+INSERT INTO `student_template` (`st_temp_ID`, `StudentID`, `Type_document`, `Path`, `Aanvraag_datum`, `verval_datum`, `reden`) VALUES
+(4, 5, NULL, 'Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(5, 5, NULL, 'Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(6, 5, NULL, 'Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(7, 5, NULL, 'C:wamp64wwwIPMIPMclasses/completed/Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(8, 5, NULL, 'C:wamp64wwwIPMIPMclasses/completed/Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(9, 5, NULL, 'C:wamp64wwwIPMIPMclasses/completed/Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(10, 5, NULL, '', NULL, NULL, NULL),
+(11, 5, NULL, 'C:wamp64wwwIPMIPMclasses/completed/Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL),
+(12, 5, NULL, 'C:wamp64wwwIPMIPMclasses/completed/Dispensatiebrief_Kristof_Roberto.pdf', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -196,15 +255,18 @@ CREATE TABLE `student_template` (
 CREATE TABLE `template` (
   `temp_ID` int(11) NOT NULL,
   `Path` varchar(250) DEFAULT NULL,
-  `naam` varchar(25) DEFAULT NULL
+  `naam` varchar(25) DEFAULT NULL,
+  `Prijs` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `template`
 --
 
-INSERT INTO `template` (`temp_ID`, `Path`, `naam`) VALUES
-(1, '6043757fdce060.82060757.docx', 'daaaa');
+INSERT INTO `template` (`temp_ID`, `Path`, `naam`, `Prijs`) VALUES
+(8, 'template_Laatbrief.pdf', 'Laatbrief', 2),
+(9, 'template_ouderochtendbrief .pdf', 'Ouderochtendbrief', 0),
+(10, 'Dispensatiebrief template.pdf', 'Dispensatiebrief', 5);
 
 -- --------------------------------------------------------
 
@@ -220,6 +282,13 @@ CREATE TABLE `upreq` (
   `Status` varchar(5) DEFAULT 'False',
   `AccDatum` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `upreq`
+--
+
+INSERT INTO `upreq` (`ID`, `Student_ID`, `Bedrag`, `Datum`, `Status`, `AccDatum`) VALUES
+(1, 7, 20.00, '2021-04-27', 'True', '2021-04-27');
 
 -- --------------------------------------------------------
 
@@ -365,7 +434,7 @@ ALTER TABLE `klassen`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `richtingen`
@@ -377,31 +446,31 @@ ALTER TABLE `richtingen`
 -- AUTO_INCREMENT for table `studenten`
 --
 ALTER TABLE `studenten`
-  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `stud_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `studentklas`
 --
 ALTER TABLE `studentklas`
-  MODIFY `st_klas_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `st_klas_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_template`
 --
 ALTER TABLE `student_template`
-  MODIFY `st_temp_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `st_temp_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `template`
 --
 ALTER TABLE `template`
-  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `temp_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `upreq`
 --
 ALTER TABLE `upreq`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `vakken`
