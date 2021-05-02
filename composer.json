@@ -1,6 +1,17 @@
 {
     "require": {
         "phpoffice/phpspreadsheet": "^1.16",
-        "endroid/qr-code": "^3.9"
+        "endroid/qr-code": "^3.9",
+        "mikehaertl/php-pdftk": "^0.10.0"
+
+    },
+    "autoload": {
+
+        "psr-4": {
+
+            "Classes\\": "/classes"
+
+        }
     }
+
 }
