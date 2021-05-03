@@ -9,7 +9,7 @@
 
         "psr-4": {
 
-            "Classes\\": "/classes"
+            "Classes\\": "./classes"
 
         }
     }
