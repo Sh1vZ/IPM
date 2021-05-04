@@ -54,7 +54,7 @@
 									$per=$_GET['per'];
 									$vak=$_GET['vak'];
 									$klas=$_GET['klas'];
-									$sql = "SELECT Achternaam,Voornaam,Vaknaam,student_id,VakID,Periode,klas_id FROM `cijfers` AS c INNER JOIN studenten AS s on c.student_id=s.stud_ID INNER JOIN vakken as v on c.VakID=v.vak_ID WHERE Periode='$per' AND VakID=$vak AND klas_id=$klas ";
+									$sql = "SELECT Cijfer,Achternaam,Voornaam,Vaknaam,student_id,VakID,Periode,klas_id FROM `cijfers` AS c INNER JOIN studenten AS s on c.student_id=s.stud_ID INNER JOIN vakken as v on c.VakID=v.vak_ID WHERE Periode='$per' AND VakID=$vak AND klas_id=$klas ";
 									$result = $conn->query($sql);
 									if ($result->num_rows > 0) {
 										while ($row = $result->fetch_assoc()) {
@@ -64,7 +64,7 @@
 												<td><?= $row['Achternaam']; ?> <?= $row['Voornaam']; ?></td>
 												<td><?= $row['Vaknaam']; ?></td>
 												<td><?= $row['Periode']; ?></td>
-												<td><?= $row['Periode']; ?></td>
+												<td><?= $row['Cijfer']; ?></td>
 											</tr>
 									<?php
 										}
