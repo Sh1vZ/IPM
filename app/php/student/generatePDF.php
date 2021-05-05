@@ -57,7 +57,7 @@ $sql2 = "SELECT Prijs FROM template where naam='Dispensatiebrief'";
                 $res = mysqli_query($conn, $sql4);
  $pdf = new GeneratePdf;
  $response = $pdf-> generate($data); 
- echo '../../../../../IPM/IPM/pages/user/DownloadPDF.php?link='. $response;
+ echo '../../pages/user/DownloadPDF.php?link='. $response;
 exit;
   
        
