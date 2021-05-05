@@ -18,7 +18,7 @@
 
 	
 		include "../../includes/user/topbar.php";
-include("../../../IPM/app/php/conn.php");
+        include("../../../IPM/app/php/conn.php");
 		?>
 		<!-- Header -->
 		<!-- Header -->
@@ -37,12 +37,12 @@ include("../../../IPM/app/php/conn.php");
 						<p class="text-center">Dit is een overzicht van de documenten die je kunt downloaden.</p>
 
 						<?php 
-		$sql = "SELECT * FROM template where naam='Dispensatiebrief'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
+	                   	$sql = "SELECT * FROM template where naam='Dispensatiebrief'";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
 
 
-  while ($row = $result->fetch_assoc()) {
+                     while ($row = $result->fetch_assoc()) {
   
 ?>
 
@@ -58,19 +58,29 @@ if ($result->num_rows > 0) {
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
 											<h4 class="text-center mt-6">SRD <?php echo $row['Prijs']; }}?> </h4>
 											<div class="mt-4 text-center">
-											<form  method="post" action="../../app/php/student/generatePDF.php ">
-											<button type="submit" name="insert" id="DespenBtn" class="btn btn-primary" >Genereren</button>
+											<!-- action="../../app/php/student/generatePDF.php " -->
+											<form  method="post" id="genDispensatie" >
+											<button type="submit" name="DispenBtn" id="DispenBtn" class="btn btn-primary" >Genereren</button>
 											</form>
 											</div>
 										</div>
 									</div>
 								</div>
+								<?php
+								$studID = $_SESSION['stud_ID'];
+								
+								$sql2 = "SELECT Saldo FROM studenten where stud_ID = $studID";
+                    $res = mysqli_query($conn, $sql2);
+                    if (mysqli_num_rows($res) > 0) {
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $saldo = $row['Saldo'];}} ?>
 							<?php	$sql = "SELECT * FROM template where naam='Laatbrief'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
 
 
-  while ($row = $result->fetch_assoc()) { ?>
+  while ($row = $result->fetch_assoc()) {
+	  $PrijsLaatbrief= $row['Prijs'];?>
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
 										<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://png.pngtree.com/png-vector/20190623/ourmid/pngtree-documentfilepagepenresume-flat-color-icon-vector-png-image_1491048.jpg"></div>
@@ -79,20 +89,22 @@ if ($result->num_rows > 0) {
 												<p class="text-justify para mb-0">Vul jou laatbrief in en download het.</p>
 										</div>
 										<div class="align-items-center align-content-center col-md-3 border-left mt-1">
-											<h4 class="text-center mt-6">SRD <?php echo $row['Prijs']; }}?></h4>
+											<h4 class="text-center mt-6">SRD <?php echo  $PrijsLaatbrief;  }}?></h4>
 											<div class="mt-4 text-center">
-											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLaatBrief">Invullen</button>
+
+											
+											<button id="Laatbriefbtn" class="btn btn-primary" >Invullen</button>
 											</div>
 										</div>
 									</div>
 								</div>
 
 								<?php	$sql = "SELECT * FROM template where naam='Ouderochtendbrief'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
+                                 $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
 
 
-  while ($row = $result->fetch_assoc()) { ?>
+                                while ($row = $result->fetch_assoc()) { ?>
 
 								<div class="col-md-6 p-4">
 									<div class="row p-2 bg-white border rounded">
@@ -136,7 +148,7 @@ if ($result->num_rows > 0) {
 								</div>
 								
 								<div class="modal-body">
-									<form method="POST" action="../../app/php/student/generateLaatbrief.php" enctype="multipart/form-data">
+									<form method="POST" id="GenLaatbrief"  enctype="multipart/form-data">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -195,7 +207,7 @@ if ($result->num_rows > 0) {
 											</div>
 										<!-- accept=".doc,.docx" -->
 										<div class="modal-footer">
-										<input type="submit" name="insertLaatbrief" id="form_action" class="btn btn-primary" value="PDF Genereren" />
+										<input type="submit" name="insertLaatbrief" id="insertLaatbrief" class="btn btn-primary" value="PDF Genereren" />
 										
 											
 											<button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal">Sluiten</button>
@@ -294,7 +306,31 @@ $(document).ready(function(){
 
 </script>
 
+<script>
+
+$('#Laatbriefbtn').on('click', function() {
+ 	var PrijsLaatbrief = "<?php echo $PrijsLaatbrief; ?>";
+	 var saldo = "<?php echo $saldo; ?>";
+
+   
+if (saldo < PrijsLaatbrief ) {
+   Swal.fire({
+	   icon: 'error',
+	   title: 'Je hebt niet genoeg saldo',
+	   text: 'Vraag meer saldo aan!',
+	
+   })
+}
+else {
+   $("#modalLaatBrief").modal("toggle");
+	   }
+   
+
+})
+</script>
+
 <script src="../../app/js/animation2.js"></script>
+<script src="../../app/php/student/script/genPDF.js"></script>
 
 
 
