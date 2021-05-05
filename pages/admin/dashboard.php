@@ -45,13 +45,19 @@ include_once("../../app/php/conn.php");
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Totaal verkeer</h5>
-							
-									<span class="h2 font-weight-bold mb-0">350,897</span>
+									<h5 class="card-title text-uppercase text-muted mb-0">Docenten</h5>
+									<span class="h2 font-weight-bold mb-0"> 
+										<?php
+										$sql = "SELECT * FROM docenten";
+										$query = $conn->query($sql);
+
+										echo "<h3>".$query->num_rows."</h3>";
+										?>
+							  		</span>
 								</div>
 								<div class="col-auto">
 									<div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-										<i class="ni ni-active-40"></i>
+										<i class="fa fa-users"></i>
 									</div>
 								</div>
 							</div>
@@ -64,12 +70,19 @@ include_once("../../app/php/conn.php");
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Gebruikers</h5>
-									<span class="h2 font-weight-bold mb-0">26</span>
+									<h5 class="card-title text-uppercase text-muted mb-0">Studenten</h5>
+									<span class="h2 font-weight-bold mb-0"> 
+										<?php
+										$sql = "SELECT * FROM studenten";
+										$query = $conn->query($sql);
+
+										echo "<h3>".$query->num_rows."</h3>";
+										?>
+							  		</span>
 								</div>
 								<div class="col-auto">
 									<div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-										<i class="ni ni-chart-pie-35"></i>
+										<i class="fa fa-graduation-cap"></i>
 									</div>
 								</div>
 							</div>
@@ -82,12 +95,19 @@ include_once("../../app/php/conn.php");
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Verzoeken</h5>
-									<span class="h2 font-weight-bold mb-0">924</span>
+									<h5 class="card-title text-uppercase text-muted mb-0">Klassen</h5>
+									<span class="h2 font-weight-bold mb-0"> 
+										<?php
+										$sql = "SELECT * FROM klassen";
+										$query = $conn->query($sql);
+
+										echo "<h3>".$query->num_rows."</h3>";
+										?>
+							  		</span>
 								</div>
 								<div class="col-auto">
 									<div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-										<i class="ni ni-money-coins"></i>
+										<i class="fa fa-home"></i>
 									</div>
 								</div>
 							</div>
@@ -100,12 +120,19 @@ include_once("../../app/php/conn.php");
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
-									<h5 class="card-title text-uppercase text-muted mb-0">Prestatie</h5>
-									<span class="h2 font-weight-bold mb-0">49,65%</span>
+									<h5 class="card-title text-uppercase text-muted mb-0">Richtingen</h5>
+									<span class="h2 font-weight-bold mb-0"> 
+										<?php
+										$sql = "SELECT * FROM richtingen";
+										$query = $conn->query($sql);
+
+										echo "<h3>".$query->num_rows."</h3>";
+										?>
+							  		</span>
 								</div>
 								<div class="col-auto">
 									<div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-										<i class="ni ni-chart-bar-32"></i>
+										<i class="fa fa-arrows-alt"></i>
 									</div>
 								</div>
 							</div>
@@ -143,54 +170,6 @@ include_once("../../app/php/conn.php");
 								</tbody>
 							</table>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card-deck flex-column flex-xl-row">
-				<div class="card">
-					<div class="card-header bg-transparent">
-						<h6 class="text-muted text-uppercase ls-1 mb-1">DATA</h6>
-						<h2 class="h3 mb-0">DATA</h2>
-					</div>
-					<div class="card-body">
-						<div class="chart">
-
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header bg-transparent">
-						<div class="row align-items-center">
-							<div class="col">
-								<h6 class="text-uppercase text-muted ls-1 mb-1">DATA</h6>
-								<h2 class="h3 mb-0">DATA</h2>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<div class="chart">
-
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<!-- Card header -->
-					<div class="card-header">
-						<div class="row align-items-center">
-							<div class="col-8">
-								<!-- Surtitle -->
-								<h6 class="surtitle">DATA</h6>
-								<!-- Title -->
-								<h5 class="h3 mb-0">DATA</h5>
-							</div>
-							<div class="col-4 text-right">
-								<a href="#!" class="btn btn-sm btn-neutral">Action</a>
-							</div>
-						</div>
-					</div>
-					<!-- Card body -->
-					<div class="card-body">
-
 					</div>
 				</div>
 			</div>
