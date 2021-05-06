@@ -321,9 +321,19 @@ if (saldo < PrijsLaatbrief ) {
 	
    })
 }
-else {
+else if(saldo >= PrijsLaatbrief) {
    $("#modalLaatBrief").modal("toggle");
 	   }
+
+	   else{
+		Swal.fire({
+	   icon: 'error',
+	   title: 'Iets ging mis',
+	   text: 'Probeer opnieuw!',
+	
+   })
+}
+	   
    
 
 })
