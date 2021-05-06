@@ -70,7 +70,7 @@ if (isset($_POST["insertLaatbrief"])) {
                 
                 $pdf = new GenerateLaatbrief;
                 $response = $pdf-> generate($data); 
-               echo '../../../../../IPM/IPM/pages/user/DownloadPDF.php?link='. $response;
+               echo '../../pages/user/DownloadPDF.php?link='. $response;
                exit;
 
       

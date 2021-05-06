@@ -27,7 +27,7 @@ $('#genDispensatie').on('submit', function(e) {
             } else {
                 window.location.href = data;
             }
-            
+
 
         }
 
