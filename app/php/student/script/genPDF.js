@@ -6,6 +6,7 @@
                     type: 'POST',
                     url: "../../../../../../IPM/IPM/app/php/student/generatePDF.php",
                     data: new FormData(this),
+                    // dataType: 'json',
                     contentType: false,
                     cache: false,
                     processData:false,

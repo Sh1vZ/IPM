@@ -26,10 +26,12 @@ if (isset($_POST['getDocument'])) {
                                                         <option value="Dispensatiebrief">Dispensatiebrief</option>
                                                         <option value="Ouderochtendbrief">Ouderochtendbrief</option>
                                                         <option value="Laatbrief">Laatbrief</option>
+														</select>
 														
 													</div>
 												</div>
 											</div>
+											
 
 											<div class="col-md-6">
 												<div class="form-group">
@@ -43,17 +45,7 @@ if (isset($_POST['getDocument'])) {
 												</div>
 											</div>
 											
-											<!-- <div class="col-md-12">
-												<div class="form-group">
-													<label for="">File:</label>
-													<div class="input-group input-group-merge">
-														<div class="input-group-prepend">
-															<span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
-														</div>
-														<input class="form-control" name="file" placeholder="File"  type="file" value=<?= $path; ?> required>
-													</div>
-												</div>
-											</div> -->
+											
 										</div>
 
 
