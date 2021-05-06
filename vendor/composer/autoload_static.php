@@ -125,6 +125,7 @@ class ComposerStaticInit7d4d6ac054ceb1730502372f42a46f22
         'C' => 
         array (
             'Complex\\' => 8,
+            'Classes\\' => 8,
         ),
         'B' => 
         array (
@@ -229,6 +230,10 @@ class ComposerStaticInit7d4d6ac054ceb1730502372f42a46f22
         'Complex\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
+        ),
+        'Classes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes',
         ),
         'BaconQrCode\\' => 
         array (
